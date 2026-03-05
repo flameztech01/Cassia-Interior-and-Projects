@@ -1,21 +1,20 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Home, Compass, Target, BookOpen, Heart, Briefcase, Users, Mail } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 type NavItem = {
   label: string;
   id: string;
-  icon?: React.ElementType; // Optional icon for mobile
 };
 
 const NAV_ITEMS: NavItem[] = [
-  { label: "Home", id: "home", icon: Home },
-  { label: "Brand Story", id: "brand-story", icon: Compass },
-  { label: "Vision & Mission", id: "vision-mission", icon: Target },
-  { label: "Brand Manifesto", id: "brand-manifesto", icon: BookOpen },
-  { label: "Core Values", id: "core-values", icon: Heart },
-  { label: "Our Projects", id: "our-projects", icon: Briefcase },
-  { label: "Team Members", id: "team-members", icon: Users },
-  { label: "Connect With Us", id: "connect", icon: Mail },
+  { label: "Home", id: "home" },
+  { label: "Brand Story", id: "brand-story" },
+  { label: "Vision & Mission", id: "vision-mission" },
+  { label: "Brand Manifesto", id: "brand-manifesto" },
+  { label: "Core Values", id: "core-values" },
+  { label: "Our Projects", id: "our-projects" },
+  { label: "Team Members", id: "team-members" },
+  { label: "Connect With Us", id: "connect" },
 ];
 
 const Navbar = () => {
@@ -25,10 +24,10 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 50);
 
       const sections = NAV_ITEMS.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + 120;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
@@ -52,7 +51,7 @@ const Navbar = () => {
     const element = document.getElementById(id);
     if (!element) return;
 
-    const navbarHeight = 80;
+    const navbarHeight = 100;
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
 
@@ -66,27 +65,32 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? "bg-[#2F7D76]/95 backdrop-blur-md shadow-lg" : "bg-[#2F7D76]"
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+    <nav 
+      className={`fixed w-full z-50 transition-all duration-700 ${
+        scrolled 
+          ? "bg-black/80 backdrop-blur-md py-3" 
+          : "bg-transparent py-6"
+      }`}
+    >
+      {/* Elegant top border line */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-center">
           {/* Logo */}
           <button
             onClick={() => scrollToSection("home")}
-            className="group flex items-center space-x-2 focus:outline-none"
+            className="group relative focus:outline-none"
             aria-label="Go to homepage"
           >
-            <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
-              <span className="text-white font-bold text-xl">C</span>
-            </div>
-            <span className="font-bold text-2xl tracking-tight text-white">
+            <span className="text-white font-light text-3xl tracking-[0.3em]">
               CASSIA
             </span>
+            <span className="absolute -bottom-2 left-0 w-0 h-px bg-white/40 group-hover:w-full transition-all duration-700" />
           </button>
 
-          {/* Desktop Navigation - No Icons */}
-          <div className="hidden md:flex items-center space-x-1">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
             {NAV_ITEMS.map((item) => {
               const isActive = activeSection === item.id;
               
@@ -94,14 +98,24 @@ const Navbar = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap ${
-                    isActive
-                      ? "text-white bg-white/20"
-                      : "text-white/80 hover:text-white hover:bg-white/10"
-                  }`}
-                  aria-current={isActive ? "page" : undefined}
+                  className="group relative py-2"
                 >
-                  {item.label}
+                  <span 
+                    className={`text-sm tracking-wide transition-all duration-300 ${
+                      isActive 
+                        ? "text-white" 
+                        : "text-white/60 hover:text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </span>
+                  
+                  {/* Active/ Hover Indicator */}
+                  <span 
+                    className={`absolute bottom-0 left-0 h-px bg-white transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`} 
+                  />
                 </button>
               );
             })}
@@ -109,11 +123,12 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden relative w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-300 flex items-center justify-center focus:outline-none"
+            className="md:hidden relative w-12 h-12 flex items-center justify-center group focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
           >
+            <div className="absolute inset-0 border border-white/20 group-hover:border-white/40 transition-all duration-300" />
             {isOpen ? (
               <X className="w-5 h-5 text-white" />
             ) : (
@@ -123,46 +138,51 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation - With Icons */}
+      {/* Mobile Navigation */}
       <div
-        className={`md:hidden absolute w-full bg-[#2F7D76] shadow-xl overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`md:hidden absolute w-full bg-black/95 backdrop-blur-md overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-4 py-3">
-          <div className="grid gap-1">
+        <div className="px-6 py-6">
+          <div className="space-y-1">
             {NAV_ITEMS.map((item) => {
-              const Icon = item.icon;
               const isActive = activeSection === item.id;
               
               return (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
-                    isActive
-                      ? "bg-white/20 text-white"
-                      : "text-white/80 hover:bg-white/10 hover:text-white"
-                  }`}
+                  className="group relative w-full text-left py-4"
                 >
-                  {Icon && <Icon className="w-5 h-5" />}
-                  <span className="text-sm font-medium">{item.label}</span>
+                  <span 
+                    className={`text-base tracking-wide transition-all duration-300 ${
+                      isActive ? "text-white" : "text-white/50 group-hover:text-white"
+                    }`}
+                  >
+                    {item.label}
+                  </span>
+                  
+                  {/* Mobile Active Indicator */}
+                  {isActive && (
+                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-white" />
+                  )}
                 </button>
               );
             })}
           </div>
+          
+          {/* Elegant divider */}
+          <div className="mt-6 pt-6 border-t border-white/10">
+            <p className="text-white/30 text-xs tracking-[0.2em]">
+              ✦ SINCE 2015 ✦
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Active Section Indicator */}
-      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-white/10">
-        <div 
-          className="h-full bg-white/40 transition-all duration-300"
-          style={{ 
-            width: `${((NAV_ITEMS.findIndex(item => item.id === activeSection) + 1) / NAV_ITEMS.length) * 100}%` 
-          }}
-        />
-      </div>
+      {/* Bottom border with gradient */}
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
     </nav>
   );
 };

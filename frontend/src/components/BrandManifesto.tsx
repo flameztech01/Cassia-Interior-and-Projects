@@ -8,111 +8,161 @@ const BrandManifesto = () => {
   ];
 
   return (
-    <section id="brand-manifesto" className="relative overflow-hidden bg-[#F7F4EF] py-24">
-      {/* Minimalist background */}
+    <section id="brand-manifesto" className="relative overflow-hidden py-28 md:py-36 bg-black">
+      {/* Sophisticated brand-colored background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-40 right-0 w-[600px] h-[600px] bg-[#2F7D76]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-40 left-0 w-[500px] h-[500px] bg-[#E6E08A]/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-20 w-[600px] h-[600px] bg-[#2F7D76]/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 left-20 w-[500px] h-[500px] bg-[#E6E08A]/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      {/* Subtle grid texture */}
-      <div className="absolute inset-0 opacity-30" style={{
-        backgroundImage: `linear-gradient(rgba(47,125,118,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(47,125,118,0.1) 1px, transparent 1px)`,
-        backgroundSize: '60px 60px'
+      {/* Elegant geometric pattern with brand colors */}
+      <div className="absolute inset-0 opacity-10" style={{
+        backgroundImage: `radial-gradient(circle at 2px 2px, ${'#2F7D76'} 1px, transparent 1px)`,
+        backgroundSize: '50px 50px'
       }} />
 
+      {/* Refined gradient overlays */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-black via-transparent to-black/50" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-transparent via-[#2F7D76]/5 to-transparent" />
+      </div>
+
+      {/* Decorative brand color lines */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#2F7D76]/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E6E08A]/40 to-transparent" />
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-24 items-center">
           
-          {/* LEFT: Content */}
+          {/* LEFT: Content with luxury typography */}
           <div className="relative">
-            {/* Section marker */}
-            <div className="mb-8">
-              <span className="text-sm font-medium tracking-[0.2em] text-[#2F7D76] uppercase">
+            {/* Elegant section marker with brand colors */}
+            <div className="mb-10 relative">
+              <span className="text-[#2F7D76] text-sm tracking-[0.3em] uppercase relative inline-block pl-12 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-px before:bg-[#2F7D76]/40">
                 Our Manifesto
               </span>
-              <div className="w-12 h-px bg-[#2F7D76]/30 mt-3" />
             </div>
 
-            {/* Heading */}
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#1A2A28] leading-tight">
+            {/* Heading with refined hierarchy */}
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-white leading-tight">
               Our work is a
-              <span className="block font-semibold text-[#2F7D76] mt-2">commitment</span>
+              <span className="block font-medium text-[#E6E08A] mt-3 relative inline-block">
+                commitment
+                <span className="absolute -bottom-3 left-0 w-24 h-px bg-[#E6E08A]/40" />
+              </span>
             </h2>
 
-            {/* Bullet points - refined */}
-            <div className="mt-10 space-y-6">
+            {/* Bullet points - luxury styling */}
+            <div className="mt-16 space-y-8">
               {bullets.map((text, idx) => (
-                <div key={idx} className="flex items-start gap-4 group">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full border-2 border-[#2F7D76]/30 flex items-center justify-center group-hover:border-[#2F7D76] transition-colors duration-300">
-                    <div className="w-2 h-2 rounded-full bg-[#2F7D76] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div key={idx} className="flex items-start gap-5 group">
+                  <div className="flex-shrink-0 relative">
+                    <div className="w-7 h-7 rounded-full border border-[#2F7D76]/30 flex items-center justify-center group-hover:border-[#2F7D76] transition-all duration-500">
+                      <div className="w-2 h-2 rounded-full bg-[#2F7D76] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                    {/* Decorative line connecting bullets */}
+                    {idx < bullets.length - 1 && (
+                      <div className="absolute top-7 left-3.5 w-px h-12 bg-gradient-to-b from-[#2F7D76]/30 to-transparent" />
+                    )}
                   </div>
-                  <p className="text-lg text-black/70 leading-relaxed flex-1">
+                  <p className="text-xl text-white/60 leading-relaxed flex-1 font-light group-hover:text-white/80 transition-colors duration-500">
                     {text}
                   </p>
                 </div>
               ))}
             </div>
 
-            {/* Quote - refined */}
-            <div className="mt-12 relative">
-              <div className="absolute -left-4 top-0 text-6xl text-[#2F7D76]/20 font-serif">"</div>
-              <p className="relative text-xl md:text-2xl text-[#2F7D76] font-light pl-6 pr-4">
+            {/* Elegant quote with brand colors */}
+            <div className="mt-16 relative">
+              {/* Decorative quote marks */}
+              <div className="absolute -left-4 -top-6 text-8xl text-[#2F7D76]/20 font-serif">"</div>
+              <div className="absolute -right-4 -bottom-10 text-8xl text-[#E6E08A]/20 font-serif">"</div>
+              
+              <p className="relative text-2xl md:text-3xl text-white font-light pl-8 pr-8 italic">
                 Where finishing becomes an experience…
               </p>
-              <div className="absolute -bottom-2 right-0 text-6xl text-[#2F7D76]/20 font-serif">"</div>
+              
+              {/* Brand color accent line */}
+              <div className="mt-6 ml-8 w-16 h-px bg-gradient-to-r from-[#2F7D76] to-[#E6E08A]" />
             </div>
 
-            {/* Tags - minimalist */}
-            <div className="mt-12 flex flex-wrap gap-3">
+            {/* Refined tags with brand colors */}
+            <div className="mt-16 flex flex-wrap gap-4">
               {["Precision", "Craftsmanship", "Integrity", "Elegance"].map((tag) => (
                 <span
                   key={tag}
-                  className="px-5 py-2 text-sm text-[#2F7D76] bg-white rounded-full border border-[#2F7D76]/10 hover:border-[#2F7D76]/30 hover:bg-white/80 transition-all duration-300"
+                  className="px-6 py-3 text-sm text-white/60 border border-white/10 rounded-full hover:border-[#2F7D76] hover:text-white hover:bg-[#2F7D76]/10 transition-all duration-500"
                 >
                   {tag}
                 </span>
               ))}
             </div>
+
+            {/* Decorative brand color dot */}
+            <div className="absolute -left-10 bottom-0 w-20 h-20 border border-[#2F7D76]/20 rounded-full" />
           </div>
 
-          {/* RIGHT: Modern image composition */}
-          <div className="relative h-[600px] flex items-center justify-center">
-            {/* Main architectural image - large format */}
-            <div className="absolute top-0 right-0 w-[400px] h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+          {/* RIGHT: Elegant image composition */}
+          <div className="relative h-[700px] flex items-center justify-center">
+            {/* Main architectural image - large format with luxury framing */}
+            <div className="absolute top-0 right-0 w-[450px] h-[550px] rounded-[2rem] overflow-hidden shadow-2xl group">
+              {/* Image frame with brand color border */}
+              <div className="absolute inset-0 border border-[#2F7D76]/20 rounded-[2rem] z-10 pointer-events-none" />
               <img
                 src="/manifesto-1.jpg"
                 alt="Interior finishing"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-100 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+              {/* Elegant gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
+              
+              {/* Brand color accent */}
+              <div className="absolute bottom-6 left-6 w-12 h-1 bg-gradient-to-r from-[#2F7D76] to-[#E6E08A]" />
             </div>
 
-            {/* Secondary image - overlapping composition */}
-            <div className="absolute bottom-0 left-0 w-[320px] h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+            {/* Secondary image - overlapping composition with luxury treatment */}
+            <div className="absolute bottom-0 left-0 w-[380px] h-[450px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-black group">
+              <div className="absolute inset-0 border border-[#E6E08A]/20 rounded-[2rem] z-10 pointer-events-none" />
               <img
                 src="/manifesto-2.jpg"
                 alt="Luxury interior"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-100 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-transparent" />
+              {/* Elegant gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+              
+              {/* Brand color accent */}
+              <div className="absolute top-6 right-6 w-12 h-1 bg-gradient-to-r from-[#E6E08A] to-[#2F7D76]" />
             </div>
 
-            {/* Minimalist accent - geometric shape */}
-            <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-[#2F7D76]/10 rounded-2xl -z-10" />
-            <div className="absolute top-20 left-10 w-32 h-32 border-2 border-[#2F7D76]/20 rounded-full -z-10" />
+            {/* Minimalist geometric accents with brand colors */}
+            <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-[#2F7D76]/10 rounded-[3rem] -z-10 rotate-12" />
+            <div className="absolute top-32 left-0 w-40 h-40 border-2 border-[#E6E08A]/20 rounded-full -z-10" />
+            
+            {/* Additional decorative elements */}
+            <div className="absolute top-1/2 -right-8 w-16 h-16 border border-[#2F7D76]/30 rounded-full" />
+            <div className="absolute bottom-1/4 left-10 w-8 h-8 bg-[#E6E08A]/20 rounded-full blur-md" />
 
-            {/* Floating badge - subtle */}
-            <div className="absolute top-1/2 -left-4 transform -translate-y-1/2">
-              <div className="bg-white/95 backdrop-blur-sm px-4 py-3 rounded-lg shadow-xl border-l-4 border-[#2F7D76]">
-                <p className="text-sm font-medium text-[#1A2A28]">
-                  <span className="text-[#2F7D76]">●</span> Since 2015
+            {/* Floating badge - refined with brand colors */}
+            <div className="absolute top-1/3 -left-6 transform -translate-y-1/2">
+              <div className="bg-black/50 backdrop-blur-md px-6 py-4 rounded-xl border border-[#2F7D76]/30 shadow-2xl">
+                <p className="text-white/90 text-sm tracking-wide flex items-center gap-2">
+                  <span className="text-[#E6E08A]">✦</span> 
+                  <span className="text-white/60">Since</span> 
+                  <span className="text-[#2F7D76] font-medium">2015</span>
                 </p>
               </div>
             </div>
+
+            {/* Brand color corner accents */}
+            <div className="absolute top-10 right-10 w-20 h-20 border-t border-r border-[#2F7D76]/30 opacity-50" />
+            <div className="absolute bottom-10 left-10 w-20 h-20 border-b border-l border-[#E6E08A]/30 opacity-50" />
           </div>
         </div>
       </div>
+
+      {/* Bottom decorative element with brand colors */}
+      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent pointer-events-none" />
     </section>
   );
 };
