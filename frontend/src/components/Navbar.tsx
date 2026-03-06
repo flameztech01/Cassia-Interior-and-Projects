@@ -101,9 +101,11 @@ const Navbar = () => {
             }`}
             aria-label="Go to homepage"
           >
-            <span className="text-white font-light text-3xl tracking-[0.3em]">
-              CASSIA
-            </span>
+            <img 
+              src="/logo.png" 
+              alt="Cassia Interiors" 
+              className="h-10 md:h-12 w-auto object-contain"
+            />
             <span className="absolute -bottom-2 left-0 w-0 h-px bg-[#f6ee99]/40 group-hover:w-full transition-all duration-700" />
           </button>
 
