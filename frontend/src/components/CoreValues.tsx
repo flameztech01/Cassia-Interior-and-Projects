@@ -1,3 +1,5 @@
+import { useState, useEffect, useRef } from "react";
+
 type ValueItem = {
   no: string;
   title: string;
@@ -38,50 +40,138 @@ const VALUES: ValueItem[] = [
 ];
 
 const CoreValues = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section id="core-values" className="relative overflow-hidden py-28 md:py-36 bg-black">
-      {/* Sophisticated brand-colored background elements */}
+    <section 
+      ref={sectionRef}
+      id="core-values" 
+      className="relative overflow-hidden py-28 md:py-36 bg-black"
+    >
+      {/* Sophisticated brand-colored background elements - fade in and scale */}
       <div className="absolute inset-0">
-        <div className="absolute top-40 left-20 w-[600px] h-[600px] bg-[#2F7D76]/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-40 right-20 w-[500px] h-[500px] bg-[#E6E08A]/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div 
+          className={`absolute top-40 left-20 w-[600px] h-[600px] bg-[#2F7D76]/10 rounded-full blur-3xl animate-pulse transition-all duration-1500 transform ${
+            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+          }`} 
+        />
+        <div 
+          className={`absolute bottom-40 right-20 w-[500px] h-[500px] bg-[#E6E08A]/10 rounded-full blur-3xl animate-pulse delay-1000 transition-all duration-1500 delay-200 transform ${
+            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+          }`} 
+        />
       </div>
 
-      {/* Elegant geometric pattern with brand colors */}
-      <div className="absolute inset-0 opacity-10" style={{
-        backgroundImage: `radial-gradient(circle at 2px 2px, ${'#2F7D76'} 1px, transparent 1px)`,
-        backgroundSize: '60px 60px'
-      }} />
+      {/* Elegant geometric pattern with brand colors - fades in */}
+      <div 
+        className={`absolute inset-0 transition-opacity duration-1500 delay-400 ${
+          isVisible ? 'opacity-10' : 'opacity-0'
+        }`} 
+        style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, ${'#2F7D76'} 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }}
+      />
 
-      {/* Refined gradient overlays */}
-      <div className="absolute inset-0">
+      {/* Refined gradient overlays - fade in */}
+      <div className={`absolute inset-0 transition-opacity duration-1500 delay-600 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}>
         <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-black via-black to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-black via-black to-transparent" />
       </div>
 
-      {/* Decorative brand color lines */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#2F7D76]/40 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E6E08A]/40 to-transparent" />
+      {/* Decorative brand color lines - slide in */}
+      <div 
+        className={`absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#2F7D76]/40 to-transparent transition-all duration-1500 delay-800 ${
+          isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+        }`} 
+        style={{ transformOrigin: 'left' }}
+      />
+      <div 
+        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E6E08A]/40 to-transparent transition-all duration-1500 delay-1000 ${
+          isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+        }`} 
+        style={{ transformOrigin: 'right' }}
+      />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Refined heading section with brand colors */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20">
           <div className="relative">
-            <span className="text-[#2F7D76] text-sm tracking-[0.3em] uppercase relative inline-block pl-12 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-px before:bg-[#2F7D76]/40">
-              Our Foundation
-            </span>
+            {/* Section label - slides up */}
+            <div 
+              className={`transition-all duration-1000 delay-300 transform ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              }`}
+            >
+              <span className="text-[#2F7D76] text-sm tracking-[0.3em] uppercase relative inline-block pl-12 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-px before:bg-[#2F7D76]/40">
+                Our Foundation
+              </span>
+            </div>
+            
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-white mt-6">
-              Core <span className="text-[#E6E08A] font-medium">Values</span>
+              <span 
+                className={`inline-block transition-all duration-1000 delay-400 transform ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                }`}
+              >
+                Core{' '}
+              </span>
+              <span 
+                className={`text-[#E6E08A] font-medium inline-block transition-all duration-1000 delay-500 transform ${
+                  isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-90'
+                }`}
+              >
+                Values
+              </span>
             </h2>
             
-            {/* Elegant divider with brand colors */}
-            <div className="flex items-center gap-3 mt-6">
+            {/* Elegant divider with brand colors - scales in */}
+            <div 
+              className={`flex items-center gap-3 mt-6 transition-all duration-1000 delay-600 ${
+                isVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+              }`} 
+              style={{ transformOrigin: 'left' }}
+            >
               <div className="w-12 h-px bg-[#2F7D76]/40" />
               <div className="w-2 h-2 rounded-full bg-[#E6E08A]/60" />
               <div className="w-12 h-px bg-[#2F7D76]/40" />
             </div>
           </div>
 
-          <div className="hidden md:flex items-center gap-3 text-white/40 text-sm">
+          {/* Right side text - fades in */}
+          <div 
+            className={`hidden md:flex items-center gap-3 text-white/40 text-sm transition-all duration-1000 delay-700 ${
+              isVisible ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
             <span className="w-1.5 h-1.5 rounded-full bg-[#2F7D76]" />
             <span className="tracking-wide">The standards behind every finish</span>
           </div>
@@ -92,10 +182,16 @@ const CoreValues = () => {
           {/* LEFT: Values grid - luxury redesign */}
           <div className="lg:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {VALUES.map((v) => (
+              {VALUES.map((v, index) => (
                 <div
                   key={v.no}
-                  className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#2F7D76]/30 transition-all duration-700 hover:-translate-y-2"
+                  className={`group relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#2F7D76]/30 transition-all duration-700 hover:-translate-y-2 transform ${
+                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+                  }`}
+                  style={{ 
+                    transitionDelay: `${800 + index * 100}ms`,
+                    transitionProperty: 'all'
+                  }}
                 >
                   {/* Header with refined brand color styling */}
                   <div className="flex items-center gap-4 mb-5">
@@ -122,7 +218,7 @@ const CoreValues = () => {
                     {v.desc}
                   </p>
 
-                  {/* Elegant corner accents */}
+                  {/* Elegant corner accents - fade in on hover */}
                   <div className="absolute top-4 right-4 w-8 h-8 border-t border-r border-[#E6E08A]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   <div className="absolute bottom-4 left-4 w-8 h-8 border-b border-l border-[#2F7D76]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
@@ -137,12 +233,24 @@ const CoreValues = () => {
           <div className="lg:col-span-5 relative">
             {/* Main image with luxury framing */}
             <div className="relative">
-              {/* Decorative frames */}
-              <div className="absolute -inset-4 border border-[#2F7D76]/20 rounded-[2rem] opacity-30" />
-              <div className="absolute -inset-2 border border-[#E6E08A]/20 rounded-[2rem] opacity-20" />
+              {/* Decorative frames - fade in and scale */}
+              <div 
+                className={`absolute -inset-4 border border-[#2F7D76]/20 rounded-[2rem] transition-all duration-1000 delay-1000 transform ${
+                  isVisible ? 'opacity-30 scale-100' : 'opacity-0 scale-95'
+                }`} 
+              />
+              <div 
+                className={`absolute -inset-2 border border-[#E6E08A]/20 rounded-[2rem] transition-all duration-1000 delay-1100 transform ${
+                  isVisible ? 'opacity-20 scale-100' : 'opacity-0 scale-95'
+                }`} 
+              />
               
-              {/* Image container */}
-              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl group">
+              {/* Image container - slides up */}
+              <div 
+                className={`relative rounded-[2rem] overflow-hidden shadow-2xl group transition-all duration-1000 delay-900 transform ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+                }`}
+              >
                 <img
                   src="/core-values.jpg"
                   alt="Luxury interior craftsmanship"
@@ -152,13 +260,27 @@ const CoreValues = () => {
                 {/* Sophisticated gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
                 
-                {/* Brand color accent lines */}
-                <div className="absolute top-6 left-6 w-12 h-1 bg-gradient-to-r from-[#2F7D76] to-[#E6E08A]" />
-                <div className="absolute bottom-6 right-6 w-12 h-1 bg-gradient-to-r from-[#E6E08A] to-[#2F7D76]" />
+                {/* Brand color accent lines - slide in */}
+                <div 
+                  className={`absolute top-6 left-6 w-12 h-1 bg-gradient-to-r from-[#2F7D76] to-[#E6E08A] transition-all duration-1000 delay-1100 ${
+                    isVisible ? 'scale-x-100' : 'scale-x-0'
+                  }`} 
+                  style={{ transformOrigin: 'left' }}
+                />
+                <div 
+                  className={`absolute bottom-6 right-6 w-12 h-1 bg-gradient-to-r from-[#E6E08A] to-[#2F7D76] transition-all duration-1000 delay-1200 ${
+                    isVisible ? 'scale-x-100' : 'scale-x-0'
+                  }`} 
+                  style={{ transformOrigin: 'right' }}
+                />
               </div>
 
-              {/* Refined floating badge with brand colors */}
-              <div className="absolute -bottom-8 -left-8 bg-black/80 backdrop-blur-md rounded-xl border border-[#2F7D76]/30 shadow-2xl p-6 min-w-[240px]">
+              {/* Refined floating badge with brand colors - slides in from left */}
+              <div 
+                className={`absolute -bottom-8 -left-8 bg-black/80 backdrop-blur-md rounded-xl border border-[#2F7D76]/30 shadow-2xl p-6 min-w-[240px] transition-all duration-1000 delay-1300 transform ${
+                  isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
+                }`}
+              >
                 <p className="text-white/40 text-xs tracking-[0.2em] mb-2">BUILT ON</p>
                 <p className="text-xl font-light text-white mb-3">
                   Trust · Detail · Quality
@@ -173,19 +295,39 @@ const CoreValues = () => {
                 <div className="absolute -top-1 -right-1 w-4 h-4 border-t border-r border-[#E6E08A]/40" />
               </div>
 
-              {/* Decorative brand color elements */}
-              <div className="absolute top-20 -right-6 w-32 h-32 border-2 border-[#2F7D76]/20 rounded-full" />
-              <div className="absolute bottom-32 -left-8 w-24 h-24 bg-[#2F7D76]/10 rounded-full blur-xl" />
+              {/* Decorative brand color elements - scale and fade */}
+              <div 
+                className={`absolute top-20 -right-6 w-32 h-32 border-2 border-[#2F7D76]/20 rounded-full transition-all duration-1500 delay-1200 transform ${
+                  isVisible ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
+                }`} 
+              />
+              <div 
+                className={`absolute bottom-32 -left-8 w-24 h-24 bg-[#2F7D76]/10 rounded-full blur-xl transition-all duration-1500 delay-1300 ${
+                  isVisible ? 'opacity-100' : 'opacity-0'
+                }`} 
+              />
               
-              {/* Additional brand color accents */}
-              <div className="absolute top-1/2 -right-3 w-6 h-6 border-2 border-[#E6E08A]/30 rounded-full" />
-              <div className="absolute bottom-1/4 left-0 w-4 h-4 bg-[#E6E08A]/20 rounded-full blur-sm" />
+              {/* Additional brand color accents - fade in */}
+              <div 
+                className={`absolute top-1/2 -right-3 w-6 h-6 border-2 border-[#E6E08A]/30 rounded-full transition-all duration-1000 delay-1400 ${
+                  isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+                }`} 
+              />
+              <div 
+                className={`absolute bottom-1/4 left-0 w-4 h-4 bg-[#E6E08A]/20 rounded-full blur-sm transition-all duration-1000 delay-1500 ${
+                  isVisible ? 'opacity-100' : 'opacity-0'
+                }`} 
+              />
             </div>
           </div>
         </div>
 
-        {/* Bottom accent with brand colors */}
-        <div className="mt-20 flex justify-center">
+        {/* Bottom accent with brand colors - scales in */}
+        <div 
+          className={`mt-20 flex justify-center transition-all duration-1500 delay-1600 ${
+            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+          }`}
+        >
           <div className="flex items-center gap-4">
             <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#2F7D76]/40 to-transparent" />
             <div className="w-2 h-2 rotate-45 border border-[#E6E08A]/40" />
@@ -194,8 +336,12 @@ const CoreValues = () => {
         </div>
       </div>
 
-      {/* Bottom gradient line */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E6E08A]/40 to-transparent" />
+      {/* Bottom gradient line - slides in from left */}
+      <div 
+        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E6E08A]/40 to-transparent transition-all duration-1500 delay-1800 ${
+          isVisible ? 'opacity-100' : 'opacity-0'
+        }`} 
+      />
     </section>
   );
 };

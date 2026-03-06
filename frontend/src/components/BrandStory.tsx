@@ -1,27 +1,73 @@
+import { useState, useEffect, useRef } from "react";
+
 const BrandStory = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="brand-story"
       className="relative overflow-hidden py-28 md:py-36"
     >
-      {/* Sophisticated dark background */}
-      <div className="absolute inset-0 bg-black" />
+      {/* Sophisticated dark background - fades in */}
+      <div 
+        className={`absolute inset-0 bg-black transition-opacity duration-1000 ${
+          isVisible ? 'opacity-100' : 'opacity-0'
+        }`} 
+      />
       
-      {/* Subtle texture overlay */}
-      <div className="absolute inset-0 opacity-20" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54 30 L30 54 L6 30 L30 6 L54 30' stroke='rgba(255,255,255,0.05)' fill='none' stroke-width='0.5'/%3E%3C/svg%3E")`,
-        backgroundSize: '60px 60px'
-      }} />
+      {/* Subtle texture overlay - fades in */}
+      <div 
+        className={`absolute inset-0 opacity-20 transition-opacity duration-1000 delay-200 ${
+          isVisible ? 'opacity-20' : 'opacity-0'
+        }`} 
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54 30 L30 54 L6 30 L30 6 L54 30' stroke='rgba(255,255,255,0.05)' fill='none' stroke-width='0.5'/%3E%3C/svg%3E")`,
+          backgroundSize: '60px 60px'
+        }} 
+      />
 
-      {/* Elegant gradient overlays */}
-      <div className="absolute inset-0">
+      {/* Elegant gradient overlays - fade in */}
+      <div className={`absolute inset-0 transition-opacity duration-1000 delay-400 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}>
         <div className="absolute top-0 right-0 w-2/3 h-2/3 bg-gradient-to-br from-white/5 to-transparent" />
         <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-white/5 to-transparent" />
       </div>
 
-      {/* Refined animated elements */}
-      <div className="absolute top-20 left-10 w-64 h-64 border border-white/5 rounded-full animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 border border-white/5 rounded-full animate-pulse delay-1000" />
+      {/* Refined animated elements - fade in */}
+      <div className={`absolute top-20 left-10 w-64 h-64 border border-white/5 rounded-full animate-pulse transition-opacity duration-1000 delay-600 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`} />
+      <div className={`absolute bottom-20 right-10 w-96 h-96 border border-white/5 rounded-full animate-pulse delay-1000 transition-opacity duration-1000 delay-800 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`} />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-24 items-center">
@@ -30,12 +76,24 @@ const BrandStory = () => {
           <div className="relative">
             {/* Main image with refined framing */}
             <div className="relative">
-              {/* Decorative frame */}
-              <div className="absolute -inset-4 border border-white/10 rounded-[2rem] opacity-50" />
-              <div className="absolute -inset-2 border border-white/20 rounded-[2rem] opacity-30" />
+              {/* Decorative frames - slide in from left */}
+              <div 
+                className={`absolute -inset-4 border border-white/10 rounded-[2rem] transition-all duration-1000 delay-300 transform ${
+                  isVisible ? 'opacity-50 scale-100' : 'opacity-0 scale-95'
+                }`} 
+              />
+              <div 
+                className={`absolute -inset-2 border border-white/20 rounded-[2rem] transition-all duration-1000 delay-400 transform ${
+                  isVisible ? 'opacity-30 scale-100' : 'opacity-0 scale-95'
+                }`} 
+              />
               
-              {/* Main image */}
-              <div className="relative overflow-hidden rounded-[2rem]">
+              {/* Main image - slides up with fade */}
+              <div 
+                className={`relative overflow-hidden rounded-[2rem] transition-all duration-1000 delay-500 transform ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+                }`}
+              >
                 <img
                   src="/brand-story.jpg"
                   alt="Cassia Interiors - Precision finishing"
@@ -45,8 +103,12 @@ const BrandStory = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
               </div>
 
-              {/* Secondary image - floating composition */}
-              <div className="absolute -bottom-16 -left-16 w-56 h-56 md:w-72 md:h-72 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20">
+              {/* Secondary image - floating composition - slides in from left */}
+              <div 
+                className={`absolute -bottom-16 -left-16 w-56 h-56 md:w-72 md:h-72 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 transition-all duration-1000 delay-700 transform ${
+                  isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
+                }`}
+              >
                 <img
                   src="/brand-story2.jpg"
                   alt="Interior detail - Precision craftsmanship"
@@ -54,8 +116,12 @@ const BrandStory = () => {
                 />
               </div>
 
-              {/* Refined badge */}
-              <div className="absolute top-8 right-8 bg-black/50 backdrop-blur-md px-6 py-3 rounded-full border border-white/20">
+              {/* Refined badge - fades in and scales */}
+              <div 
+                className={`absolute top-8 right-8 bg-black/50 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 transition-all duration-1000 delay-900 transform ${
+                  isVisible ? 'scale-100 opacity-100' : 'scale-90 opacity-0'
+                }`}
+              >
                 <p className="text-white/80 text-sm tracking-[0.3em]">✦ EST. 2015 ✦</p>
               </div>
             </div>
@@ -63,38 +129,63 @@ const BrandStory = () => {
 
           {/* RIGHT: Elegant typography */}
           <div className="relative">
-            {/* Section label with refined styling */}
-            <div className="mb-8 inline-block">
+            {/* Section label with refined styling - slides up */}
+            <div 
+              className={`mb-8 inline-block transition-all duration-1000 delay-300 transform ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              }`}
+            >
               <span className="text-white/40 text-sm tracking-[0.3em] uppercase relative pl-8 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 before:h-px before:bg-white/40">
                 Our Foundation
               </span>
             </div>
 
-            {/* Main heading with elegant hierarchy */}
+            {/* Main heading with elegant hierarchy - slides up with staggered children */}
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-light text-white leading-tight">
-              Precision is
+              <span 
+                className={`inline-block transition-all duration-1000 delay-400 transform ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                }`}
+              >
+                Precision is
+              </span>
               <span className="block font-medium text-white mt-3 relative inline-block">
-                Our Signature
-                <span className="absolute -bottom-3 left-0 w-24 h-px bg-white/40" />
+                <span 
+                  className={`relative inline-block transition-all duration-1000 delay-500 transform ${
+                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  }`}
+                >
+                  Our Signature
+                </span>
+                <span 
+                  className={`absolute -bottom-3 left-0 w-24 h-px bg-white/40 transition-all duration-1000 delay-700 ${
+                    isVisible ? 'scale-x-100' : 'scale-x-0'
+                  }`} 
+                  style={{ transformOrigin: 'left' }}
+                />
               </span>
             </h2>
 
-            {/* Content with refined spacing and opacity */}
+            {/* Content with refined spacing and opacity - paragraphs slide up staggered */}
             <div className="mt-12 space-y-8">
-              <p className="text-lg text-white/60 leading-relaxed font-light">
-                Cassia Interiors & Projects began with a simple belief: luxury isn't defined by price — it's defined by precision. After years of working on high-end projects, we noticed a consistent gap: beautiful designs were often compromised by poor finishing.
-              </p>
-
-              <p className="text-lg text-white/60 leading-relaxed font-light">
-                Lines were uneven. Surfaces were rushed. The final experience lacked the elegance the design intended. Cassia was born to solve this — to perfect details and deliver finishing that elevates the entire space.
-              </p>
-
-              <p className="text-lg text-white/60 leading-relaxed font-light">
-                What started as a passion has grown into a trusted finishing and interior project brand across residential, commercial, corporate, and hospitality spaces. Our goal is to bring design to life the way it deserves to be experienced.
-              </p>
+              {[
+                "Cassia Interiors & Projects began with a simple belief: luxury isn't defined by price — it's defined by precision. After years of working on high-end projects, we noticed a consistent gap: beautiful designs were often compromised by poor finishing.",
+                "Lines were uneven. Surfaces were rushed. The final experience lacked the elegance the design intended. Cassia was born to solve this — to perfect details and deliver finishing that elevates the entire space.",
+                "What started as a passion has grown into a trusted finishing and interior project brand across residential, commercial, corporate, and hospitality spaces. Our goal is to bring design to life the way it deserves to be experienced."
+              ].map((text, index) => (
+                <p 
+                  key={index}
+                  className={`text-lg text-white/60 leading-relaxed font-light transition-all duration-1000 transform ${
+                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  }`}
+                  style={{ transitionDelay: `${600 + index * 150}ms` }}
+                >
+                  {text}
+                </p>
+              ))}
             </div>
 
-            {/* Sophisticated tags */}
+            {/* Sophisticated tags - slide up staggered */}
             <div className="mt-12 flex flex-wrap gap-3">
               {[
                 "Precision Finishing",
@@ -102,18 +193,25 @@ const BrandStory = () => {
                 "Flawless Surfaces",
                 "Balanced Palettes",
                 "Enduring Materials",
-              ].map((tag) => (
+              ].map((tag, index) => (
                 <span
                   key={tag}
-                  className="px-5 py-2.5 text-sm text-white/60 border border-white/10 rounded-full hover:border-white/30 hover:text-white/90 transition-all duration-500"
+                  className={`px-5 py-2.5 text-sm text-white/60 border border-white/10 rounded-full hover:border-white/30 hover:text-white/90 transition-all duration-500 transform ${
+                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  }`}
+                  style={{ transitionDelay: `${1100 + index * 100}ms` }}
                 >
                   {tag}
                 </span>
               ))}
             </div>
 
-            {/* Elegant button */}
-            <div className="mt-16">
+            {/* Elegant button - slides up */}
+            <div 
+              className={`mt-16 transition-all duration-1000 delay-1600 transform ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              }`}
+            >
               <button
                 onClick={() => {
                   const el = document.getElementById("vision-mission");
@@ -134,14 +232,22 @@ const BrandStory = () => {
               </button>
             </div>
 
-            {/* Decorative element */}
-            <div className="absolute -right-20 bottom-0 w-40 h-40 border border-white/5 rounded-full" />
+            {/* Decorative element - fades in and scales */}
+            <div 
+              className={`absolute -right-20 bottom-0 w-40 h-40 border border-white/5 rounded-full transition-all duration-1000 delay-1800 transform ${
+                isVisible ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
+              }`} 
+            />
           </div>
         </div>
       </div>
 
-      {/* Bottom gradient line */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      {/* Bottom gradient line - slides in from left */}
+      <div 
+        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-1500 delay-2000 ${
+          isVisible ? 'opacity-100' : 'opacity-0'
+        }`} 
+      />
     </section>
   );
 };

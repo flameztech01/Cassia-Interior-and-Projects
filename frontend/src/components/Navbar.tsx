@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 
 type NavItem = {
@@ -21,8 +21,13 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(false);
+  const navbarRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // Trigger entrance animation after component mounts
+    setTimeout(() => setShowNavbar(true), 100);
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
@@ -66,21 +71,34 @@ const Navbar = () => {
 
   return (
     <nav 
-      className={`fixed w-full z-50 transition-all duration-700 ${
+      ref={navbarRef}
+      className={`fixed w-full z-50 transition-all duration-1000 transform ${
+        showNavbar 
+          ? "translate-y-0 opacity-100" 
+          : "-translate-y-full opacity-0"
+      } ${
         scrolled 
           ? "bg-black/80 backdrop-blur-md py-3" 
           : "bg-transparent py-6"
       }`}
     >
-      {/* Elegant top border line */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      {/* Elegant top border line - slides in from left */}
+      <div 
+        className={`absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-1500 delay-300 ${
+          showNavbar ? "opacity-100" : "opacity-0"
+        }`} 
+      />
       
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo */}
+          {/* Logo - slides in from left */}
           <button
             onClick={() => scrollToSection("home")}
-            className="group relative focus:outline-none"
+            className={`group relative focus:outline-none transition-all duration-1000 delay-200 transform ${
+              showNavbar 
+                ? "translate-x-0 opacity-100" 
+                : "-translate-x-10 opacity-0"
+            }`}
             aria-label="Go to homepage"
           >
             <span className="text-white font-light text-3xl tracking-[0.3em]">
@@ -89,16 +107,21 @@ const Navbar = () => {
             <span className="absolute -bottom-2 left-0 w-0 h-px bg-white/40 group-hover:w-full transition-all duration-700" />
           </button>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - each item slides in from right with staggered delay */}
           <div className="hidden md:flex items-center space-x-8">
-            {NAV_ITEMS.map((item) => {
+            {NAV_ITEMS.map((item, index) => {
               const isActive = activeSection === item.id;
               
               return (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="group relative py-2"
+                  className={`group relative py-2 transition-all duration-1000 transform ${
+                    showNavbar 
+                      ? "translate-x-0 opacity-100" 
+                      : "translate-x-10 opacity-0"
+                  }`}
+                  style={{ transitionDelay: `${300 + index * 100}ms` }}
                 >
                   <span 
                     className={`text-sm tracking-wide transition-all duration-300 ${
@@ -121,9 +144,13 @@ const Navbar = () => {
             })}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - slides in from right */}
           <button
-            className="md:hidden relative w-12 h-12 flex items-center justify-center group focus:outline-none"
+            className={`md:hidden relative w-12 h-12 flex items-center justify-center group focus:outline-none transition-all duration-1000 delay-1000 transform ${
+              showNavbar 
+                ? "translate-x-0 opacity-100 scale-100" 
+                : "translate-x-10 opacity-0 scale-90"
+            }`}
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
@@ -138,7 +165,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - slides down from top */}
       <div
         className={`md:hidden absolute w-full bg-black/95 backdrop-blur-md overflow-hidden transition-all duration-500 ease-in-out ${
           isOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
@@ -146,14 +173,19 @@ const Navbar = () => {
       >
         <div className="px-6 py-6">
           <div className="space-y-1">
-            {NAV_ITEMS.map((item) => {
+            {NAV_ITEMS.map((item, index) => {
               const isActive = activeSection === item.id;
               
               return (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="group relative w-full text-left py-4"
+                  className={`group relative w-full text-left py-4 transition-all duration-700 transform ${
+                    isOpen 
+                      ? "translate-x-0 opacity-100" 
+                      : "-translate-x-10 opacity-0"
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <span 
                     className={`text-base tracking-wide transition-all duration-300 ${
@@ -172,8 +204,12 @@ const Navbar = () => {
             })}
           </div>
           
-          {/* Elegant divider */}
-          <div className="mt-6 pt-6 border-t border-white/10">
+          {/* Elegant divider - fades in */}
+          <div 
+            className={`mt-6 pt-6 border-t border-white/10 transition-all duration-1000 delay-700 ${
+              isOpen ? "opacity-100" : "opacity-0"
+            }`}
+          >
             <p className="text-white/30 text-xs tracking-[0.2em]">
               ✦ SINCE 2015 ✦
             </p>
@@ -181,8 +217,12 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Bottom border with gradient */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      {/* Bottom border with gradient - slides in from right */}
+      <div 
+        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-1500 delay-500 ${
+          showNavbar ? "opacity-100" : "opacity-0"
+        }`} 
+      />
     </nav>
   );
 };
