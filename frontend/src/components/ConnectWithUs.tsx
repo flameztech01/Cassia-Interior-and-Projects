@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
-import {  Instagram, Facebook, Mail, MessageCircle } from "lucide-react";
+import { Instagram, Facebook, Mail, MessageCircle } from "lucide-react";
 
 const ConnectWithUs = () => {
   const [tab, setTab] = useState<"company" | "contact">("company");
   const [isVisible, setIsVisible] = useState(false);
+  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -30,6 +32,40 @@ const ConnectWithUs = () => {
       }
     };
   }, []);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setFormStatus("idle");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setFormStatus("success");
+        form.reset();
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => setFormStatus("idle"), 5000);
+      } else {
+        setFormStatus("error");
+        setTimeout(() => setFormStatus("idle"), 5000);
+      }
+    } catch (error) {
+      setFormStatus("error");
+      setTimeout(() => setFormStatus("idle"), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section
@@ -114,7 +150,7 @@ const ConnectWithUs = () => {
                 </div>
 
                 <h2 className="mt-4 sm:mt-6 font-light text-white">
-                  <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight whitespace-nowrap md:whitespace-normal">
+                  <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
                     <span
                       className={`inline transition-all duration-1000 delay-500 transform ${
                         isVisible
@@ -122,16 +158,16 @@ const ConnectWithUs = () => {
                           : "translate-y-8 opacity-0"
                       }`}
                     >
-                      And create marvel with your{" "}
+                      And create marvel with your
                     </span>
                     <span
-                      className={`inline text-[#E6E08A] font-medium transition-all duration-1000 delay-600 transform ${
+                      className={`block sm:inline text-[#E6E08A] font-medium transition-all duration-1000 delay-600 transform ${
                         isVisible
                           ? "translate-y-0 opacity-100"
                           : "translate-y-8 opacity-0"
                       }`}
                     >
-                      Space
+                      {" "}Space
                     </span>
                   </span>
                 </h2>
@@ -264,9 +300,28 @@ const ConnectWithUs = () => {
 
               {/* Form - luxury redesign */}
               <div className="mt-8 sm:mt-10 md:mt-12">
+                {/* Success Message */}
+                {formStatus === "success" && (
+                  <div className="mb-6 p-4 bg-[#2F7D76]/20 border border-[#2F7D76] rounded-lg backdrop-blur-sm animate-in fade-in slide-in-from-top duration-500">
+                    <p className="text-[#E6E08A] text-center font-light">
+                      ✓ Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+                    </p>
+                  </div>
+                )}
+
+                {/* Error Message */}
+                {formStatus === "error" && (
+                  <div className="mb-6 p-4 bg-red-500/20 border border-red-500 rounded-lg backdrop-blur-sm animate-in fade-in slide-in-from-top duration-500">
+                    <p className="text-white text-center font-light">
+                      ✗ Oops! Something went wrong. Please try again or contact us directly via WhatsApp.
+                    </p>
+                  </div>
+                )}
+
                 <form
                   action="https://formspree.io/f/mlgwqyqn"
                   method="POST"
+                  onSubmit={handleSubmit}
                   className="space-y-4 sm:space-y-5 md:space-y-6"
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
@@ -330,16 +385,17 @@ const ConnectWithUs = () => {
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 items-stretch sm:items-center pt-2 sm:pt-3 md:pt-4">
                     <button
                       type="submit"
+                      disabled={isSubmitting}
                       className={`group relative px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 overflow-hidden transition-all duration-1000 delay-1500 transform ${
                         isVisible
                           ? "translate-y-0 opacity-100"
                           : "translate-y-8 opacity-0"
-                      }`}
+                      } ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}`}
                     >
                       <span className="absolute inset-0 bg-[#2F7D76]" />
                       <span className="absolute inset-0 bg-gradient-to-r from-[#2F7D76] to-[#1e5a55] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <span className="relative text-white font-light tracking-wide text-sm sm:text-base">
-                        Send Message
+                        {isSubmitting ? "Sending..." : "Send Message"}
                       </span>
                     </button>
 

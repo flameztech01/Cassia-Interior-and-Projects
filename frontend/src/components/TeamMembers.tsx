@@ -203,7 +203,7 @@ const TeamMembers = () => {
                 }`} />
 
                 <div className="flex flex-col items-center text-center">
-                  {/* Elegant image container with brand colors - ZOOMED IN for Comfort Samson */}
+                  {/* Elegant image container with brand colors - ADJUSTED to show more of head */}
                   <div className="relative mb-8 group">
                     {/* Decorative rings - scale in */}
                     <div 
@@ -217,12 +217,12 @@ const TeamMembers = () => {
                       }`} 
                     />
                     
-                    {/* Main image - ZOOMED IN - NO GRAYSCALE */}
+                    {/* Main image - ADJUSTED object position to show more of head */}
                     <div className="relative w-44 h-44 rounded-full overflow-hidden ring-4 ring-[#2F7D76]/20 group-hover:ring-[#2F7D76]/40 transition-all duration-700">
                       <img
                         src={featured.image}
                         alt={featured.name}
-                        className="w-full h-full object-cover scale-125 group-hover:scale-150 transition-all duration-700"
+                        className="w-full h-full object-cover object-[center_20%] scale-125 group-hover:scale-150 transition-all duration-700"
                       />
                     </div>
                     
