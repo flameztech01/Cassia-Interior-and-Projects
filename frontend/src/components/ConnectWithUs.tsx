@@ -1,64 +1,156 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const ConnectWithUs = () => {
   const [tab, setTab] = useState<"company" | "contact">("company");
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <section id="connect" className="relative overflow-hidden py-28 md:py-36 bg-black">
+    <section 
+      ref={sectionRef}
+      id="connect" 
+      className="relative overflow-hidden py-28 md:py-36 bg-black"
+    >
       {/* Sophisticated brand-colored background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-40 left-20 w-[600px] h-[600px] bg-[#2F7D76]/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-40 right-20 w-[500px] h-[500px] bg-[#E6E08A]/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div 
+          className={`absolute top-40 left-20 w-[600px] h-[600px] bg-[#2F7D76]/10 rounded-full blur-3xl animate-pulse transition-all duration-1500 transform ${
+            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+          }`} 
+        />
+        <div 
+          className={`absolute bottom-40 right-20 w-[500px] h-[500px] bg-[#E6E08A]/10 rounded-full blur-3xl animate-pulse delay-1000 transition-all duration-1500 delay-200 transform ${
+            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+          }`} 
+        />
       </div>
 
       {/* Elegant geometric pattern with brand colors */}
-      <div className="absolute inset-0 opacity-10" style={{
-        backgroundImage: `radial-gradient(circle at 2px 2px, ${'#2F7D76'} 1px, transparent 1px)`,
-        backgroundSize: '60px 60px'
-      }} />
+      <div 
+        className={`absolute inset-0 transition-opacity duration-1500 delay-400 ${
+          isVisible ? 'opacity-10' : 'opacity-0'
+        }`} 
+        style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, ${'#2F7D76'} 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }}
+      />
 
       {/* Refined gradient overlays */}
-      <div className="absolute inset-0">
+      <div className={`absolute inset-0 transition-opacity duration-1500 delay-600 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}>
         <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-black via-black to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-black via-black to-transparent" />
       </div>
 
       {/* Decorative brand color lines */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#2F7D76]/40 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E6E08A]/40 to-transparent" />
+      <div 
+        className={`absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#2F7D76]/40 to-transparent transition-all duration-1500 delay-800 ${
+          isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+        }`} 
+        style={{ transformOrigin: 'left' }}
+      />
+      <div 
+        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E6E08A]/40 to-transparent transition-all duration-1500 delay-1000 ${
+          isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+        }`} 
+        style={{ transformOrigin: 'right' }}
+      />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-stretch">
           
           {/* LEFT: Contact Form Area - luxury redesign */}
           <div className="lg:col-span-7">
-            <div className="bg-white/5 backdrop-blur-sm rounded-[2rem] p-10 md:p-12 border border-white/10">
-              
+            <div 
+              className={`bg-white/5 backdrop-blur-sm rounded-[2rem] p-10 md:p-12 border border-white/10 transition-all duration-1000 delay-300 transform ${
+                isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
+              }`}
+            >
               {/* Header with refined typography */}
               <div className="relative">
-                <span className="text-[#2F7D76] text-sm tracking-[0.3em] uppercase relative inline-block pl-12 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-px before:bg-[#2F7D76]/40">
-                  Let's Connect
-                </span>
+                {/* Section label - slides up */}
+                <div 
+                  className={`transition-all duration-1000 delay-400 transform ${
+                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  }`}
+                >
+                  <span className="text-[#2F7D76] text-sm tracking-[0.3em] uppercase relative inline-block pl-12 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-px before:bg-[#2F7D76]/40">
+                    Let's Connect
+                  </span>
+                </div>
+                
                 <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
-                  Create marvel with your
-                  <span className="block text-[#E6E08A] font-medium mt-3">Space</span>
+                  <span 
+                    className={`inline-block transition-all duration-1000 delay-500 transform ${
+                      isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                    }`}
+                  >
+                    Create marvel with your
+                  </span>
+                  <span 
+                    className={`block text-[#E6E08A] font-medium mt-3 transition-all duration-1000 delay-600 transform ${
+                      isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-90'
+                    }`}
+                  >
+                    Space
+                  </span>
                 </h2>
                 
                 {/* Elegant divider */}
-                <div className="flex items-center gap-3 mt-6">
+                <div 
+                  className={`flex items-center gap-3 mt-6 transition-all duration-1000 delay-700 ${
+                    isVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+                  }`} 
+                  style={{ transformOrigin: 'left' }}
+                >
                   <div className="w-12 h-px bg-[#2F7D76]/40" />
                   <div className="w-2 h-2 rounded-full bg-[#E6E08A]/60" />
                   <div className="w-12 h-px bg-[#2F7D76]/40" />
                 </div>
                 
-                <p className="mt-6 text-white/40 text-lg font-light leading-relaxed max-w-xl">
+                <p 
+                  className={`mt-6 text-white/40 text-lg font-light leading-relaxed max-w-xl transition-all duration-1000 delay-800 transform ${
+                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  }`}
+                >
                   Tell us what you want to achieve. We'll respond with the best approach,
                   timeline, and finishing plan for your project.
                 </p>
               </div>
 
-              {/* Tabs - refined with brand colors */}
-              <div className="mt-10 inline-flex p-1 bg-white/5 rounded-full border border-white/10">
+              {/* Tabs - refined with brand colors - slides up */}
+              <div 
+                className={`mt-10 inline-flex p-1 bg-white/5 rounded-full border border-white/10 transition-all duration-1000 delay-900 transform ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                }`}
+              >
                 <button
                   onClick={() => setTab("company")}
                   className={`px-8 py-3 text-sm font-light rounded-full transition-all duration-500 ${
@@ -90,28 +182,40 @@ const ConnectWithUs = () => {
                       value="+234-908-206-9020"
                       icon={<PhoneIcon className="w-5 h-5" />}
                       href="https://wa.me/2349082069020"
+                      isVisible={isVisible}
+                      index={0}
                     />
                     <InfoCard
                       label="Instagram"
                       value="@cassiainteriors"
                       icon={<InstagramIcon className="w-5 h-5" />}
                       href="https://instagram.com/cassiainteriorsandprojects"
+                      isVisible={isVisible}
+                      index={1}
                     />
                     <InfoCard
                       label="Facebook"
                       value="Cassia Interiors"
                       icon={<FacebookIcon className="w-5 h-5" />}
                       href="https://facebook.com/cassiainteriorsandprojects"
+                      isVisible={isVisible}
+                      index={2}
                     />
                     <InfoCard
                       label="Email"
                       value="cassiainteriors.projects@gmail.com"
                       icon={<MailIcon className="w-5 h-5" />}
                       href="mailto:cassiainteriors.projects@gmail.com"
+                      isVisible={isVisible}
+                      index={3}
                     />
                   </div>
                 ) : (
-                  <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                  <div 
+                    className={`bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 transition-all duration-1000 delay-1100 transform ${
+                      isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                    }`}
+                  >
                     <div className="flex items-start gap-5">
                       <div className="relative">
                         <div className="absolute inset-0 bg-[#E6E08A] rounded-full blur-md opacity-50" />
@@ -146,6 +250,8 @@ const ConnectWithUs = () => {
                       name="name"
                       placeholder="Your name"
                       required
+                      isVisible={isVisible}
+                      index={0}
                     />
                     <Input
                       label="Email Address"
@@ -153,20 +259,30 @@ const ConnectWithUs = () => {
                       type="email"
                       placeholder="you@email.com"
                       required
+                      isVisible={isVisible}
+                      index={1}
                     />
                     <Input
                       label="Phone Number"
                       name="phone"
                       placeholder="+234 XXX XXX XXXX"
+                      isVisible={isVisible}
+                      index={2}
                     />
                     <Input
                       label="Project Type"
                       name="projectType"
                       placeholder="Residential / Commercial / Hospitality"
+                      isVisible={isVisible}
+                      index={3}
                     />
                   </div>
 
-                  <div>
+                  <div 
+                    className={`transition-all duration-1000 delay-1400 transform ${
+                      isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                    }`}
+                  >
                     <label className="text-sm font-light text-white/60">
                       Message <span className="text-[#E6E08A]">*</span>
                     </label>
@@ -183,7 +299,9 @@ const ConnectWithUs = () => {
                   <div className="flex flex-col sm:flex-row gap-5 items-start sm:items-center pt-4">
                     <button
                       type="submit"
-                      className="group relative px-10 py-4 overflow-hidden transition-all duration-500"
+                      className={`group relative px-10 py-4 overflow-hidden transition-all duration-1000 delay-1500 transform ${
+                        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                      }`}
                     >
                       <span className="absolute inset-0 bg-[#2F7D76]" />
                       <span className="absolute inset-0 bg-gradient-to-r from-[#2F7D76] to-[#1e5a55] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -194,34 +312,56 @@ const ConnectWithUs = () => {
                       href="https://wa.me/2349082069020"
                       target="_blank"
                       rel="noreferrer"
-                      className="group px-10 py-4 border border-white/20 text-white/80 rounded-xl font-light hover:border-[#2F7D76] hover:text-white hover:bg-white/5 transition-all duration-500"
+                      className={`group px-10 py-4 border border-white/20 text-white/80 rounded-xl font-light hover:border-[#2F7D76] hover:text-white hover:bg-white/5 transition-all duration-1000 delay-1600 transform ${
+                        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                      }`}
                     >
                       Chat on WhatsApp
                       <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
                     </a>
                   </div>
                   
-                  <p className="text-xs text-white/20 font-light mt-6">
+                  <p 
+                    className={`text-xs text-white/20 font-light mt-6 transition-all duration-1000 delay-1700 ${
+                      isVisible ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
                     By sending, you agree to be contacted about your request.
                   </p>
                 </form>
               </div>
 
-              {/* Decorative corner accents */}
-              <div className="absolute top-6 right-6 w-12 h-12 border-t border-r border-[#E6E08A]/30 opacity-50" />
-              <div className="absolute bottom-6 left-6 w-12 h-12 border-b border-l border-[#2F7D76]/30 opacity-50" />
+              {/* Decorative corner accents - fade in */}
+              <div className={`absolute top-6 right-6 w-12 h-12 border-t border-r border-[#E6E08A]/30 transition-opacity duration-1000 delay-1800 ${
+                isVisible ? 'opacity-50' : 'opacity-0'
+              }`} />
+              <div className={`absolute bottom-6 left-6 w-12 h-12 border-b border-l border-[#2F7D76]/30 transition-opacity duration-1000 delay-1900 ${
+                isVisible ? 'opacity-50' : 'opacity-0'
+              }`} />
             </div>
           </div>
 
           {/* RIGHT: Luxury visual composition */}
           <div className="lg:col-span-5 relative min-h-[700px] flex items-center">
             <div className="relative w-full h-full">
-              {/* Decorative frames */}
-              <div className="absolute -inset-4 border border-[#2F7D76]/20 rounded-[3rem] opacity-30" />
-              <div className="absolute -inset-2 border border-[#E6E08A]/20 rounded-[3rem] opacity-20" />
+              {/* Decorative frames - fade in and scale */}
+              <div 
+                className={`absolute -inset-4 border border-[#2F7D76]/20 rounded-[3rem] transition-all duration-1000 delay-400 transform ${
+                  isVisible ? 'opacity-30 scale-100' : 'opacity-0 scale-95'
+                }`} 
+              />
+              <div 
+                className={`absolute -inset-2 border border-[#E6E08A]/20 rounded-[3rem] transition-all duration-1000 delay-500 transform ${
+                  isVisible ? 'opacity-20 scale-100' : 'opacity-0 scale-95'
+                }`} 
+              />
               
-              {/* Main image - elegant presentation */}
-              <div className="absolute top-0 right-0 w-[90%] h-[550px] rounded-[2rem] overflow-hidden shadow-2xl group">
+              {/* Main image - elegant presentation - slides in from right */}
+              <div 
+                className={`absolute top-0 right-0 w-[90%] h-[550px] rounded-[2rem] overflow-hidden shadow-2xl group transition-all duration-1000 delay-600 transform ${
+                  isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
+                }`}
+              >
                 <div className="absolute inset-0 border border-[#2F7D76]/20 rounded-[2rem] z-10 pointer-events-none" />
                 <img
                   src="/woman.jpg"
@@ -230,12 +370,21 @@ const ConnectWithUs = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
                 
-                {/* Brand color accent line */}
-                <div className="absolute top-6 left-6 w-12 h-1 bg-gradient-to-r from-[#2F7D76] to-[#E6E08A]" />
+                {/* Brand color accent line - slides in from left */}
+                <div 
+                  className={`absolute top-6 left-6 w-12 h-1 bg-gradient-to-r from-[#2F7D76] to-[#E6E08A] transition-all duration-1000 delay-700 ${
+                    isVisible ? 'scale-x-100' : 'scale-x-0'
+                  }`} 
+                  style={{ transformOrigin: 'left' }}
+                />
               </div>
 
-              {/* Secondary image - overlapping composition */}
-              <div className="absolute bottom-0 left-0 w-[70%] h-[400px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-black group">
+              {/* Secondary image - overlapping composition - slides in from left */}
+              <div 
+                className={`absolute bottom-0 left-0 w-[70%] h-[400px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-black group transition-all duration-1000 delay-800 transform ${
+                  isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
+                }`}
+              >
                 <div className="absolute inset-0 border border-[#E6E08A]/20 rounded-[2rem] z-10 pointer-events-none" />
                 <img
                   src="/woman.jpg"
@@ -244,12 +393,21 @@ const ConnectWithUs = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
                 
-                {/* Brand color accent line */}
-                <div className="absolute bottom-6 right-6 w-12 h-1 bg-gradient-to-r from-[#E6E08A] to-[#2F7D76]" />
+                {/* Brand color accent line - slides in from right */}
+                <div 
+                  className={`absolute bottom-6 right-6 w-12 h-1 bg-gradient-to-r from-[#E6E08A] to-[#2F7D76] transition-all duration-1000 delay-900 ${
+                    isVisible ? 'scale-x-100' : 'scale-x-0'
+                  }`} 
+                  style={{ transformOrigin: 'right' }}
+                />
               </div>
 
-              {/* Floating info card - luxury redesign */}
-              <div className="absolute top-16 left-4 bg-black/50 backdrop-blur-md rounded-xl border border-[#2F7D76]/30 shadow-2xl p-6 max-w-[240px]">
+              {/* Floating info card - luxury redesign - slides up */}
+              <div 
+                className={`absolute top-16 left-4 bg-black/50 backdrop-blur-md rounded-xl border border-[#2F7D76]/30 shadow-2xl p-6 max-w-[240px] transition-all duration-1000 delay-1000 transform ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                }`}
+              >
                 <p className="text-white/40 text-xs tracking-[0.2em] mb-2">AVAILABLE FOR</p>
                 <p className="text-white text-lg font-light">
                   Finishing · Styling · Execution
@@ -264,20 +422,40 @@ const ConnectWithUs = () => {
                 <div className="absolute -top-1 -right-1 w-4 h-4 border-t border-r border-[#E6E08A]/40" />
               </div>
 
-              {/* Decorative brand color elements */}
-              <div className="absolute top-40 -right-6 w-32 h-32 border-2 border-[#2F7D76]/20 rounded-full" />
-              <div className="absolute bottom-40 -left-6 w-40 h-40 bg-[#2F7D76]/10 rounded-full blur-2xl" />
+              {/* Decorative brand color elements - scale and fade */}
+              <div 
+                className={`absolute top-40 -right-6 w-32 h-32 border-2 border-[#2F7D76]/20 rounded-full transition-all duration-1000 delay-1100 transform ${
+                  isVisible ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
+                }`} 
+              />
+              <div 
+                className={`absolute bottom-40 -left-6 w-40 h-40 bg-[#2F7D76]/10 rounded-full blur-2xl transition-all duration-1000 delay-1200 ${
+                  isVisible ? 'opacity-100' : 'opacity-0'
+                }`} 
+              />
               
-              {/* Additional brand color accents */}
-              <div className="absolute top-1/2 right-0 w-4 h-4 border-2 border-[#E6E08A]/30 rounded-full" />
-              <div className="absolute bottom-1/4 left-10 w-6 h-6 bg-[#E6E08A]/20 rounded-full blur-sm" />
+              {/* Additional brand color accents - fade in */}
+              <div 
+                className={`absolute top-1/2 right-0 w-4 h-4 border-2 border-[#E6E08A]/30 rounded-full transition-all duration-1000 delay-1300 ${
+                  isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+                }`} 
+              />
+              <div 
+                className={`absolute bottom-1/4 left-10 w-6 h-6 bg-[#E6E08A]/20 rounded-full blur-sm transition-all duration-1000 delay-1400 ${
+                  isVisible ? 'opacity-100' : 'opacity-0'
+                }`} 
+              />
             </div>
           </div>
         </div>
       </div>
 
       {/* Bottom gradient line */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E6E08A]/40 to-transparent" />
+      <div 
+        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E6E08A]/40 to-transparent transition-all duration-1500 delay-2000 ${
+          isVisible ? 'opacity-100' : 'opacity-0'
+        }`} 
+      />
     </section>
   );
 };
@@ -291,14 +469,23 @@ const InfoCard = ({
   value,
   icon,
   href,
+  isVisible,
+  index,
 }: {
   label: string;
   value: string;
   icon: React.ReactNode;
   href?: string;
+  isVisible: boolean;
+  index: number;
 }) => {
   const Box = (
-    <div className="group relative bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#2F7D76]/30 transition-all duration-500 hover:-translate-y-1">
+    <div 
+      className={`group relative bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#2F7D76]/30 transition-all duration-500 hover:-translate-y-1 transform ${
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+      }`}
+      style={{ transitionDelay: `${1000 + index * 100}ms` }}
+    >
       {/* Decorative corner accent */}
       <div className="absolute top-2 right-2 w-4 h-4 border-t border-r border-[#E6E08A]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
@@ -339,15 +526,24 @@ const Input = ({
   placeholder,
   required,
   type = "text",
+  isVisible,
+  index,
 }: {
   label: string;
   name: string;
   placeholder?: string;
   required?: boolean;
   type?: string;
+  isVisible: boolean;
+  index: number;
 }) => {
   return (
-    <div>
+    <div 
+      className={`transition-all duration-1000 transform ${
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+      }`}
+      style={{ transitionDelay: `${1200 + index * 100}ms` }}
+    >
       <label className="text-sm font-light text-white/60">
         {label} {required && <span className="text-[#E6E08A]">*</span>}
       </label>

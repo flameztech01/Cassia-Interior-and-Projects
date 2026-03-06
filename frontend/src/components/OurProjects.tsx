@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 
 type Album = {
   id: string;
@@ -9,6 +9,9 @@ type Album = {
 };
 
 const OurProjects = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
   // ✅ Mock data (edit later)
   const albums: Album[] = useMemo(
     () => [
@@ -47,6 +50,31 @@ const OurProjects = () => {
   const [activeAlbum, setActiveAlbum] = useState<Album | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const openAlbum = (album: Album) => {
     setActiveAlbum(album);
     setActiveIndex(0);
@@ -68,54 +96,118 @@ const OurProjects = () => {
   };
 
   return (
-    <section id="our-projects" className="relative overflow-hidden py-28 md:py-36 bg-black">
+    <section 
+      ref={sectionRef}
+      id="our-projects" 
+      className="relative overflow-hidden py-28 md:py-36 bg-black"
+    >
       {/* Sophisticated brand-colored background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-40 right-40 w-[600px] h-[600px] bg-[#2F7D76]/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-40 left-40 w-[500px] h-[500px] bg-[#E6E08A]/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div 
+          className={`absolute top-40 right-40 w-[600px] h-[600px] bg-[#2F7D76]/10 rounded-full blur-3xl animate-pulse transition-all duration-1500 transform ${
+            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+          }`} 
+        />
+        <div 
+          className={`absolute bottom-40 left-40 w-[500px] h-[500px] bg-[#E6E08A]/10 rounded-full blur-3xl animate-pulse delay-1000 transition-all duration-1500 delay-200 transform ${
+            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+          }`} 
+        />
       </div>
 
       {/* Elegant geometric pattern with brand colors */}
-      <div className="absolute inset-0 opacity-10" style={{
-        backgroundImage: `radial-gradient(circle at 2px 2px, ${'#2F7D76'} 1px, transparent 1px)`,
-        backgroundSize: '60px 60px'
-      }} />
+      <div 
+        className={`absolute inset-0 transition-opacity duration-1500 delay-400 ${
+          isVisible ? 'opacity-10' : 'opacity-0'
+        }`} 
+        style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, ${'#2F7D76'} 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }}
+      />
 
       {/* Refined gradient overlays */}
-      <div className="absolute inset-0">
+      <div className={`absolute inset-0 transition-opacity duration-1500 delay-600 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}>
         <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-black via-black to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-black via-black to-transparent" />
       </div>
 
       {/* Decorative brand color lines */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#2F7D76]/40 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E6E08A]/40 to-transparent" />
+      <div 
+        className={`absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#2F7D76]/40 to-transparent transition-all duration-1500 delay-800 ${
+          isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+        }`} 
+        style={{ transformOrigin: 'left' }}
+      />
+      <div 
+        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E6E08A]/40 to-transparent transition-all duration-1500 delay-1000 ${
+          isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+        }`} 
+        style={{ transformOrigin: 'right' }}
+      />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Refined header with brand colors */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
           <div className="relative">
-            <span className="text-[#2F7D76] text-sm tracking-[0.3em] uppercase relative inline-block pl-12 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-px before:bg-[#2F7D76]/40">
-              Portfolio
-            </span>
+            {/* Section label - slides up */}
+            <div 
+              className={`transition-all duration-1000 delay-300 transform ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              }`}
+            >
+              <span className="text-[#2F7D76] text-sm tracking-[0.3em] uppercase relative inline-block pl-12 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-px before:bg-[#2F7D76]/40">
+                Portfolio
+              </span>
+            </div>
+            
             <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-white mt-6">
-              Our <span className="text-[#E6E08A] font-medium">Projects</span>
+              <span 
+                className={`inline-block transition-all duration-1000 delay-400 transform ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                }`}
+              >
+                Our{' '}
+              </span>
+              <span 
+                className={`text-[#E6E08A] font-medium inline-block transition-all duration-1000 delay-500 transform ${
+                  isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-90'
+                }`}
+              >
+                Projects
+              </span>
             </h2>
             
             {/* Elegant divider with brand colors */}
-            <div className="flex items-center gap-3 mt-6">
+            <div 
+              className={`flex items-center gap-3 mt-6 transition-all duration-1000 delay-600 ${
+                isVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+              }`} 
+              style={{ transformOrigin: 'left' }}
+            >
               <div className="w-12 h-px bg-[#2F7D76]/40" />
               <div className="w-2 h-2 rounded-full bg-[#E6E08A]/60" />
               <div className="w-12 h-px bg-[#2F7D76]/40" />
             </div>
             
-            <p className="mt-8 text-white/40 max-w-2xl text-lg font-light leading-relaxed">
+            <p 
+              className={`mt-8 text-white/40 max-w-2xl text-lg font-light leading-relaxed transition-all duration-1000 delay-700 transform ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              }`}
+            >
               Explore our work in curated albums. Each project embodies precision, 
               craftsmanship, and enduring elegance.
             </p>
           </div>
 
-          <div className="hidden md:flex items-center gap-4 bg-white/5 backdrop-blur-sm rounded-full px-6 py-3 border border-white/10">
+          {/* Right side counter */}
+          <div 
+            className={`hidden md:flex items-center gap-4 bg-white/5 backdrop-blur-sm rounded-full px-6 py-3 border border-white/10 transition-all duration-1000 delay-800 transform ${
+              isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
+            }`}
+          >
             <span className="text-white/40 text-sm tracking-wide">Total albums</span>
             <span className="text-3xl font-light text-[#E6E08A]">{albums.length}</span>
             <span className="text-white/20 text-sm">✦</span>
@@ -124,11 +216,14 @@ const OurProjects = () => {
 
         {/* Album Grid - luxury redesign */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {albums.map((album) => (
+          {albums.map((album, index) => (
             <button
               key={album.id}
               onClick={() => openAlbum(album)}
-              className="group text-left focus:outline-none"
+              className={`group text-left focus:outline-none transition-all duration-1000 transform ${
+                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+              }`}
+              style={{ transitionDelay: `${900 + index * 150}ms` }}
             >
               <div className="relative bg-white/5 backdrop-blur-sm rounded-[2rem] overflow-hidden border border-white/10 hover:border-[#2F7D76]/30 transition-all duration-700 hover:-translate-y-2">
                 {/* Cover image */}
@@ -195,16 +290,29 @@ const OurProjects = () => {
             </button>
           ))}
         </div>
+
+        {/* Bottom accent with brand colors */}
+        <div 
+          className={`mt-20 flex justify-center transition-all duration-1500 delay-1500 ${
+            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
+          }`}
+        >
+          <div className="flex items-center gap-4">
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#2F7D76]/40 to-transparent" />
+            <div className="w-2 h-2 rotate-45 border border-[#E6E08A]/40" />
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#2F7D76]/40 to-transparent" />
+          </div>
+        </div>
       </div>
 
-      {/* Luxury Modal */}
+      {/* Luxury Modal (no animation needed as it's a modal) */}
       {activeAlbum && (
         <div
-          className="fixed inset-0 z-[999] flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
+          className="fixed inset-0 z-[999] flex items-center justify-center bg-black/90 backdrop-blur-md p-4 animate-in fade-in duration-500"
           onClick={closeAlbum}
         >
           <div
-            className="w-full max-w-7xl bg-black/80 backdrop-blur-xl rounded-[2rem] border border-white/10 shadow-2xl overflow-hidden"
+            className="w-full max-w-7xl bg-black/80 backdrop-blur-xl rounded-[2rem] border border-white/10 shadow-2xl overflow-hidden animate-in zoom-in-95 duration-500"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Elegant header */}
@@ -317,7 +425,7 @@ const OurProjects = () => {
                 </div>
 
                 {/* Refined tip section with brand colors */}
-                <div className="mt-10 p-6 bg-white/5 rounded-2xl border border-white/5">
+                <div className="mt-10 p-6 bg-white/5 rounded-2xl border border-white/5 animate-in slide-in-from-bottom duration-500 delay-300">
                   <div className="flex items-start gap-4">
                     <div className="w-8 h-8 rounded-full bg-[#2F7D76]/20 flex items-center justify-center flex-shrink-0">
                       <span className="text-[#E6E08A] text-sm font-light">✦</span>
@@ -341,7 +449,11 @@ const OurProjects = () => {
       )}
 
       {/* Bottom accent with brand colors */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E6E08A]/40 to-transparent" />
+      <div 
+        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E6E08A]/40 to-transparent transition-all duration-1500 delay-1800 ${
+          isVisible ? 'opacity-100' : 'opacity-0'
+        }`} 
+      />
     </section>
   );
 };
