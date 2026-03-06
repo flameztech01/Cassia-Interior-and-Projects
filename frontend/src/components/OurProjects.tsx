@@ -464,13 +464,7 @@ const OurProjects: React.FC = () => {
                     <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-sm font-light">✦</span>
                     </div>
-                    <div>
-                      <p className="text-xs text-white/80 tracking-wide mb-2">Quick tip</p>
-                      <p className="text-xs text-white/40 leading-relaxed font-light">
-                        Replace <span className="text-white font-mono">/picture1.jpg</span> with your real images. 
-                        Each album holds 3–4 pictures.
-                      </p>
-                    </div>
+                 
                   </div>
                 </div>
 
