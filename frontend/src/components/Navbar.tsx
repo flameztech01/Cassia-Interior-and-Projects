@@ -102,7 +102,7 @@ const Navbar = () => {
             aria-label="Go to homepage"
           >
             <img 
-              src="/logo.png" 
+              src="/logos.png" 
               alt="Cassia Interiors" 
               className="h-10 md:h-12 w-auto object-contain"
             />

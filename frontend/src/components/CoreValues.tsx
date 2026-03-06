@@ -153,60 +153,60 @@ const CoreValues = () => {
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Refined heading section with brand colors */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20">
-          <div className="relative">
-            {/* Section label - slides up */}
-            <div 
-              className={`transition-all duration-1000 delay-300 transform ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-              }`}
-            >
-              <span className="text-[#2F7D76] text-sm tracking-[0.3em] uppercase relative inline-block pl-12 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-px before:bg-[#2F7D76]/30">
-                Our Foundation
-              </span>
-            </div>
-            
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-[#2C2A24] mt-6">
-              <span 
-                className={`inline-block transition-all duration-1000 delay-400 transform ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                }`}
-              >
-                Core{' '}
-              </span>
-              <span 
-                className={`text-[#2F7D76] font-medium inline-block transition-all duration-1000 delay-500 transform ${
-                  isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-90'
-                }`}
-              >
-                Values
-              </span>
-            </h2>
-            
-            {/* Elegant divider with brand colors - scales in */}
-            <div 
-              className={`flex items-center gap-3 mt-6 transition-all duration-1000 delay-600 ${
-                isVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
-              }`} 
-              style={{ transformOrigin: 'left' }}
-            >
-              <div className="w-12 h-px bg-[#2F7D76]/30" />
-              <div className="w-2 h-2 rounded-full bg-[#E6E08A]/60" />
-              <div className="w-12 h-px bg-[#2F7D76]/30" />
-            </div>
-          </div>
+      {/* Refined heading section with brand colors */}
+<div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20">
+  <div className="relative">
+    {/* Section label - slides up */}
+    <div 
+      className={`transition-all duration-1000 delay-300 transform ${
+        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+      }`}
+    >
+      <span className="text-[#2F7D76] text-sm tracking-[0.3em] uppercase relative inline-block pl-12 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-px before:bg-[#2F7D76]/30">
+        Our Foundation
+      </span>
+    </div>
+    
+    <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-[#2C2A24] mt-6">
+      <span 
+        className={`inline-block transition-all duration-1000 delay-400 transform ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}
+      >
+        Core&nbsp;
+      </span>
+      <span 
+        className={`text-[#2F7D76] font-medium inline-block transition-all duration-1000 delay-500 transform ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        }`}
+      >
+        Values
+      </span>
+    </h2>
+    
+    {/* Elegant divider with brand colors - scales in */}
+    <div 
+      className={`flex items-center gap-3 mt-6 transition-all duration-1000 delay-600 ${
+        isVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+      }`} 
+      style={{ transformOrigin: 'left' }}
+    >
+      <div className="w-12 h-px bg-[#2F7D76]/30" />
+      <div className="w-2 h-2 rounded-full bg-[#E6E08A]/60" />
+      <div className="w-12 h-px bg-[#2F7D76]/30" />
+    </div>
+  </div>
 
-          {/* Right side text - fades in */}
-          <div 
-            className={`hidden md:flex items-center gap-3 text-[#2C2A24]/50 text-sm transition-all duration-1000 delay-700 ${
-              isVisible ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2F7D76]" />
-            <span className="tracking-wide">The standards behind every finish</span>
-          </div>
-        </div>
+  {/* Right side text - fades in */}
+  <div 
+    className={`hidden md:flex items-center gap-3 text-[#2C2A24]/50 text-sm transition-all duration-1000 delay-700 ${
+      isVisible ? 'opacity-100' : 'opacity-0'
+    }`}
+  >
+    <span className="w-1.5 h-1.5 rounded-full bg-[#2F7D76]" />
+    <span className="tracking-wide">The standards behind every project</span>
+  </div>
+</div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 items-start">
           
@@ -283,7 +283,7 @@ const CoreValues = () => {
                 }`}
               >
                 <img
-                  src="/core-values.jpg"
+                  src="/coreValues.jpg"
                   alt="Luxury interior craftsmanship"
                   className="w-full h-[550px] md:h-[650px] object-cover transition-all duration-700 scale-100 group-hover:scale-105"
                 />

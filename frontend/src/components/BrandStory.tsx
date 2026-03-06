@@ -29,6 +29,14 @@ const BrandStory = () => {
     };
   }, []);
 
+  const scrollToConnect = () => {
+    const el = document.getElementById("connect");
+    if (!el) return;
+    const yOffset = -100;
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -135,7 +143,7 @@ const BrandStory = () => {
                 }`}
               >
                 <img
-                  src="/brand-story.jpg"
+                  src="/brandStory.jpg"
                   alt="Cassia Interiors - Precision finishing"
                   className="h-[550px] md:h-[650px] w-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
@@ -150,7 +158,7 @@ const BrandStory = () => {
                 }`}
               >
                 <img
-                  src="/brand-story2.jpg"
+                  src="/brandStory2.jpg"
                   alt="Interior detail - Precision craftsmanship"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
@@ -246,20 +254,14 @@ const BrandStory = () => {
               ))}
             </div>
 
-            {/* Elegant button - slides up */}
+            {/* Elegant button - slides up - UPDATED */}
             <div 
               className={`mt-16 transition-all duration-1000 delay-1600 transform ${
                 isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
               }`}
             >
               <button
-                onClick={() => {
-                  const el = document.getElementById("vision-mission");
-                  if (!el) return;
-                  const yOffset = -100;
-                  const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                  window.scrollTo({ top: y, behavior: "smooth" });
-                }}
+                onClick={scrollToConnect}
                 className="group relative inline-flex items-center gap-4 px-8 py-4 overflow-hidden transition-all duration-300"
               >
                 {/* Button background with hover effect - updated with brand color */}
@@ -267,7 +269,7 @@ const BrandStory = () => {
                 <span className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-all duration-500" />
                 
                 {/* Button content */}
-                <span className="relative text-white font-light tracking-wide">Discover Our Vision</span>
+                <span className="relative text-white font-light tracking-wide">Talk to us</span>
                 <span className="relative text-white/80 group-hover:text-white group-hover:translate-x-1 transition-all duration-300">→</span>
               </button>
             </div>

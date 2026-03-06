@@ -102,7 +102,7 @@ const BrandManifesto = () => {
                 isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
               }`}
             >
-              <span className="text-[#2F7D76] text-sm tracking-[0.3em] uppercase relative inline-block pl-12 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-px before:bg-[#2F7D76]/40">
+              <span className="text-[#f6ee99] text-sm tracking-[0.3em] uppercase relative inline-block pl-12 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-px before:bg-[#2F7D76]/40">
                 Our Manifesto
               </span>
             </div>
@@ -221,7 +221,7 @@ const BrandManifesto = () => {
               {/* Image frame with brand color border */}
               <div className="absolute inset-0 border border-[#2F7D76]/20 rounded-[2rem] z-10 pointer-events-none" />
               <img
-                src="/manifesto-1.jpg"
+                src="/commitment.jpg"
                 alt="Interior finishing"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-100 hover:scale-105"
               />
@@ -245,7 +245,7 @@ const BrandManifesto = () => {
             >
               <div className="absolute inset-0 border border-[#E6E08A]/20 rounded-[2rem] z-10 pointer-events-none" />
               <img
-                src="/manifesto-2.jpg"
+                src="/commitment2.jpg"
                 alt="Luxury interior"
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-100 hover:scale-105"
               />

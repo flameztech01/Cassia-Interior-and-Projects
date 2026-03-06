@@ -104,29 +104,30 @@ const VisionMission = () => {
           </div>
           
           {/* Main heading - slides up with staggered children */}
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6">
-            <span 
-              className={`inline-block transition-all duration-1000 delay-400 transform ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-              }`}
-            >
-              Vision{' '}
-            </span>
-            <span 
-              className={`text-[#E6E08A] font-medium inline-block transition-all duration-1000 delay-500 transform ${
-                isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-90'
-              }`}
-            >
-              &
-            </span>
-            <span 
-              className={`inline-block transition-all duration-1000 delay-600 transform ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-              }`}
-            >
-              {' '}Mission
-            </span>
-          </h2>
+        {/* Main heading - slides up with staggered children */}
+<h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6">
+  <span 
+    className={`inline-block transition-all duration-1000 delay-400 transform ${
+      isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+    }`}
+  >
+    Vision&nbsp;
+  </span>
+  <span 
+    className={`text-[#E6E08A] font-medium inline-block transition-all duration-1000 delay-500 transform ${
+      isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+    }`}
+  >
+    &amp;&nbsp;
+  </span>
+  <span 
+    className={`inline-block transition-all duration-1000 delay-600 transform ${
+      isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+    }`}
+  >
+    Mission
+  </span>
+</h2>
           
           {/* Elegant divider with brand colors - scales in */}
           <div className={`flex justify-center items-center gap-3 transition-all duration-1000 delay-700 ${

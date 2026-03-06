@@ -120,7 +120,7 @@ const Hero = () => {
               }`}
               style={{ transitionDelay: '1200ms' }}
             >
-              craftsmanship
+              craftsmanship.
             </span>
             <span className="absolute -inset-2 bg-[#f6ee99]/10 blur-2xl rounded-full" />
           </span>
@@ -162,9 +162,9 @@ const Hero = () => {
         {/* Refined Stats - Updated text with new color */}
         <div className="grid grid-cols-3 gap-8 max-w-lg mx-auto">
           {[
-            { value: "100+", label: "Finishing Details", icon: "✦" },
+            { value: "100+", label: "Finishing Detail", icon: "✦" },
             { value: "A+", label: "Quality Standard", icon: "✦" },
-            { value: "Fast", label: "Project Delivery", icon: "✦" }
+            { value: "Trusted", label: "Project Delivery", icon: "✦" }
           ].map((stat, i) => (
             <div 
               key={i} 

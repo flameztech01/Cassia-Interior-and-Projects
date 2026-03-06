@@ -20,28 +20,28 @@ const OurProjects: React.FC = () => {
         title: "Tea Couture",
         subtitle: "Boutique Interior Finish",
         cover: "/picture1.jpg",
-        images: ["/picture1.jpg", "/picture2.jpg", "/picture3.jpg", "/picture4.jpg"],
+        images: ["/picture1.jpg", "/picture2.jpg", "/picture3.jpg"],
       },
       {
         id: "album-2",
         title: "East Grace",
         subtitle: "Luxury Detail & Decor",
-        cover: "/picture5.jpg",
-        images: ["/picture5.jpg", "/picture6.jpg", "/picture7.jpg", "/picture8.jpg"],
+        cover: "/picture4.jpg",
+        images: ["/picture4.jpg", "/picture6.jpg", "/picture7.jpg", "/picture8.jpg", "/picture9.jpg", "/picture10"],
       },
       {
         id: "album-3",
         title: "Eronssly Apartments",
         subtitle: "Residential Project Execution",
-        cover: "/picture9.jpg",
-        images: ["/picture9.jpg", "/picture10.jpg", "/picture11.jpg", "/picture12.jpg"],
+        cover: "/picture11.jpg",
+        images: ["/picture11.jpg", "/picture12.jpg", "/picture13.jpg", "/picture14.jpg", "/picture15", "/picture16"],
       },
       {
         id: "album-4",
         title: "Spring Tree",
         subtitle: "Hospitality & Experience Design",
-        cover: "/picture13.jpg",
-        images: ["/picture13.jpg", "/picture14.jpg", "/picture15.jpg", "/picture16.jpg"],
+        cover: "/picture17.jpg",
+        images: ["/picture17.jpg", "/picture18.jpg", "/picture19.jpg", "/picture20.jpg", "/picture21.jpg"],
       },
     ],
     []
@@ -196,7 +196,7 @@ const OurProjects: React.FC = () => {
                   isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                 }`}
               >
-                Our{' '}
+                Our&nbsp;
               </span>
               <span 
                 className={`text-white font-medium inline-block transition-all duration-1000 delay-500 transform ${
@@ -228,17 +228,6 @@ const OurProjects: React.FC = () => {
               craftsmanship, and enduring elegance.
             </p>
           </div>
-
-          {/* Right side counter */}
-          <div 
-            className={`hidden md:flex items-center gap-4 bg-white/5 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20 transition-all duration-1000 delay-800 transform ${
-              isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
-            }`}
-          >
-            <span className="text-white/40 text-sm tracking-wide">Total albums</span>
-            <span className="text-3xl font-light text-white">{albums.length}</span>
-            <span className="text-white/20 text-sm">✦</span>
-          </div>
         </div>
 
         {/* Album Grid */}
@@ -253,12 +242,12 @@ const OurProjects: React.FC = () => {
               style={{ transitionDelay: `${900 + index * 150}ms` }}
             >
               <div className="relative bg-white/5 backdrop-blur-sm rounded-[2rem] overflow-hidden border border-white/20 hover:border-white/40 transition-all duration-700 hover:-translate-y-2">
-                {/* Cover image */}
+                {/* Cover image - NO GRAYSCALE */}
                 <div className="relative h-80 overflow-hidden">
                   <img
                     src={album.cover}
                     alt={album.title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-all duration-700 scale-100 group-hover:scale-110"
                   />
                   
                   {/* Sophisticated gradient overlay */}
@@ -284,10 +273,10 @@ const OurProjects: React.FC = () => {
                     {album.subtitle}
                   </p>
 
-                  {/* Elegant view indicator */}
+                  {/* Elegant view indicator - changed from "View album" to "View project" */}
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-white/40 group-hover:text-white/80 transition-colors duration-500 tracking-wide">
-                      View album
+                      View project
                     </span>
                     <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white/40 group-hover:bg-white/10 transition-all duration-500">
                       <svg
@@ -419,7 +408,7 @@ const OurProjects: React.FC = () => {
                 </div>
               </div>
 
-              {/* Thumbnails panel */}
+              {/* Thumbnails panel - NO GRAYSCALE */}
               <div className="lg:col-span-4 p-8 bg-[#3E7B73]/80 backdrop-blur-sm border-l border-white/10">
                 <div className="flex items-center justify-between mb-6">
                   <h4 className="text-white/60 text-sm tracking-wide">Gallery</h4>
@@ -443,7 +432,7 @@ const OurProjects: React.FC = () => {
                         <img
                           src={img}
                           alt={`Thumbnail ${idx + 1}`}
-                          className="w-full h-24 object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                          className="w-full h-24 object-cover transition-all duration-500"
                         />
                         
                         {/* Active indicator */}
@@ -464,7 +453,6 @@ const OurProjects: React.FC = () => {
                     <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-sm font-light">✦</span>
                     </div>
-                 
                   </div>
                 </div>
 
