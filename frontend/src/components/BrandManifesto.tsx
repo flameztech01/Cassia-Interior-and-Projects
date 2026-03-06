@@ -41,7 +41,8 @@ const BrandManifesto = () => {
     <section 
       ref={sectionRef}
       id="brand-manifesto" 
-      className="relative overflow-hidden py-28 md:py-36 bg-black"
+      className="relative overflow-hidden py-28 md:py-36"
+      style={{ backgroundColor: '#222121' }}
     >
       {/* Sophisticated brand-colored background elements - fade in and scale */}
       <div className="absolute inset-0">
@@ -72,7 +73,7 @@ const BrandManifesto = () => {
       <div className={`absolute inset-0 transition-opacity duration-1500 delay-600 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}>
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-black via-transparent to-black/50" />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#222121] via-transparent to-[#222121]/50" />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-transparent via-[#2F7D76]/5 to-transparent" />
       </div>
 
@@ -225,7 +226,7 @@ const BrandManifesto = () => {
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-100 hover:scale-105"
               />
               {/* Elegant gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#222121]/60 via-[#222121]/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
               
               {/* Brand color accent - slides in from left */}
               <div 
@@ -238,7 +239,7 @@ const BrandManifesto = () => {
 
             {/* Secondary image - overlapping composition with luxury treatment */}
             <div 
-              className={`absolute bottom-0 left-0 w-[380px] h-[450px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-black group transition-all duration-1000 delay-800 transform ${
+              className={`absolute bottom-0 left-0 w-[380px] h-[450px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-[#222121] group transition-all duration-1000 delay-800 transform ${
                 isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
               }`}
             >
@@ -249,7 +250,7 @@ const BrandManifesto = () => {
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-100 hover:scale-105"
               />
               {/* Elegant gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#222121]/40 via-transparent to-[#222121]/60" />
               
               {/* Brand color accent - slides in from right */}
               <div 
@@ -290,7 +291,7 @@ const BrandManifesto = () => {
                 isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
               }`}
             >
-              <div className="bg-black/50 backdrop-blur-md px-6 py-4 rounded-xl border border-[#2F7D76]/30 shadow-2xl">
+              <div className="bg-[#222121]/50 backdrop-blur-md px-6 py-4 rounded-xl border border-[#2F7D76]/30 shadow-2xl">
                 <p className="text-white/90 text-sm tracking-wide flex items-center gap-2">
                   <span className="text-[#E6E08A]">✦</span> 
                   <span className="text-white/60">Since</span> 
@@ -316,7 +317,7 @@ const BrandManifesto = () => {
 
       {/* Bottom decorative element with brand colors - fades in */}
       <div 
-        className={`absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent pointer-events-none transition-opacity duration-1500 delay-1600 ${
+        className={`absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-[#222121] to-transparent pointer-events-none transition-opacity duration-1500 delay-1600 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`} 
       />

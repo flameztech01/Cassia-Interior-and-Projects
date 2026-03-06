@@ -13,28 +13,28 @@ const TEAM: TeamMember[] = [
     name: "Comfort Samson",
     title: "CEO",
     role: "Executive Director / Leadership",
-    image: "/woman.jpg",
+    image: "/comfortSamson.jpg",
     featured: true,
   },
   {
     name: "Ademosu Adedayo",
     role: "Business Development / Compliance",
-    image: "/woman.jpg",
+    image: "/ademosuAdedayo.jpg",
   },
   {
     name: "Faith A. Osaigbovo",
     role: "Head, Architecture / Design",
-    image: "/woman.jpg",
+    image: "/faithA.jpg",
   },
   {
     name: "Olaleye Ajayi",
     role: "Director, Creativity / Styling",
-    image: "/woman.jpg",
+    image: "/olaleye.jpg",
   },
   {
     name: "Mary Ajoke Ogunjobi",
     role: "Head, Projects & Socials",
-    image: "/woman.jpg",
+    image: "/ajoke.jpg",
   },
 ];
 
@@ -74,7 +74,8 @@ const TeamMembers = () => {
     <section 
       ref={sectionRef}
       id="team-members" 
-      className="relative overflow-hidden py-28 md:py-36 bg-black"
+      className="relative overflow-hidden py-28 md:py-36"
+      style={{ backgroundColor: '#222121' }}
     >
       {/* Sophisticated brand-colored background elements */}
       <div className="absolute inset-0">
@@ -105,8 +106,8 @@ const TeamMembers = () => {
       <div className={`absolute inset-0 transition-opacity duration-1500 delay-600 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}>
-        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-black via-black to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-black via-black to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-[#222121] via-[#222121] to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-[#222121] via-[#222121] to-transparent" />
       </div>
 
       {/* Decorative brand color lines */}
@@ -239,7 +240,7 @@ const TeamMembers = () => {
                     
                     {/* Brand color dot - scales in */}
                     <div 
-                      className={`absolute -bottom-2 -right-2 w-6 h-6 bg-[#E6E08A] rounded-full border-2 border-black transition-all duration-1000 delay-1200 transform ${
+                      className={`absolute -bottom-2 -right-2 w-6 h-6 bg-[#E6E08A] rounded-full border-2 border-[#222121] transition-all duration-1000 delay-1200 transform ${
                         isVisible ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
                       }`} 
                     />
@@ -334,7 +335,7 @@ const TeamMembers = () => {
                       </div>
                       
                       {/* Small brand color dot indicator */}
-                      <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#E6E08A] rounded-full border border-black opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                      <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-[#E6E08A] rounded-full border border-[#222121] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                     </div>
 
                     <div className="flex-1">

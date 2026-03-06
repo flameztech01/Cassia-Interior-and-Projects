@@ -34,7 +34,8 @@ const ConnectWithUs = () => {
     <section 
       ref={sectionRef}
       id="connect" 
-      className="relative overflow-hidden py-28 md:py-36 bg-black"
+      className="relative overflow-hidden py-20 md:py-28 lg:py-36"
+      style={{ backgroundColor: '#222121' }}
     >
       {/* Sophisticated brand-colored background elements */}
       <div className="absolute inset-0">
@@ -65,8 +66,8 @@ const ConnectWithUs = () => {
       <div className={`absolute inset-0 transition-opacity duration-1500 delay-600 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}>
-        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-black via-black to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-black via-black to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-[#222121] via-[#222121] to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-[#222121] via-[#222121] to-transparent" />
       </div>
 
       {/* Decorative brand color lines */}
@@ -83,13 +84,13 @@ const ConnectWithUs = () => {
         style={{ transformOrigin: 'right' }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-stretch">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-20 items-stretch">
           
           {/* LEFT: Contact Form Area - luxury redesign */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 order-2 lg:order-1">
             <div 
-              className={`bg-white/5 backdrop-blur-sm rounded-[2rem] p-10 md:p-12 border border-white/10 transition-all duration-1000 delay-300 transform ${
+              className={`bg-white/5 backdrop-blur-sm rounded-2xl md:rounded-[2rem] p-6 md:p-10 lg:p-12 border border-white/10 transition-all duration-1000 delay-300 transform ${
                 isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
               }`}
             >
@@ -101,12 +102,12 @@ const ConnectWithUs = () => {
                     isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                   }`}
                 >
-                  <span className="text-[#2F7D76] text-sm tracking-[0.3em] uppercase relative inline-block pl-12 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-8 before:h-px before:bg-[#2F7D76]/40">
+                  <span className="text-[#2F7D76] text-xs sm:text-sm tracking-[0.3em] uppercase relative inline-block pl-10 sm:pl-12 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-6 sm:before:w-8 before:h-px before:bg-[#2F7D76]/40">
                     Let's Connect
                   </span>
                 </div>
                 
-                <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
+                <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
                   <span 
                     className={`inline-block transition-all duration-1000 delay-500 transform ${
                       isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
@@ -115,7 +116,7 @@ const ConnectWithUs = () => {
                     Create marvel with your
                   </span>
                   <span 
-                    className={`block text-[#E6E08A] font-medium mt-3 transition-all duration-1000 delay-600 transform ${
+                    className={`block text-[#E6E08A] font-medium mt-2 sm:mt-3 transition-all duration-1000 delay-600 transform ${
                       isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-8 opacity-0 scale-90'
                     }`}
                   >
@@ -125,18 +126,18 @@ const ConnectWithUs = () => {
                 
                 {/* Elegant divider */}
                 <div 
-                  className={`flex items-center gap-3 mt-6 transition-all duration-1000 delay-700 ${
+                  className={`flex items-center gap-3 mt-4 sm:mt-6 transition-all duration-1000 delay-700 ${
                     isVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
                   }`} 
                   style={{ transformOrigin: 'left' }}
                 >
-                  <div className="w-12 h-px bg-[#2F7D76]/40" />
-                  <div className="w-2 h-2 rounded-full bg-[#E6E08A]/60" />
-                  <div className="w-12 h-px bg-[#2F7D76]/40" />
+                  <div className="w-8 sm:w-12 h-px bg-[#2F7D76]/40" />
+                  <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-[#E6E08A]/60" />
+                  <div className="w-8 sm:w-12 h-px bg-[#2F7D76]/40" />
                 </div>
                 
                 <p 
-                  className={`mt-6 text-white/40 text-lg font-light leading-relaxed max-w-xl transition-all duration-1000 delay-800 transform ${
+                  className={`mt-4 sm:mt-6 text-white/40 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-xl transition-all duration-1000 delay-800 transform ${
                     isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                   }`}
                 >
@@ -147,13 +148,13 @@ const ConnectWithUs = () => {
 
               {/* Tabs - refined with brand colors - slides up */}
               <div 
-                className={`mt-10 inline-flex p-1 bg-white/5 rounded-full border border-white/10 transition-all duration-1000 delay-900 transform ${
+                className={`mt-6 sm:mt-8 md:mt-10 inline-flex p-1 bg-white/5 rounded-full border border-white/10 transition-all duration-1000 delay-900 transform ${
                   isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                 }`}
               >
                 <button
                   onClick={() => setTab("company")}
-                  className={`px-8 py-3 text-sm font-light rounded-full transition-all duration-500 ${
+                  className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-xs sm:text-sm font-light rounded-full transition-all duration-500 ${
                     tab === "company"
                       ? "bg-[#2F7D76] text-white"
                       : "text-white/40 hover:text-white/60"
@@ -163,7 +164,7 @@ const ConnectWithUs = () => {
                 </button>
                 <button
                   onClick={() => setTab("contact")}
-                  className={`px-8 py-3 text-sm font-light rounded-full transition-all duration-500 ${
+                  className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 text-xs sm:text-sm font-light rounded-full transition-all duration-500 ${
                     tab === "contact"
                       ? "bg-[#2F7D76] text-white"
                       : "text-white/40 hover:text-white/60"
@@ -174,13 +175,13 @@ const ConnectWithUs = () => {
               </div>
 
               {/* Tab Content - luxury redesign */}
-              <div className="mt-10">
+              <div className="mt-6 sm:mt-8 md:mt-10">
                 {tab === "company" ? (
-                  <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
                     <InfoCard
                       label="Phone / WhatsApp"
                       value="+234-908-206-9020"
-                      icon={<PhoneIcon className="w-5 h-5" />}
+                      icon={<PhoneIcon className="w-4 h-4 sm:w-5 sm:h-5" />}
                       href="https://wa.me/2349082069020"
                       isVisible={isVisible}
                       index={0}
@@ -188,7 +189,7 @@ const ConnectWithUs = () => {
                     <InfoCard
                       label="Instagram"
                       value="@cassiainteriors"
-                      icon={<InstagramIcon className="w-5 h-5" />}
+                      icon={<InstagramIcon className="w-4 h-4 sm:w-5 sm:h-5" />}
                       href="https://instagram.com/cassiainteriorsandprojects"
                       isVisible={isVisible}
                       index={1}
@@ -196,7 +197,7 @@ const ConnectWithUs = () => {
                     <InfoCard
                       label="Facebook"
                       value="Cassia Interiors"
-                      icon={<FacebookIcon className="w-5 h-5" />}
+                      icon={<FacebookIcon className="w-4 h-4 sm:w-5 sm:h-5" />}
                       href="https://facebook.com/cassiainteriorsandprojects"
                       isVisible={isVisible}
                       index={2}
@@ -204,7 +205,7 @@ const ConnectWithUs = () => {
                     <InfoCard
                       label="Email"
                       value="cassiainteriors.projects@gmail.com"
-                      icon={<MailIcon className="w-5 h-5" />}
+                      icon={<MailIcon className="w-4 h-4 sm:w-5 sm:h-5" />}
                       href="mailto:cassiainteriors.projects@gmail.com"
                       isVisible={isVisible}
                       index={3}
@@ -212,25 +213,25 @@ const ConnectWithUs = () => {
                   </div>
                 ) : (
                   <div 
-                    className={`bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 transition-all duration-1000 delay-1100 transform ${
+                    className={`bg-white/5 backdrop-blur-sm rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 border border-white/10 transition-all duration-1000 delay-1100 transform ${
                       isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                     }`}
                   >
-                    <div className="flex items-start gap-5">
-                      <div className="relative">
+                    <div className="flex items-start gap-3 sm:gap-4 md:gap-5">
+                      <div className="relative shrink-0">
                         <div className="absolute inset-0 bg-[#E6E08A] rounded-full blur-md opacity-50" />
-                        <div className="relative w-14 h-14 rounded-full bg-[#2F7D76]/20 flex items-center justify-center">
-                          <span className="text-[#E6E08A] text-2xl">✉️</span>
+                        <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-[#2F7D76]/20 flex items-center justify-center">
+                          <span className="text-[#E6E08A] text-lg sm:text-xl md:text-2xl">✉️</span>
                         </div>
                       </div>
-                      <div>
-                        <p className="text-white text-lg font-light">Quick message</p>
-                        <p className="text-white/40 text-sm mt-2 font-light">
+                      <div className="flex-1">
+                        <p className="text-white text-base sm:text-lg font-light">Quick message</p>
+                        <p className="text-white/40 text-xs sm:text-sm mt-1 sm:mt-2 font-light">
                           We reply within 24 hours. Send your details below.
                         </p>
                         
                         {/* Decorative line */}
-                        <div className="mt-4 w-12 h-px bg-[#2F7D76]/40" />
+                        <div className="mt-2 sm:mt-3 md:mt-4 w-8 sm:w-10 md:w-12 h-px bg-[#2F7D76]/40" />
                       </div>
                     </div>
                   </div>
@@ -238,13 +239,13 @@ const ConnectWithUs = () => {
               </div>
 
               {/* Form - luxury redesign */}
-              <div className="mt-12">
+              <div className="mt-8 sm:mt-10 md:mt-12">
                 <form
                   action="https://formspree.io/f/mlgwqyqn"
                   method="POST"
-                  className="space-y-6"
+                  className="space-y-4 sm:space-y-5 md:space-y-6"
                 >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
                     <Input
                       label="Full Name"
                       name="name"
@@ -283,46 +284,46 @@ const ConnectWithUs = () => {
                       isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                     }`}
                   >
-                    <label className="text-sm font-light text-white/60">
+                    <label className="text-xs sm:text-sm font-light text-white/60">
                       Message <span className="text-[#E6E08A]">*</span>
                     </label>
                     <textarea
                       name="message"
                       required
                       placeholder="Tell us about your space, location, timeline, and what you want done..."
-                      className="mt-3 w-full min-h-[160px] rounded-xl bg-white/5 border border-white/10 px-5 py-4 text-white placeholder:text-white/20 outline-none focus:border-[#2F7D76]/50 focus:ring-2 focus:ring-[#2F7D76]/20 transition-all font-light"
+                      className="mt-2 sm:mt-3 w-full min-h-[120px] sm:min-h-[140px] md:min-h-[160px] rounded-lg sm:rounded-xl bg-white/5 border border-white/10 px-3 sm:px-4 md:px-5 py-2 sm:py-3 md:py-4 text-white placeholder:text-white/20 outline-none focus:border-[#2F7D76]/50 focus:ring-2 focus:ring-[#2F7D76]/20 transition-all font-light text-sm sm:text-base"
                     />
                   </div>
 
                   <input type="hidden" name="_subject" value="New Cassia Inquiry" />
 
-                  <div className="flex flex-col sm:flex-row gap-5 items-start sm:items-center pt-4">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 items-stretch sm:items-center pt-2 sm:pt-3 md:pt-4">
                     <button
                       type="submit"
-                      className={`group relative px-10 py-4 overflow-hidden transition-all duration-1000 delay-1500 transform ${
+                      className={`group relative px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 overflow-hidden transition-all duration-1000 delay-1500 transform ${
                         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                       }`}
                     >
                       <span className="absolute inset-0 bg-[#2F7D76]" />
                       <span className="absolute inset-0 bg-gradient-to-r from-[#2F7D76] to-[#1e5a55] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <span className="relative text-white font-light tracking-wide">Send Message</span>
+                      <span className="relative text-white font-light tracking-wide text-sm sm:text-base">Send Message</span>
                     </button>
 
                     <a
                       href="https://wa.me/2349082069020"
                       target="_blank"
                       rel="noreferrer"
-                      className={`group px-10 py-4 border border-white/20 text-white/80 rounded-xl font-light hover:border-[#2F7D76] hover:text-white hover:bg-white/5 transition-all duration-1000 delay-1600 transform ${
+                      className={`group px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 border border-white/20 text-white/80 rounded-lg sm:rounded-xl font-light hover:border-[#2F7D76] hover:text-white hover:bg-white/5 transition-all duration-1000 delay-1600 transform text-center text-sm sm:text-base ${
                         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                       }`}
                     >
                       Chat on WhatsApp
-                      <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                      <span className="inline-block ml-1 sm:ml-2 group-hover:translate-x-1 transition-transform">→</span>
                     </a>
                   </div>
                   
                   <p 
-                    className={`text-xs text-white/20 font-light mt-6 transition-all duration-1000 delay-1700 ${
+                    className={`text-xs text-white/20 font-light mt-4 sm:mt-5 md:mt-6 transition-all duration-1000 delay-1700 ${
                       isVisible ? 'opacity-100' : 'opacity-0'
                     }`}
                   >
@@ -332,47 +333,47 @@ const ConnectWithUs = () => {
               </div>
 
               {/* Decorative corner accents - fade in */}
-              <div className={`absolute top-6 right-6 w-12 h-12 border-t border-r border-[#E6E08A]/30 transition-opacity duration-1000 delay-1800 ${
+              <div className={`absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 border-t border-r border-[#E6E08A]/30 transition-opacity duration-1000 delay-1800 ${
                 isVisible ? 'opacity-50' : 'opacity-0'
               }`} />
-              <div className={`absolute bottom-6 left-6 w-12 h-12 border-b border-l border-[#2F7D76]/30 transition-opacity duration-1000 delay-1900 ${
+              <div className={`absolute bottom-3 sm:bottom-4 md:bottom-6 left-3 sm:left-4 md:left-6 w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 border-b border-l border-[#2F7D76]/30 transition-opacity duration-1000 delay-1900 ${
                 isVisible ? 'opacity-50' : 'opacity-0'
               }`} />
             </div>
           </div>
 
           {/* RIGHT: Luxury visual composition */}
-          <div className="lg:col-span-5 relative min-h-[700px] flex items-center">
+          <div className="lg:col-span-5 order-1 lg:order-2 relative min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center mb-8 lg:mb-0">
             <div className="relative w-full h-full">
               {/* Decorative frames - fade in and scale */}
               <div 
-                className={`absolute -inset-4 border border-[#2F7D76]/20 rounded-[3rem] transition-all duration-1000 delay-400 transform ${
+                className={`absolute -inset-2 sm:-inset-3 md:-inset-4 border border-[#2F7D76]/20 rounded-2xl sm:rounded-3xl md:rounded-[3rem] transition-all duration-1000 delay-400 transform ${
                   isVisible ? 'opacity-30 scale-100' : 'opacity-0 scale-95'
                 }`} 
               />
               <div 
-                className={`absolute -inset-2 border border-[#E6E08A]/20 rounded-[3rem] transition-all duration-1000 delay-500 transform ${
+                className={`absolute -inset-1 sm:-inset-1.5 md:-inset-2 border border-[#E6E08A]/20 rounded-2xl sm:rounded-3xl md:rounded-[3rem] transition-all duration-1000 delay-500 transform ${
                   isVisible ? 'opacity-20 scale-100' : 'opacity-0 scale-95'
                 }`} 
               />
               
               {/* Main image - elegant presentation - slides in from right */}
               <div 
-                className={`absolute top-0 right-0 w-[90%] h-[550px] rounded-[2rem] overflow-hidden shadow-2xl group transition-all duration-1000 delay-600 transform ${
+                className={`absolute top-0 right-0 w-[85%] sm:w-[80%] md:w-[90%] h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] rounded-xl sm:rounded-2xl md:rounded-[2rem] overflow-hidden shadow-2xl group transition-all duration-1000 delay-600 transform ${
                   isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'
                 }`}
               >
-                <div className="absolute inset-0 border border-[#2F7D76]/20 rounded-[2rem] z-10 pointer-events-none" />
+                <div className="absolute inset-0 border border-[#2F7D76]/20 rounded-xl sm:rounded-2xl md:rounded-[2rem] z-10 pointer-events-none" />
                 <img
-                  src="/woman.jpg"
+                  src="/contact1.jpg"
                   alt="Luxury interior"
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#222121]/60 via-[#222121]/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
                 
                 {/* Brand color accent line - slides in from left */}
                 <div 
-                  className={`absolute top-6 left-6 w-12 h-1 bg-gradient-to-r from-[#2F7D76] to-[#E6E08A] transition-all duration-1000 delay-700 ${
+                  className={`absolute top-3 sm:top-4 md:top-6 left-3 sm:left-4 md:left-6 w-8 sm:w-10 md:w-12 h-0.5 sm:h-1 bg-gradient-to-r from-[#2F7D76] to-[#E6E08A] transition-all duration-1000 delay-700 ${
                     isVisible ? 'scale-x-100' : 'scale-x-0'
                   }`} 
                   style={{ transformOrigin: 'left' }}
@@ -381,21 +382,21 @@ const ConnectWithUs = () => {
 
               {/* Secondary image - overlapping composition - slides in from left */}
               <div 
-                className={`absolute bottom-0 left-0 w-[70%] h-[400px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-black group transition-all duration-1000 delay-800 transform ${
+                className={`absolute bottom-0 left-0 w-[65%] sm:w-[60%] md:w-[70%] h-[200px] sm:h-[250px] md:h-[350px] lg:h-[400px] rounded-xl sm:rounded-2xl md:rounded-[2rem] overflow-hidden shadow-2xl border-2 sm:border-4 border-[#222121] group transition-all duration-1000 delay-800 transform ${
                   isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
                 }`}
               >
-                <div className="absolute inset-0 border border-[#E6E08A]/20 rounded-[2rem] z-10 pointer-events-none" />
+                <div className="absolute inset-0 border border-[#E6E08A]/20 rounded-xl sm:rounded-2xl md:rounded-[2rem] z-10 pointer-events-none" />
                 <img
                   src="/woman.jpg"
                   alt="Interior detail"
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#222121]/40 via-transparent to-[#222121]/60" />
                 
                 {/* Brand color accent line - slides in from right */}
                 <div 
-                  className={`absolute bottom-6 right-6 w-12 h-1 bg-gradient-to-r from-[#E6E08A] to-[#2F7D76] transition-all duration-1000 delay-900 ${
+                  className={`absolute bottom-2 sm:bottom-3 md:bottom-6 right-2 sm:right-3 md:right-6 w-6 sm:w-8 md:w-12 h-0.5 sm:h-1 bg-gradient-to-r from-[#E6E08A] to-[#2F7D76] transition-all duration-1000 delay-900 ${
                     isVisible ? 'scale-x-100' : 'scale-x-0'
                   }`} 
                   style={{ transformOrigin: 'right' }}
@@ -404,44 +405,44 @@ const ConnectWithUs = () => {
 
               {/* Floating info card - luxury redesign - slides up */}
               <div 
-                className={`absolute top-16 left-4 bg-black/50 backdrop-blur-md rounded-xl border border-[#2F7D76]/30 shadow-2xl p-6 max-w-[240px] transition-all duration-1000 delay-1000 transform ${
+                className={`absolute top-8 sm:top-10 md:top-16 left-2 sm:left-3 md:left-4 bg-[#222121]/50 backdrop-blur-md rounded-lg sm:rounded-xl border border-[#2F7D76]/30 shadow-2xl p-3 sm:p-4 md:p-6 max-w-[180px] sm:max-w-[200px] md:max-w-[240px] transition-all duration-1000 delay-1000 transform ${
                   isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                 }`}
               >
-                <p className="text-white/40 text-xs tracking-[0.2em] mb-2">AVAILABLE FOR</p>
-                <p className="text-white text-lg font-light">
+                <p className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] mb-1 sm:mb-2">AVAILABLE FOR</p>
+                <p className="text-white text-xs sm:text-sm md:text-lg font-light">
                   Finishing · Styling · Execution
                 </p>
-                <div className="flex gap-2 mt-4">
-                  <span className="w-2 h-2 rounded-full bg-[#2F7D76]" />
-                  <span className="w-2 h-2 rounded-full bg-[#E6E08A]" />
-                  <span className="w-2 h-2 rounded-full bg-white/20" />
+                <div className="flex gap-1 sm:gap-2 mt-2 sm:mt-3 md:mt-4">
+                  <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-[#2F7D76]" />
+                  <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-[#E6E08A]" />
+                  <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-white/20" />
                 </div>
                 
                 {/* Decorative element */}
-                <div className="absolute -top-1 -right-1 w-4 h-4 border-t border-r border-[#E6E08A]/40" />
+                <div className="absolute -top-0.5 sm:-top-1 -right-0.5 sm:-right-1 w-2 sm:w-3 md:w-4 h-2 sm:h-3 md:h-4 border-t border-r border-[#E6E08A]/40" />
               </div>
 
               {/* Decorative brand color elements - scale and fade */}
               <div 
-                className={`absolute top-40 -right-6 w-32 h-32 border-2 border-[#2F7D76]/20 rounded-full transition-all duration-1000 delay-1100 transform ${
+                className={`absolute top-20 sm:top-30 md:top-40 -right-4 sm:-right-5 md:-right-6 w-16 sm:w-20 md:w-32 h-16 sm:h-20 md:h-32 border border-[#2F7D76]/20 rounded-full transition-all duration-1000 delay-1100 transform ${
                   isVisible ? 'scale-100 opacity-100' : 'scale-50 opacity-0'
                 }`} 
               />
               <div 
-                className={`absolute bottom-40 -left-6 w-40 h-40 bg-[#2F7D76]/10 rounded-full blur-2xl transition-all duration-1000 delay-1200 ${
+                className={`absolute bottom-20 sm:bottom-30 md:bottom-40 -left-4 sm:-left-5 md:-left-6 w-20 sm:w-24 md:w-40 h-20 sm:h-24 md:h-40 bg-[#2F7D76]/10 rounded-full blur-xl sm:blur-2xl transition-all duration-1000 delay-1200 ${
                   isVisible ? 'opacity-100' : 'opacity-0'
                 }`} 
               />
               
               {/* Additional brand color accents - fade in */}
               <div 
-                className={`absolute top-1/2 right-0 w-4 h-4 border-2 border-[#E6E08A]/30 rounded-full transition-all duration-1000 delay-1300 ${
+                className={`absolute top-1/2 right-0 w-2 sm:w-3 md:w-4 h-2 sm:h-3 md:h-4 border border-[#E6E08A]/30 rounded-full transition-all duration-1000 delay-1300 ${
                   isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
                 }`} 
               />
               <div 
-                className={`absolute bottom-1/4 left-10 w-6 h-6 bg-[#E6E08A]/20 rounded-full blur-sm transition-all duration-1000 delay-1400 ${
+                className={`absolute bottom-1/4 left-5 sm:left-8 md:left-10 w-3 sm:w-4 md:w-6 h-3 sm:h-4 md:h-6 bg-[#E6E08A]/20 rounded-full blur-sm transition-all duration-1000 delay-1400 ${
                   isVisible ? 'opacity-100' : 'opacity-0'
                 }`} 
               />
@@ -481,26 +482,26 @@ const InfoCard = ({
 }) => {
   const Box = (
     <div 
-      className={`group relative bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#2F7D76]/30 transition-all duration-500 hover:-translate-y-1 transform ${
+      className={`group relative bg-white/5 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 sm:p-5 md:p-6 border border-white/10 hover:border-[#2F7D76]/30 transition-all duration-500 hover:-translate-y-1 transform ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
       }`}
       style={{ transitionDelay: `${1000 + index * 100}ms` }}
     >
       {/* Decorative corner accent */}
-      <div className="absolute top-2 right-2 w-4 h-4 border-t border-r border-[#E6E08A]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute top-1 sm:top-2 right-1 sm:right-2 w-2 sm:w-3 md:w-4 h-2 sm:h-3 md:h-4 border-t border-r border-[#E6E08A]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
-      <div className="flex items-start gap-4">
-        <div className="relative">
-          <div className="absolute inset-0 bg-[#2F7D76] rounded-lg blur-md opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
-          <div className="relative w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-[#2F7D76]/10 transition-colors duration-500">
+      <div className="flex items-start gap-2 sm:gap-3 md:gap-4">
+        <div className="relative shrink-0">
+          <div className="absolute inset-0 bg-[#2F7D76] rounded-md sm:rounded-lg blur-sm sm:blur-md opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
+          <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-md sm:rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-[#2F7D76]/10 transition-colors duration-500">
             <div className="text-[#E6E08A] group-hover:text-[#2F7D76] transition-colors duration-500">
               {icon}
             </div>
           </div>
         </div>
-        <div>
-          <p className="text-white/30 text-xs tracking-wide font-light">{label}</p>
-          <p className="text-white/80 text-sm font-light mt-2 line-clamp-1 group-hover:text-white transition-colors duration-500">
+        <div className="min-w-0 flex-1">
+          <p className="text-white/30 text-[10px] sm:text-xs tracking-wide font-light truncate">{label}</p>
+          <p className="text-white/80 text-xs sm:text-sm font-light mt-1 sm:mt-2 line-clamp-1 group-hover:text-white transition-colors duration-500 break-all">
             {value}
           </p>
         </div>
@@ -544,7 +545,7 @@ const Input = ({
       }`}
       style={{ transitionDelay: `${1200 + index * 100}ms` }}
     >
-      <label className="text-sm font-light text-white/60">
+      <label className="text-xs sm:text-sm font-light text-white/60">
         {label} {required && <span className="text-[#E6E08A]">*</span>}
       </label>
       <input
@@ -552,7 +553,7 @@ const Input = ({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="mt-3 w-full rounded-xl bg-white/5 border border-white/10 px-5 py-3 text-white placeholder:text-white/20 outline-none focus:border-[#2F7D76]/50 focus:ring-2 focus:ring-[#2F7D76]/20 transition-all font-light"
+        className="mt-1 sm:mt-2 md:mt-3 w-full rounded-lg sm:rounded-xl bg-white/5 border border-white/10 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 text-white placeholder:text-white/20 outline-none focus:border-[#2F7D76]/50 focus:ring-2 focus:ring-[#2F7D76]/20 transition-all font-light text-sm sm:text-base"
       />
     </div>
   );
