@@ -94,14 +94,14 @@ const Hero = () => {
           
           <span className="relative inline-block">
             <span 
-              className={`text-white font-medium relative z-10 inline-block transition-all duration-1000 transform ${
+              className={`text-[#3E7B73] font-medium relative z-10 inline-block transition-all duration-1000 transform ${
                 isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-90'
               }`}
               style={{ transitionDelay: '1000ms' }}
             >
               precision
             </span>
-            <span className="absolute -inset-2 bg-white/10 blur-2xl rounded-full" />
+            <span className="absolute -inset-2 bg-[#3E7B73]/10 blur-2xl rounded-full" />
           </span>{' '}
           
           <span 
@@ -115,14 +115,14 @@ const Hero = () => {
           
           <span className="relative inline-block">
             <span 
-              className={`text-white font-medium relative z-10 inline-block transition-all duration-1000 transform ${
+              className={`text-[#3E7B73] font-medium relative z-10 inline-block transition-all duration-1000 transform ${
                 isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-90'
               }`}
               style={{ transitionDelay: '1200ms' }}
             >
               craftsmanship
             </span>
-            <span className="absolute -inset-2 bg-white/10 blur-2xl rounded-full" />
+            <span className="absolute -inset-2 bg-[#3E7B73]/10 blur-2xl rounded-full" />
           </span>
         </h1>
 
@@ -136,21 +136,21 @@ const Hero = () => {
           flawless finishes, balanced palettes, and enduring materials.
         </p>
 
-        {/* CTA Buttons - slide in from left and right */}
+        {/* CTA Buttons - Updated with brand colors */}
         <div className="flex flex-wrap items-center justify-center gap-6 mb-16">
           <button
             onClick={() => scrollTo("our-projects")}
-            className={`group relative px-8 py-4 bg-white text-[#1a1a1a] font-medium tracking-wide overflow-hidden transition-all duration-1000 delay-800 transform ${
+            className={`group relative px-8 py-4 bg-[#3E7B73] text-white font-medium tracking-wide overflow-hidden transition-all duration-1000 delay-800 transform hover:bg-[#2C5A54] ${
               isVisible ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
             }`}
           >
             <span className="relative z-10">View Projects</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
           </button>
 
           <button
             onClick={() => scrollTo("connect")}
-            className={`group px-8 py-4 border border-white/30 text-white font-medium tracking-wide backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-1000 delay-900 transform ${
+            className={`group px-8 py-4 border-2 border-[#3E7B73] text-[#3E7B73] font-medium tracking-wide bg-white/90 backdrop-blur-sm hover:bg-[#3E7B73] hover:text-white transition-all duration-1000 delay-900 transform ${
               isVisible ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
             }`}
           >
@@ -159,7 +159,7 @@ const Hero = () => {
           </button>
         </div>
 
-        {/* Refined Stats - slide up with staggered children */}
+        {/* Refined Stats - Updated text with brand colors */}
         <div className="grid grid-cols-3 gap-8 max-w-lg mx-auto">
           {[
             { value: "100+", label: "Finishing Details", icon: "✦" },
@@ -173,12 +173,12 @@ const Hero = () => {
               }`}
               style={{ transitionDelay: `${1000 + i * 150}ms` }}
             >
-              <p className="text-3xl font-light text-white mb-1 relative inline-block">
+              <p className="text-3xl font-light text-[#FEFEFE] mb-1 relative inline-block">
                 {stat.value}
-                <span className="absolute -bottom-2 left-0 w-0 h-px bg-white/40 group-hover:w-full transition-all duration-700" />
+                <span className="absolute -bottom-2 left-0 w-0 h-px bg-[#C79A3A] group-hover:w-full transition-all duration-700" />
               </p>
-              <p className="text-white/50 text-xs tracking-wide">{stat.label}</p>
-              <span className="text-white/20 text-xs mt-1 inline-block opacity-0 group-hover:opacity-100 transition-opacity">
+              <p className="text-[#FEFEFE]/70 text-xs tracking-wide">{stat.label}</p>
+              <span className="text-[#C79A3A] text-xs mt-1 inline-block opacity-0 group-hover:opacity-100 transition-opacity">
                 {stat.icon}
               </span>
             </div>
@@ -187,7 +187,7 @@ const Hero = () => {
 
         {/* Elegant Divider - fades in and grows */}
         <div 
-          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-white/0 via-white/30 to-white/0 transition-all duration-1500 delay-1200 ${
+          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent via-[#C79A3A]/50 to-transparent transition-all duration-1500 delay-1200 ${
             isVisible ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
           }`} 
         />
@@ -199,8 +199,8 @@ const Hero = () => {
           isVisible ? 'opacity-50' : 'opacity-0'
         } hover:opacity-80`}
       >
-        <span className="text-white/40 text-xs tracking-[0.3em]">SCROLL</span>
-        <div className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent" />
+        <span className="text-[#FEFEFE]/40 text-xs tracking-[0.3em]">SCROLL</span>
+        <div className="w-px h-12 bg-gradient-to-b from-[#C79A3A]/40 to-transparent" />
       </div>
     </section>
   );

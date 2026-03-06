@@ -126,17 +126,19 @@ const Navbar = () => {
                   <span 
                     className={`text-sm tracking-wide transition-all duration-300 ${
                       isActive 
-                        ? "text-white" 
+                        ? "text-[#3E7B73]" 
                         : "text-white/60 hover:text-white"
                     }`}
                   >
                     {item.label}
                   </span>
                   
-                  {/* Active/ Hover Indicator */}
+                  {/* Active/ Hover Indicator - Updated to use primary color when active */}
                   <span 
-                    className={`absolute bottom-0 left-0 h-px bg-white transition-all duration-300 ${
-                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    className={`absolute bottom-0 left-0 h-px transition-all duration-300 ${
+                      isActive 
+                        ? "w-full bg-[#3E7B73]" 
+                        : "w-0 bg-white group-hover:w-full"
                     }`} 
                   />
                 </button>
@@ -189,15 +191,17 @@ const Navbar = () => {
                 >
                   <span 
                     className={`text-base tracking-wide transition-all duration-300 ${
-                      isActive ? "text-white" : "text-white/50 group-hover:text-white"
+                      isActive 
+                        ? "text-[#3E7B73]" 
+                        : "text-white/50 group-hover:text-white"
                     }`}
                   >
                     {item.label}
                   </span>
                   
-                  {/* Mobile Active Indicator */}
+                  {/* Mobile Active Indicator - Updated to use primary color */}
                   {isActive && (
-                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-white" />
+                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-[#3E7B73]" />
                   )}
                 </button>
               );
