@@ -84,7 +84,7 @@ const Navbar = () => {
     >
       {/* Elegant top border line - slides in from left */}
       <div 
-        className={`absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-1500 delay-300 ${
+        className={`absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#f6ee99]/30 to-transparent transition-all duration-1500 delay-300 ${
           showNavbar ? "opacity-100" : "opacity-0"
         }`} 
       />
@@ -104,7 +104,7 @@ const Navbar = () => {
             <span className="text-white font-light text-3xl tracking-[0.3em]">
               CASSIA
             </span>
-            <span className="absolute -bottom-2 left-0 w-0 h-px bg-white/40 group-hover:w-full transition-all duration-700" />
+            <span className="absolute -bottom-2 left-0 w-0 h-px bg-[#f6ee99]/40 group-hover:w-full transition-all duration-700" />
           </button>
 
           {/* Desktop Navigation - each item slides in from right with staggered delay */}
@@ -126,18 +126,18 @@ const Navbar = () => {
                   <span 
                     className={`text-sm tracking-wide transition-all duration-300 ${
                       isActive 
-                        ? "text-[#3E7B73]" 
+                        ? "text-[#f6ee99]" 
                         : "text-white/60 hover:text-white"
                     }`}
                   >
                     {item.label}
                   </span>
                   
-                  {/* Active/ Hover Indicator - Updated to use primary color when active */}
+                  {/* Active/ Hover Indicator - Updated to use new color when active */}
                   <span 
                     className={`absolute bottom-0 left-0 h-px transition-all duration-300 ${
                       isActive 
-                        ? "w-full bg-[#3E7B73]" 
+                        ? "w-full bg-[#f6ee99]" 
                         : "w-0 bg-white group-hover:w-full"
                     }`} 
                   />
@@ -157,7 +157,7 @@ const Navbar = () => {
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
           >
-            <div className="absolute inset-0 border border-white/20 group-hover:border-white/40 transition-all duration-300" />
+            <div className="absolute inset-0 border border-white/20 group-hover:border-[#f6ee99]/40 transition-all duration-300" />
             {isOpen ? (
               <X className="w-5 h-5 text-white" />
             ) : (
@@ -192,16 +192,16 @@ const Navbar = () => {
                   <span 
                     className={`text-base tracking-wide transition-all duration-300 ${
                       isActive 
-                        ? "text-[#3E7B73]" 
+                        ? "text-[#f6ee99]" 
                         : "text-white/50 group-hover:text-white"
                     }`}
                   >
                     {item.label}
                   </span>
                   
-                  {/* Mobile Active Indicator - Updated to use primary color */}
+                  {/* Mobile Active Indicator - Updated to use new color */}
                   {isActive && (
-                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-[#3E7B73]" />
+                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-px h-6 bg-[#f6ee99]" />
                   )}
                 </button>
               );
@@ -223,7 +223,7 @@ const Navbar = () => {
 
       {/* Bottom border with gradient - slides in from right */}
       <div 
-        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-1500 delay-500 ${
+        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#f6ee99]/30 to-transparent transition-all duration-1500 delay-500 ${
           showNavbar ? "opacity-100" : "opacity-0"
         }`} 
       />

@@ -94,14 +94,14 @@ const Hero = () => {
           
           <span className="relative inline-block">
             <span 
-              className={`text-[#3E7B73] font-medium relative z-10 inline-block transition-all duration-1000 transform ${
+              className={`text-[#f6ee99] font-medium relative z-10 inline-block transition-all duration-1000 transform ${
                 isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-90'
               }`}
               style={{ transitionDelay: '1000ms' }}
             >
               precision
             </span>
-            <span className="absolute -inset-2 bg-[#3E7B73]/10 blur-2xl rounded-full" />
+            <span className="absolute -inset-2 bg-[#f6ee99]/10 blur-2xl rounded-full" />
           </span>{' '}
           
           <span 
@@ -115,14 +115,14 @@ const Hero = () => {
           
           <span className="relative inline-block">
             <span 
-              className={`text-[#3E7B73] font-medium relative z-10 inline-block transition-all duration-1000 transform ${
+              className={`text-[#f6ee99] font-medium relative z-10 inline-block transition-all duration-1000 transform ${
                 isVisible ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-90'
               }`}
               style={{ transitionDelay: '1200ms' }}
             >
               craftsmanship
             </span>
-            <span className="absolute -inset-2 bg-[#3E7B73]/10 blur-2xl rounded-full" />
+            <span className="absolute -inset-2 bg-[#f6ee99]/10 blur-2xl rounded-full" />
           </span>
         </h1>
 
@@ -159,7 +159,7 @@ const Hero = () => {
           </button>
         </div>
 
-        {/* Refined Stats - Updated text with brand colors */}
+        {/* Refined Stats - Updated text with new color */}
         <div className="grid grid-cols-3 gap-8 max-w-lg mx-auto">
           {[
             { value: "100+", label: "Finishing Details", icon: "✦" },
@@ -175,10 +175,10 @@ const Hero = () => {
             >
               <p className="text-3xl font-light text-[#FEFEFE] mb-1 relative inline-block">
                 {stat.value}
-                <span className="absolute -bottom-2 left-0 w-0 h-px bg-[#C79A3A] group-hover:w-full transition-all duration-700" />
+                <span className="absolute -bottom-2 left-0 w-0 h-px bg-[#f6ee99] group-hover:w-full transition-all duration-700" />
               </p>
               <p className="text-[#FEFEFE]/70 text-xs tracking-wide">{stat.label}</p>
-              <span className="text-[#C79A3A] text-xs mt-1 inline-block opacity-0 group-hover:opacity-100 transition-opacity">
+              <span className="text-[#f6ee99] text-xs mt-1 inline-block opacity-0 group-hover:opacity-100 transition-opacity">
                 {stat.icon}
               </span>
             </div>
@@ -187,7 +187,7 @@ const Hero = () => {
 
         {/* Elegant Divider - fades in and grows */}
         <div 
-          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent via-[#C79A3A]/50 to-transparent transition-all duration-1500 delay-1200 ${
+          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-px h-16 bg-gradient-to-b from-transparent via-[#f6ee99]/50 to-transparent transition-all duration-1500 delay-1200 ${
             isVisible ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
           }`} 
         />
@@ -200,7 +200,7 @@ const Hero = () => {
         } hover:opacity-80`}
       >
         <span className="text-[#FEFEFE]/40 text-xs tracking-[0.3em]">SCROLL</span>
-        <div className="w-px h-12 bg-gradient-to-b from-[#C79A3A]/40 to-transparent" />
+        <div className="w-px h-12 bg-gradient-to-b from-[#f6ee99]/40 to-transparent" />
       </div>
     </section>
   );
