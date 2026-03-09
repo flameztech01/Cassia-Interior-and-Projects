@@ -9,6 +9,7 @@ import {
 
 import Homepage from './screens/Homepage.tsx'
 import ProfessionalBio from './screens/ProfessionalBio.tsx'
+import NotFound from './screens/NotFound.tsx'
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     children: [
       {index: true, element: <Homepage />},
       {path: 'professional-bio', element: <ProfessionalBio />},
+      {path: '*', element: <NotFound />}
     ]
   }
 ])
