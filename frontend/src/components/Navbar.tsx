@@ -8,11 +8,13 @@ type NavItem = {
 
 const NAV_ITEMS: NavItem[] = [
   { label: "Home", id: "home" },
-  { label: "Brand Story", id: "brand-story" },
-  { label: "Vision & Mission", id: "vision-mission" },
+  {label: "Our Services", id: "services"},
+  // { label: "Brand Story", id: "brand-story" },
+  // { label: "Vision & Mission", id: "vision-mission" },
   { label: "Brand Manifesto", id: "brand-manifesto" },
-  { label: "Core Values", id: "core-values" },
+  // { label: "Core Values", id: "core-values" },
   { label: "Our Projects", id: "our-projects" },
+  {label: "Testimonials", id: "testimonials"},
   { label: "Team Members", id: "team-members" },
   { label: "Connect With Us", id: "connect" },
 ];
