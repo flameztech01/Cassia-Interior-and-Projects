@@ -18,43 +18,36 @@ const CoreExpertise = () => {
       icon: Brush,
       title: "Interior Finishing & Spatial Completion",
       description: "Meticulous attention to every detail, ensuring flawless surfaces and perfect edges that define luxury spaces.",
-      color: "from-[#C5A572] to-[#B08F5C]"
     },
     {
       icon: Building2,
       title: "Residential & Commercial Interior Design",
       description: "Creating sophisticated environments for homes, offices, and commercial spaces that balance aesthetics with function.",
-      color: "from-[#C5A572] to-[#B08F5C]"
     },
     {
       icon: ClipboardCheck,
       title: "Project Management & Coordination",
       description: "Seamless orchestration of contractors, timelines, and resources to deliver excellence on schedule.",
-      color: "from-[#C5A572] to-[#B08F5C]"
     },
     {
       icon: Ruler,
       title: "Material & Finish Specification",
       description: "Expert selection of premium materials and finishes that elevate spaces and ensure lasting quality.",
-      color: "from-[#C5A572] to-[#B08F5C]"
     },
     {
       icon: LayoutGrid,
       title: "Functional Space Planning",
       description: "Strategic layout design that optimizes flow, usability, and spatial harmony for everyday living and working.",
-      color: "from-[#C5A572] to-[#B08F5C]"
     },
     {
       icon: Target,
       title: "Design Execution Strategy",
       description: "Comprehensive planning from concept to completion, ensuring design integrity throughout the build process.",
-      color: "from-[#C5A572] to-[#B08F5C]"
     },
     {
       icon: HeartHandshake,
       title: "Client Experience & Delivery Management",
       description: "Dedicated partnership with clients, ensuring vision alignment and exceeding expectations at every milestone.",
-      color: "from-[#C5A572] to-[#B08F5C]"
     }
   ];
 
@@ -93,23 +86,23 @@ const CoreExpertise = () => {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A] to-[#1A1A1A]" />
         
-        {/* Subtle geometric pattern */}
+        {/* Subtle geometric pattern - updated to #f6ee99 */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: `
-              radial-gradient(circle at 30px 30px, rgba(197,165,114,0.2) 1px, transparent 0)
+              radial-gradient(circle at 30px 30px, rgba(246,238,153,0.2) 1px, transparent 0)
             `,
             backgroundSize: '60px 60px'
           }} />
         </div>
 
-        {/* Gold gradient orbs */}
-        <div className="absolute top-40 -left-20 w-80 h-80 bg-[#C5A572]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-40 -right-20 w-80 h-80 bg-[#C5A572]/10 rounded-full blur-3xl" />
+        {/* Gold gradient orbs - updated to #f6ee99 */}
+        <div className="absolute top-40 -left-20 w-80 h-80 bg-[#f6ee99]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 -right-20 w-80 h-80 bg-[#f6ee99]/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Section Header */}
+        {/* Section Header - updated to #f6ee99 */}
         <div className="text-center mb-16">
           <div 
             className={`flex justify-center mb-6 transition-all duration-1000 transform ${
@@ -117,11 +110,11 @@ const CoreExpertise = () => {
             }`}
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-px bg-[#C5A572]/40" />
-              <span className="text-[#C5A572] text-sm tracking-[0.3em] uppercase">
+              <div className="w-12 h-px bg-[#f6ee99]/40" />
+              <span className="text-[#f6ee99] text-sm tracking-[0.3em] uppercase">
                 Core Expertise
               </span>
-              <div className="w-12 h-px bg-[#C5A572]/40" />
+              <div className="w-12 h-px bg-[#f6ee99]/40" />
             </div>
           </div>
 
@@ -130,7 +123,7 @@ const CoreExpertise = () => {
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
-            Areas of <span className="text-[#C5A572]">Excellence</span>
+            Areas of <span className="text-[#f6ee99]">Excellence</span>
           </h2>
 
           <p 
@@ -156,27 +149,27 @@ const CoreExpertise = () => {
                 style={{ transitionDelay: `${400 + index * 100}ms` }}
               >
                 {/* Card Background with hover effect */}
-                <div className="relative bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#C5A572]/30 transition-all duration-500 h-full overflow-hidden group-hover:shadow-2xl group-hover:shadow-[#C5A572]/5">
+                <div className="relative bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#f6ee99]/30 transition-all duration-500 h-full overflow-hidden group-hover:shadow-2xl group-hover:shadow-[#f6ee99]/5">
                   
-                  {/* Hover gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#C5A572]/0 via-[#C5A572]/0 to-[#C5A572]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  {/* Hover gradient overlay - updated to #f6ee99 */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#f6ee99]/0 via-[#f6ee99]/0 to-[#f6ee99]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   
-                  {/* Decorative corner accent */}
+                  {/* Decorative corner accent - updated to #f6ee99 */}
                   <div className="absolute top-0 right-0 w-16 h-16">
-                    <div className="absolute top-0 right-0 w-8 h-px bg-gradient-to-l from-[#C5A572]/50 to-transparent group-hover:w-12 transition-all duration-500" />
-                    <div className="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-[#C5A572]/50 to-transparent group-hover:h-12 transition-all duration-500" />
+                    <div className="absolute top-0 right-0 w-8 h-px bg-gradient-to-l from-[#f6ee99]/50 to-transparent group-hover:w-12 transition-all duration-500" />
+                    <div className="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-[#f6ee99]/50 to-transparent group-hover:h-12 transition-all duration-500" />
                   </div>
 
-                  {/* Icon with elegant styling */}
+                  {/* Icon with elegant styling - updated to #f6ee99 */}
                   <div className="relative mb-6">
-                    <div className="absolute inset-0 bg-[#C5A572] blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700" />
-                    <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-[#C5A572]/20 to-transparent flex items-center justify-center border border-[#C5A572]/30 group-hover:border-[#C5A572]/60 transition-all duration-500 group-hover:scale-110">
-                      <Icon className="w-8 h-8 text-[#C5A572] group-hover:text-white transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-[#f6ee99] blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700" />
+                    <div className="relative w-16 h-16 rounded-full bg-gradient-to-br from-[#f6ee99]/20 to-transparent flex items-center justify-center border border-[#f6ee99]/30 group-hover:border-[#f6ee99]/60 transition-all duration-500 group-hover:scale-110">
+                      <Icon className="w-8 h-8 text-[#f6ee99] group-hover:text-white transition-colors duration-500" />
                     </div>
                   </div>
 
-                  {/* Content */}
-                  <h3 className="text-xl font-light text-white mb-3 group-hover:text-[#C5A572] transition-colors duration-500">
+                  {/* Content - updated to #f6ee99 */}
+                  <h3 className="text-xl font-light text-white mb-3 group-hover:text-[#f6ee99] transition-colors duration-500">
                     {item.title}
                   </h3>
                   
@@ -184,45 +177,45 @@ const CoreExpertise = () => {
                     {item.description}
                   </p>
 
-                  {/* Bottom accent line */}
-                  <div className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-[#C5A572] to-transparent group-hover:w-full transition-all duration-700" />
+                  {/* Bottom accent line - updated to #f6ee99 */}
+                  <div className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-[#f6ee99] to-transparent group-hover:w-full transition-all duration-700" />
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Bottom decorative elements */}
+        {/* Bottom decorative elements - updated to #f6ee99 */}
         <div 
           className={`mt-16 flex justify-center transition-all duration-1000 delay-1200 transform ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
         >
           <div className="flex items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-[#C5A572]/40" />
-            <div className="w-2 h-2 rounded-full bg-[#C5A572]/60" />
-            <div className="w-2 h-2 rounded-full bg-[#C5A572]" />
-            <div className="w-2 h-2 rounded-full bg-[#C5A572]/60" />
-            <div className="w-2 h-2 rounded-full bg-[#C5A572]/40" />
+            <div className="w-2 h-2 rounded-full bg-[#f6ee99]/40" />
+            <div className="w-2 h-2 rounded-full bg-[#f6ee99]/60" />
+            <div className="w-2 h-2 rounded-full bg-[#f6ee99]" />
+            <div className="w-2 h-2 rounded-full bg-[#f6ee99]/60" />
+            <div className="w-2 h-2 rounded-full bg-[#f6ee99]/40" />
           </div>
         </div>
       </div>
 
-      {/* Side decorative lines */}
+      {/* Side decorative lines - updated to #f6ee99 */}
       <div 
-        className={`absolute left-0 top-1/2 -translate-y-1/2 w-px h-48 bg-gradient-to-b from-transparent via-[#C5A572]/30 to-transparent transition-all duration-1500 delay-1000 ${
+        className={`absolute left-0 top-1/2 -translate-y-1/2 w-px h-48 bg-gradient-to-b from-transparent via-[#f6ee99]/30 to-transparent transition-all duration-1500 delay-1000 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`} 
       />
       <div 
-        className={`absolute right-0 top-1/2 -translate-y-1/2 w-px h-48 bg-gradient-to-b from-transparent via-[#C5A572]/30 to-transparent transition-all duration-1500 delay-1100 ${
+        className={`absolute right-0 top-1/2 -translate-y-1/2 w-px h-48 bg-gradient-to-b from-transparent via-[#f6ee99]/30 to-transparent transition-all duration-1500 delay-1100 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`} 
       />
 
-      {/* Bottom gradient line */}
+      {/* Bottom gradient line - updated to #f6ee99 */}
       <div 
-        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#C5A572]/40 to-transparent transition-opacity duration-1500 delay-1300 ${
+        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#f6ee99]/40 to-transparent transition-opacity duration-1500 delay-1300 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`} 
       />

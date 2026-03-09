@@ -40,26 +40,26 @@ const Education = () => {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A] to-[#1A1A1A]" />
         
-        {/* Very subtle gold line pattern */}
+        {/* Very subtle gold line pattern - updated to #f6ee99 */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#C5A572] to-transparent" />
-          <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#C5A572] to-transparent" />
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#f6ee99] to-transparent" />
+          <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#f6ee99] to-transparent" />
         </div>
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6">
-        {/* Section Label - Minimal */}
+        {/* Section Label - Minimal - updated to #f6ee99 */}
         <div 
           className={`flex justify-center mb-6 transition-all duration-1000 transform ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
           }`}
         >
           <div className="flex items-center gap-3">
-            <div className="w-8 h-px bg-[#C5A572]/40" />
-            <span className="text-[#C5A572] text-xs tracking-[0.3em] uppercase">
+            <div className="w-8 h-px bg-[#f6ee99]/40" />
+            <span className="text-[#f6ee99] text-xs tracking-[0.3em] uppercase">
               Academic Background
             </span>
-            <div className="w-8 h-px bg-[#C5A572]/40" />
+            <div className="w-8 h-px bg-[#f6ee99]/40" />
           </div>
         </div>
 
@@ -69,28 +69,28 @@ const Education = () => {
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
           }`}
         >
-          {/* Card - Simple and Elegant */}
-          <div className="relative bg-gradient-to-r from-white/5 to-transparent backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#C5A572]/30 transition-all duration-500">
+          {/* Card - Simple and Elegant - updated to #f6ee99 */}
+          <div className="relative bg-gradient-to-r from-white/5 to-transparent backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#f6ee99]/30 transition-all duration-500 group">
             
-            {/* Decorative accent - minimal */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 bg-gradient-to-b from-[#C5A572] to-[#C5A572]/30 rounded-r-full" />
+            {/* Decorative accent - minimal - updated to #f6ee99 */}
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 bg-gradient-to-b from-[#f6ee99] to-[#f6ee99]/30 rounded-r-full" />
             
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               
-              {/* Left side - Degree and Institution */}
+              {/* Left side - Degree and Institution - updated to #f6ee99 */}
               <div className="flex items-center gap-4">
-                {/* Icon */}
+                {/* Icon - updated to #f6ee99 */}
                 <div className="relative">
-                  <div className="absolute inset-0 bg-[#C5A572] blur-md opacity-20" />
-                  <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-[#C5A572]/20 to-transparent flex items-center justify-center border border-[#C5A572]/30">
-                    <GraduationCap className="w-6 h-6 text-[#C5A572]" />
+                  <div className="absolute inset-0 bg-[#f6ee99] blur-md opacity-20" />
+                  <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-[#f6ee99]/20 to-transparent flex items-center justify-center border border-[#f6ee99]/30">
+                    <GraduationCap className="w-6 h-6 text-[#f6ee99]" />
                   </div>
                 </div>
 
-                {/* Text */}
+                {/* Text - updated to #f6ee99 */}
                 <div>
                   <h3 className="text-2xl md:text-3xl font-light text-white mb-1">
-                    B.Sc. <span className="text-[#C5A572]">Biochemistry</span>
+                    B.Sc. <span className="text-[#f6ee99]">Biochemistry</span>
                   </h3>
                   <div className="flex items-center gap-4 text-white/50">
                     <span className="text-sm">Nasarawa State University, Keffi</span>
@@ -112,8 +112,8 @@ const Education = () => {
               </div>
             </div>
 
-            {/* Hover effect line */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-gradient-to-r from-transparent via-[#C5A572] to-transparent group-hover:w-full transition-all duration-500" />
+            {/* Hover effect line - updated to #f6ee99 */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-gradient-to-r from-transparent via-[#f6ee99] to-transparent group-hover:w-full transition-all duration-500" />
           </div>
         </div>
 
@@ -129,14 +129,14 @@ const Education = () => {
         </div>
       </div>
 
-      {/* Simple side lines */}
+      {/* Simple side lines - updated to #f6ee99 */}
       <div 
-        className={`absolute left-0 top-1/2 -translate-y-1/2 w-px h-16 bg-gradient-to-b from-transparent via-[#C5A572]/20 to-transparent transition-all duration-1500 delay-500 ${
+        className={`absolute left-0 top-1/2 -translate-y-1/2 w-px h-16 bg-gradient-to-b from-transparent via-[#f6ee99]/20 to-transparent transition-all duration-1500 delay-500 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`} 
       />
       <div 
-        className={`absolute right-0 top-1/2 -translate-y-1/2 w-px h-16 bg-gradient-to-b from-transparent via-[#C5A572]/20 to-transparent transition-all duration-1500 delay-600 ${
+        className={`absolute right-0 top-1/2 -translate-y-1/2 w-px h-16 bg-gradient-to-b from-transparent via-[#f6ee99]/20 to-transparent transition-all duration-1500 delay-600 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`} 
       />

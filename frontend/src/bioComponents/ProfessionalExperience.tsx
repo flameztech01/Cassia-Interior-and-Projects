@@ -99,18 +99,18 @@ const ProfessionalExperience = () => {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A] to-[#1A1A1A]" />
         
-        {/* Timeline pattern background */}
+        {/* Timeline pattern background - updated to #f6ee99 */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-[#C5A572]/30 to-transparent" />
+          <div className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-[#f6ee99]/30 to-transparent" />
         </div>
 
-        {/* Gold gradient orbs */}
-        <div className="absolute top-40 -left-20 w-80 h-80 bg-[#C5A572]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-40 -right-20 w-80 h-80 bg-[#C5A572]/10 rounded-full blur-3xl" />
+        {/* Gold gradient orbs - updated to #f6ee99 */}
+        <div className="absolute top-40 -left-20 w-80 h-80 bg-[#f6ee99]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 -right-20 w-80 h-80 bg-[#f6ee99]/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Section Header */}
+        {/* Section Header - updated to #f6ee99 */}
         <div className="text-center mb-16">
           <div 
             className={`flex justify-center mb-6 transition-all duration-1000 transform ${
@@ -118,11 +118,11 @@ const ProfessionalExperience = () => {
             }`}
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-px bg-[#C5A572]/40" />
-              <span className="text-[#C5A572] text-sm tracking-[0.3em] uppercase">
+              <div className="w-12 h-px bg-[#f6ee99]/40" />
+              <span className="text-[#f6ee99] text-sm tracking-[0.3em] uppercase">
                 Professional Journey
               </span>
-              <div className="w-12 h-px bg-[#C5A572]/40" />
+              <div className="w-12 h-px bg-[#f6ee99]/40" />
             </div>
           </div>
 
@@ -131,7 +131,7 @@ const ProfessionalExperience = () => {
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
-            Experience & <span className="text-[#C5A572]">Milestones</span>
+            Experience & <span className="text-[#f6ee99]">Milestones</span>
           </h2>
 
           <p 
@@ -143,7 +143,7 @@ const ProfessionalExperience = () => {
           </p>
         </div>
 
-        {/* Stats Grid - First Row (Highlighted Items) */}
+        {/* Stats Grid - First Row (Highlighted Items) - updated to #f6ee99 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-8">
           {experienceItems.slice(0, 2).map((item, index) => {
             const Icon = item.icon;
@@ -156,25 +156,25 @@ const ProfessionalExperience = () => {
                 }`}
                 style={{ transitionDelay: `${400 + index * 100}ms` }}
               >
-                {/* Highlighted Card Design */}
-                <div className="relative bg-gradient-to-br from-[#C5A572]/20 to-transparent backdrop-blur-sm rounded-2xl p-8 border border-[#C5A572]/30 hover:border-[#C5A572] transition-all duration-500 overflow-hidden">
+                {/* Highlighted Card Design - updated to #f6ee99 */}
+                <div className="relative bg-gradient-to-br from-[#f6ee99]/20 to-transparent backdrop-blur-sm rounded-2xl p-8 border border-[#f6ee99]/30 hover:border-[#f6ee99] transition-all duration-500 overflow-hidden">
                   
-                  {/* Background glow */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#C5A572]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                  {/* Background glow - updated to #f6ee99 */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#f6ee99]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   
                   {/* Content */}
                   <div className="relative flex items-start gap-6">
-                    {/* Icon */}
+                    {/* Icon - updated to #f6ee99 */}
                     <div className="relative">
-                      <div className="absolute inset-0 bg-[#C5A572] blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-700" />
-                      <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-[#C5A572] to-[#B08F5C] flex items-center justify-center shadow-2xl">
-                        <Icon className="w-10 h-10 text-white" />
+                      <div className="absolute inset-0 bg-[#f6ee99] blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-700" />
+                      <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-[#f6ee99] to-[#d4c27c] flex items-center justify-center shadow-2xl">
+                        <Icon className="w-10 h-10 text-[#0A0A0A]" />
                       </div>
                     </div>
 
                     {/* Text */}
                     <div className="flex-1">
-                      <div className="text-4xl md:text-5xl font-light text-[#C5A572] mb-2 group-hover:scale-105 transition-transform duration-500 origin-left">
+                      <div className="text-4xl md:text-5xl font-light text-[#f6ee99] mb-2 group-hover:scale-105 transition-transform duration-500 origin-left">
                         {item.value}
                       </div>
                       <h3 className="text-xl font-medium text-white mb-2">
@@ -186,10 +186,10 @@ const ProfessionalExperience = () => {
                     </div>
                   </div>
 
-                  {/* Decorative corner accents */}
+                  {/* Decorative corner accents - updated to #f6ee99 */}
                   <div className="absolute top-0 right-0 w-16 h-16">
-                    <div className="absolute top-0 right-0 w-12 h-px bg-gradient-to-l from-[#C5A572] to-transparent" />
-                    <div className="absolute top-0 right-0 w-px h-12 bg-gradient-to-b from-[#C5A572] to-transparent" />
+                    <div className="absolute top-0 right-0 w-12 h-px bg-gradient-to-l from-[#f6ee99] to-transparent" />
+                    <div className="absolute top-0 right-0 w-px h-12 bg-gradient-to-b from-[#f6ee99] to-transparent" />
                   </div>
                 </div>
               </div>
@@ -197,7 +197,7 @@ const ProfessionalExperience = () => {
           })}
         </div>
 
-        {/* Stats Grid - Second Row (Regular Items) */}
+        {/* Stats Grid - Second Row (Regular Items) - updated to #f6ee99 */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {experienceItems.slice(2).map((item, index) => {
             const Icon = item.icon;
@@ -210,18 +210,18 @@ const ProfessionalExperience = () => {
                 }`}
                 style={{ transitionDelay: `${600 + index * 100}ms` }}
               >
-                {/* Regular Card Design */}
-                <div className="relative bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#C5A572]/30 transition-all duration-500 h-full overflow-hidden">
+                {/* Regular Card Design - updated to #f6ee99 */}
+                <div className="relative bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#f6ee99]/30 transition-all duration-500 h-full overflow-hidden">
                   
-                  {/* Icon */}
+                  {/* Icon - updated to #f6ee99 */}
                   <div className="relative mb-4">
-                    <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-[#C5A572]/20 to-transparent flex items-center justify-center border border-[#C5A572]/30 group-hover:border-[#C5A572]/60 transition-all duration-500">
-                      <Icon className="w-6 h-6 text-[#C5A572] group-hover:text-white transition-colors duration-500" />
+                    <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-[#f6ee99]/20 to-transparent flex items-center justify-center border border-[#f6ee99]/30 group-hover:border-[#f6ee99]/60 transition-all duration-500">
+                      <Icon className="w-6 h-6 text-[#f6ee99] group-hover:text-white transition-colors duration-500" />
                     </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="text-3xl font-light text-[#C5A572] mb-1 group-hover:scale-105 transition-transform duration-500 origin-left">
+                  {/* Content - updated to #f6ee99 */}
+                  <div className="text-3xl font-light text-[#f6ee99] mb-1 group-hover:scale-105 transition-transform duration-500 origin-left">
                     {item.value}
                   </div>
                   <h3 className="text-base font-medium text-white mb-2">
@@ -231,32 +231,32 @@ const ProfessionalExperience = () => {
                     {item.description}
                   </p>
 
-                  {/* Bottom accent line */}
-                  <div className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-[#C5A572] to-transparent group-hover:w-full transition-all duration-700" />
+                  {/* Bottom accent line - updated to #f6ee99 */}
+                  <div className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-[#f6ee99] to-transparent group-hover:w-full transition-all duration-700" />
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Timeline Section */}
+        {/* Timeline Section - updated to #f6ee99 */}
         <div className="relative mt-20">
-          {/* Timeline header */}
+          {/* Timeline header - updated to #f6ee99 */}
           <div 
             className={`text-center mb-12 transition-all duration-1000 delay-800 transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
             <h3 className="text-2xl font-light text-white mb-2">
-              Career <span className="text-[#C5A572]">Timeline</span>
+              Career <span className="text-[#f6ee99]">Timeline</span>
             </h3>
-            <div className="w-20 h-px bg-gradient-to-r from-transparent via-[#C5A572] to-transparent mx-auto" />
+            <div className="w-20 h-px bg-gradient-to-r from-transparent via-[#f6ee99] to-transparent mx-auto" />
           </div>
 
           {/* Timeline items */}
           <div className="relative">
-            {/* Central line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-[#C5A572]/40 to-transparent" />
+            {/* Central line - updated to #f6ee99 */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-[#f6ee99]/40 to-transparent" />
 
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
@@ -273,10 +273,10 @@ const ProfessionalExperience = () => {
                     <div className="w-1/2 px-8">
                       <div className={`${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
                         <div className="inline-block">
-                          <span className="text-2xl font-light text-[#C5A572]">
+                          <span className="text-2xl font-light text-[#f6ee99]">
                             {milestone.year}
                           </span>
-                          <div className={`w-full h-px bg-gradient-to-r ${index % 2 === 0 ? 'from-[#C5A572] to-transparent' : 'from-transparent to-[#C5A572]'} mt-1`} />
+                          <div className={`w-full h-px bg-gradient-to-r ${index % 2 === 0 ? 'from-[#f6ee99] to-transparent' : 'from-transparent to-[#f6ee99]'} mt-1`} />
                           <p className="text-white/70 mt-2 text-base">
                             {milestone.event}
                           </p>
@@ -284,10 +284,10 @@ const ProfessionalExperience = () => {
                       </div>
                     </div>
 
-                    {/* Center dot */}
+                    {/* Center dot - updated to #f6ee99 */}
                     <div className="relative flex items-center justify-center w-8 h-8">
-                      <div className="absolute w-4 h-4 rounded-full bg-[#C5A572] animate-pulse" />
-                      <div className="absolute w-8 h-8 rounded-full border border-[#C5A572]/30" />
+                      <div className="absolute w-4 h-4 rounded-full bg-[#f6ee99] animate-pulse" />
+                      <div className="absolute w-8 h-8 rounded-full border border-[#f6ee99]/30" />
                     </div>
 
                     {/* Empty side for spacing */}
@@ -299,7 +299,7 @@ const ProfessionalExperience = () => {
           </div>
         </div>
 
-        {/* Bottom decorative elements */}
+        {/* Bottom decorative elements - updated to #f6ee99 */}
         <div 
           className={`mt-16 flex justify-center transition-all duration-1000 delay-1400 transform ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
@@ -307,29 +307,29 @@ const ProfessionalExperience = () => {
         >
           <div className="flex items-center gap-2">
             <span className="text-white/30 text-sm tracking-[0.2em]">PRECISION</span>
-            <span className="text-[#C5A572] text-xl">✦</span>
+            <span className="text-[#f6ee99] text-xl">✦</span>
             <span className="text-white/30 text-sm tracking-[0.2em]">EXCELLENCE</span>
-            <span className="text-[#C5A572] text-xl">✦</span>
+            <span className="text-[#f6ee99] text-xl">✦</span>
             <span className="text-white/30 text-sm tracking-[0.2em]">DELIVERY</span>
           </div>
         </div>
       </div>
 
-      {/* Side decorative lines */}
+      {/* Side decorative lines - updated to #f6ee99 */}
       <div 
-        className={`absolute left-0 top-1/2 -translate-y-1/2 w-px h-64 bg-gradient-to-b from-transparent via-[#C5A572]/30 to-transparent transition-all duration-1500 delay-1200 ${
+        className={`absolute left-0 top-1/2 -translate-y-1/2 w-px h-64 bg-gradient-to-b from-transparent via-[#f6ee99]/30 to-transparent transition-all duration-1500 delay-1200 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`} 
       />
       <div 
-        className={`absolute right-0 top-1/2 -translate-y-1/2 w-px h-64 bg-gradient-to-b from-transparent via-[#C5A572]/30 to-transparent transition-all duration-1500 delay-1300 ${
+        className={`absolute right-0 top-1/2 -translate-y-1/2 w-px h-64 bg-gradient-to-b from-transparent via-[#f6ee99]/30 to-transparent transition-all duration-1500 delay-1300 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`} 
       />
 
-      {/* Bottom gradient line */}
+      {/* Bottom gradient line - updated to #f6ee99 */}
       <div 
-        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#C5A572]/40 to-transparent transition-opacity duration-1500 delay-1500 ${
+        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#f6ee99]/40 to-transparent transition-opacity duration-1500 delay-1500 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`} 
       />
