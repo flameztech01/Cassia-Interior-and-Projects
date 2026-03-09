@@ -191,13 +191,13 @@ const CoreExpertise = () => {
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
         >
-          <div className="flex items-center gap-3">
+          {/* <div className="flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-[#f6ee99]/40" />
             <div className="w-2 h-2 rounded-full bg-[#f6ee99]/60" />
             <div className="w-2 h-2 rounded-full bg-[#f6ee99]" />
             <div className="w-2 h-2 rounded-full bg-[#f6ee99]/60" />
             <div className="w-2 h-2 rounded-full bg-[#f6ee99]/40" />
-          </div>
+          </div> */}
         </div>
       </div>
 
