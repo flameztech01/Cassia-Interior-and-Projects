@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 
 import Homepage from './screens/Homepage.tsx'
+import ProfessionalBio from './screens/ProfessionalBio.tsx'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {index: true, element: <Homepage />},
+      {path: 'professional-bio', element: <ProfessionalBio />},
     ]
   }
 ])
