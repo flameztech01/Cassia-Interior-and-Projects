@@ -14,37 +14,46 @@ import TeamMembers from '../components/TeamMembers'
 import ConnectWithUs from "../components/ConnectWithUs"
 
 const Homepage = () => {
-  const [showExpanded, setShowExpanded] = useState(false)
+  const [showFloatingIcon, setShowFloatingIcon] = useState(false);
+  const [scrollTimeout, setScrollTimeout] = useState<any>(null);
 
   useEffect(() => {
-    let scrollTimer: number | undefined
-
     const handleScroll = () => {
-      setShowExpanded(false)
+      // Hide the icon while scrolling
+      setShowFloatingIcon(false);
       
-      // Clear the previous timer
-      if (scrollTimer) {
-        clearTimeout(scrollTimer)
+      // Clear existing timeout
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
       }
       
-      // Set a new timer
-      scrollTimer = window.setTimeout(() => {
-        setShowExpanded(true)
-      }, 150) // Wait 150ms after scrolling stops before expanding
-    }
+      // Set new timeout to show icon when scrolling stops
+      const timeout = setTimeout(() => {
+        setShowFloatingIcon(true);
+      }, 500); // Show after 500ms of no scrolling
+      
+      setScrollTimeout(timeout);
+    };
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll);
     
+    // Initial timeout to show icon after page loads
+    const initialTimeout = setTimeout(() => {
+      setShowFloatingIcon(true);
+    }, 1000);
+    
+    setScrollTimeout(initialTimeout);
+
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-      if (scrollTimer) {
-        clearTimeout(scrollTimer)
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   return (
-    <div>
+    <div className="relative">
       <Navbar />
       <Hero />
       <Services />
@@ -57,16 +66,16 @@ const Homepage = () => {
       <TeamMembers />
       <ConnectWithUs />
       
-      {/* Floating Button */}
+      {/* Floating Button - appears when scrolling stops */}
       <Link
         to="/professional-bio"
-        className={`fixed bottom-6 right-6 bg-black text-white rounded-full shadow-lg hover:scale-110 transition-all duration-300 z-50 flex items-center ${
-          showExpanded ? 'px-6 py-3' : 'p-4'
+        className={`fixed bottom-6 right-6 bg-black text-white rounded-full shadow-lg hover:scale-110 transition-all duration-500 z-50 flex items-center ${
+          showFloatingIcon ? 'px-6 py-3 opacity-100 translate-y-0' : 'p-4 opacity-0 translate-y-12'
         }`}
         aria-label="Professional Bio"
       >
         <MdPerson size={24} className="flex-shrink-0" />
-        {showExpanded && (
+        {showFloatingIcon && (
           <span className="ml-2 whitespace-nowrap font-medium">
             Professional Bio
           </span>
