@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom"; // Add this import if using React Router
+// If not using React Router, replace with regular <a> tag
 
 type TeamMember = {
   name: string;
@@ -174,26 +176,27 @@ const TeamMembers = () => {
           
           {/* Featured Executive Director - luxury redesign */}
           {featured && (
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5 relative">
+              {/* Executive Director Badge - positioned half outside top */}
+              <div 
+                className={`absolute -top-4 right-8 z-20 transition-all duration-1000 delay-900 transform ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}
+              >
+                <div className="relative">
+                  <div className="absolute inset-0 bg-[#2F7D76] rounded-full blur-md opacity-50" />
+                  <span className="relative block bg-[#2F7D76] text-white text-xs tracking-[0.2em] px-6 py-3 rounded-full">
+                    EXECUTIVE DIRECTOR
+                  </span>
+                </div>
+              </div>
+
+              {/* Main Card */}
               <div 
                 className={`relative bg-white/5 backdrop-blur-sm rounded-[2rem] p-10 border border-white/10 hover:border-[#2F7D76]/30 transition-all duration-1000 delay-800 transform ${
                   isVisible ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'
                 }`}
               >
-                {/* Elegant badge with brand colors - slides up */}
-                <div 
-                  className={`absolute -top-4 right-8 transition-all duration-1000 delay-900 transform ${
-                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                  }`}
-                >
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-[#2F7D76] rounded-full blur-md opacity-50" />
-                    <span className="relative block bg-[#2F7D76] text-white text-xs tracking-[0.2em] px-6 py-3 rounded-full">
-                      EXECUTIVE DIRECTOR
-                    </span>
-                  </div>
-                </div>
-
                 {/* Decorative corner accents - fade in */}
                 <div className={`absolute top-6 left-6 w-12 h-12 border-t border-l border-[#E6E08A]/30 transition-opacity duration-1000 delay-1000 ${
                   isVisible ? 'opacity-50' : 'opacity-0'
@@ -253,6 +256,22 @@ const TeamMembers = () => {
                     </p>
                   </div>
                 </div>
+              </div>
+
+              {/* View Full Bio Button - positioned half outside bottom (matching top badge style) */}
+              <div 
+                className={`absolute -bottom-4 left-1/2 -translate-x-1/2 z-20 transition-all duration-1000 delay-1200 transform ${
+                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}
+              >
+                <Link
+                  to="/professional-bio"
+                  className="group relative inline-flex items-center gap-2 px-6 py-3 bg-[#f6ee99] text-[#222121] rounded-full hover:bg-[#E6DE89] transition-all duration-300 overflow-hidden shadow-lg hover:shadow-[#f6ee99]/20"
+                >
+                  <span className="relative z-10 text-sm font-medium tracking-wide">View Full Bio</span>
+                  <span className="relative z-10 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                </Link>
               </div>
             </div>
           )}

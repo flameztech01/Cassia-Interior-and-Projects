@@ -105,8 +105,8 @@ const ProfessionalSummary = () => {
               Specializing in <span className="text-[#f6ee99] font-medium">finishing and spatial development</span>, Comfort brings an 
               unparalleled eye for precision to every project. She understands that finishing is not merely the final 
               layer—it is the signature of quality, the hallmark of craftsmanship that transforms ordinary structures 
-              into extraordinary environments. Her expertise spans residential sanctuaries, commercial powerhouses, 
-              corporate headquarters, and hospitality destinations.
+              into extraordinary environments. Her expertise spans residential sanctuaries, commercial & 
+              corporate spaces, and hospitality destinations.
             </p>
 
             {/* Philosophy - updated highlights to #f6ee99 */}
@@ -127,11 +127,21 @@ const ProfessionalSummary = () => {
                 isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
               }`}
             >
-              As <span className="text-[#f6ee99] font-medium">Executive Director of Cassia Interiors & Projects</span>, Comfort leads a team dedicated to 
+              As <span className="text-[#f6ee99] font-medium">Executive Director of Cassia Interiors & Projects, </span> Comfort leads a team dedicated to 
               excellence in every detail. Under her guidance, the firm has become synonymous with precision finishing, 
-              delivering projects that exceed client expectations across residential, commercial, corporate, and 
-              hospitality sectors. Her leadership ensures that Cassia remains at the forefront of the industry—a 
-              trusted name for those who demand nothing less than perfection.
+              delivering projects that exceed client expectations across residential, commercial, corporate, and hospitality sectors.
+              Her approach prioritizes spatial functionality, user wellbeing, material intelligence, and disciplined execution standards.
+            </p>
+            <p>
+              Comfort holds <span  className="text-[#f6ee99] font-medium">professional certifications in Interior Design and Project Management,</span>  reinforcing her 
+              ability to deliver complex projects with a balance of creative vision and operational precision. She holds 
+              a Bachelor of Science (B.Sc.) in Biochemistry from Nasarawa State University, Keffi.
+            </p>
+            <p>
+              Beyond <span className="text-[#f6ee99] font-medium">project delivery,</span>  she is deeply invested in advancing finishing 
+              awareness within the built environment industry. She actively contributes to professional knowledge sharing, 
+              homeowner education, and industry conversations focused on improving finishing standards and spatial 
+              performance across modern interiors.
             </p>
           </div>
 

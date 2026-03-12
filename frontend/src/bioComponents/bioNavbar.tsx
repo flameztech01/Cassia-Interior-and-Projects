@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom"; // Add this import
 
 type NavItem = {
   label: string;
@@ -12,7 +13,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Expertise", id: "expertise" },
   { label: "Experience", id: "experience" },
   { label: "Leadership", id: "leadership" },
-  { label: "Contact", id: "contact" },
+  { label: "Contact", id: "contact" }, // Contact is still in NAV_ITEMS
 ];
 
 const BioNavbar = () => {
@@ -100,7 +101,8 @@ const BioNavbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            {NAV_ITEMS.map((item) => {
+            {/* Map through items but stop before Contact */}
+            {NAV_ITEMS.slice(0, 5).map((item) => {
               const isActive = activeSection === item.id;
               
               return (
@@ -129,6 +131,45 @@ const BioNavbar = () => {
                 </button>
               );
             })}
+
+            {/* Cassia Link - immediately after Leadership */}
+            <Link
+              to="/"
+              className="relative py-2 group"
+            >
+              <span className="text-sm tracking-wide text-white/70 group-hover:text-[#C5A572] transition-colors duration-300">
+                Cassia
+              </span>
+              {/* Special gold indicator for Cassia */}
+              <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-gradient-to-r from-[#C5A572] via-[#C5A572] to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              {/* Small decorative element */}
+              <span className="absolute -top-1 -right-2 w-1 h-1 rounded-full bg-[#C5A572]/40 group-hover:bg-[#C5A572] transition-colors duration-300" />
+            </Link>
+
+            {/* Contact - last item */}
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="relative py-2 group"
+            >
+              <span 
+                className={`text-sm tracking-wide transition-colors duration-300 ${
+                  activeSection === "contact" 
+                    ? "text-[#C5A572]" 
+                    : "text-white/70 group-hover:text-white"
+                }`}
+              >
+                Contact
+              </span>
+              
+              {/* Active indicator - dot */}
+              {activeSection === "contact" && (
+                <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full bg-[#C5A572]" />
+              )}
+              
+              {/* Hover indicator - line */}
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C5A572]/50 group-hover:w-full transition-all duration-300" />
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -155,7 +196,8 @@ const BioNavbar = () => {
       >
         <div className="px-6 py-4">
           <div className="space-y-1">
-            {NAV_ITEMS.map((item, index) => {
+            {/* Map through items but stop before Contact */}
+            {NAV_ITEMS.slice(0, 5).map((item, index) => {
               const isActive = activeSection === item.id;
               
               return (
@@ -178,6 +220,36 @@ const BioNavbar = () => {
                 </button>
               );
             })}
+
+            {/* Mobile Cassia Link - immediately after Leadership */}
+            <Link
+              to="/"
+              onClick={() => setIsOpen(false)}
+              className="w-full block text-left py-3 px-4 text-white/70 hover:bg-white/5 hover:text-[#C5A572] transition-all duration-300 border-l-2 border-[#C5A572]/30 hover:border-[#C5A572]"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-medium">Cassia</span>
+                <span className="text-[#C5A572] text-xs">↗</span>
+              </div>
+              <span className="block text-[10px] text-white/30 mt-1">Visit main site</span>
+            </Link>
+
+            {/* Mobile Contact - last item */}
+            <button
+              onClick={() => scrollToSection("contact")}
+              className={`w-full text-left py-3 px-4 transition-all duration-300 ${
+                activeSection === "contact" 
+                  ? "bg-white/5 text-[#C5A572]" 
+                  : "text-white/70 hover:bg-white/5 hover:text-white"
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span>Contact</span>
+                {activeSection === "contact" && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C5A572]" />
+                )}
+              </div>
+            </button>
           </div>
           
           {/* Signature at bottom of mobile menu */}

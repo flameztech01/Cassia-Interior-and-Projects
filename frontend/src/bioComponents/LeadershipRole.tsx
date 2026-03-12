@@ -7,6 +7,7 @@ import {
   CheckCircle,
   ArrowRight
 } from "lucide-react";
+import { Link } from "react-router-dom"; // Add this import
 
 const LeadershipRole = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -117,11 +118,11 @@ const LeadershipRole = () => {
               Executive Director
             </h2>
             <div className="flex items-center justify-center gap-3">
-              <span className="w-16 h-px bg-[#f6ee99]/40" />
+              {/* <span className="w-16 h-px bg-[#f6ee99]/40" /> */}
               <span className="text-[#f6ee99] text-xl md:text-2xl font-light">
                 Cassia Interiors & Projects
               </span>
-              <span className="w-16 h-px bg-[#f6ee99]/40" />
+              {/* <span className="w-16 h-px bg-[#f6ee99]/40" /> */}
             </div>
           </div>
 
@@ -182,18 +183,31 @@ const LeadershipRole = () => {
           })}
         </div>
 
-        {/* Bottom Section - Cassia Brand Statement - updated to #f6ee99 */}
+        {/* Bottom Section - Cassia Brand Statement with Visit Button */}
         <div 
           className={`mt-16 text-center transition-all duration-1000 delay-800 transform ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
           }`}
         >
-          <div className="inline-flex items-center gap-4 px-8 py-4 bg-white/5 backdrop-blur-sm rounded-full border border-white/10 hover:border-[#f6ee99]/30 transition-all duration-500 group">
-            <Briefcase className="w-5 h-5 text-[#f6ee99] group-hover:scale-110 transition-transform duration-500" />
-            <span className="text-white/70 text-sm tracking-wide">
-              Leading Cassia Interiors & Projects with precision and purpose since 2015
-            </span>
-            <ArrowRight className="w-4 h-4 text-[#f6ee99] group-hover:translate-x-1 transition-transform" />
+          <div className="inline-flex flex-col items-center gap-6 px-8 py-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#f6ee99]/30 transition-all duration-500 group">
+            <div className="flex items-center gap-3">
+              <Briefcase className="w-5 h-5 text-[#f6ee99]" />
+              <span className="text-white/70 text-sm tracking-wide">
+                Leading Cassia Interiors & Projects with precision and purpose since 2015
+              </span>
+            </div>
+            
+            {/* Visit Cassia Button */}
+            <Link
+              to="/"
+              className="relative inline-flex items-center gap-2 px-8 py-3 bg-[#f6ee99] text-[#0A0A0A] font-medium tracking-wide overflow-hidden transition-all duration-300 hover:bg-[#E6DE89] rounded-full group/btn"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                Visit Cassia
+                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000" />
+            </Link>
           </div>
         </div>
 

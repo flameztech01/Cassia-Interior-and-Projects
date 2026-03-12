@@ -118,13 +118,13 @@ const CoreExpertise = () => {
             </div>
           </div>
 
-          <h2 
+          {/* <h2 
             className={`text-4xl md:text-5xl font-light text-white mb-4 transition-all duration-1000 delay-200 transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
             Areas of <span className="text-[#f6ee99]">Excellence</span>
-          </h2>
+          </h2> */}
 
           <p 
             className={`text-white/60 max-w-2xl mx-auto transition-all duration-1000 delay-300 transform ${
