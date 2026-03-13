@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from "react";
-import { 
-  Briefcase, 
-  Target, 
-  ClipboardList, 
-  Users, 
+import {
+  Briefcase,
+  Target,
+  ClipboardList,
+  Users,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
 } from "lucide-react";
-import { Link } from "react-router-dom"; // Add this import
+import { Link } from "react-router-dom";
 
 const LeadershipRole = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,28 +17,33 @@ const LeadershipRole = () => {
     {
       icon: Briefcase,
       title: "Organizational Leadership",
-      description: "Steering the strategic direction of Cassia Interiors & Projects, fostering a culture of excellence and innovation across all operations."
+      description:
+        "Steering the strategic direction of Cassia Interiors & Projects, fostering a culture of excellence and innovation across all operations.",
     },
     {
       icon: Target,
       title: "Finishing Strategy & Implementation",
-      description: "Developing and overseeing precision finishing protocols that define the brand's signature quality and attention to detail."
+      description:
+        "Developing and overseeing precision finishing protocols that define the brand's signature quality and attention to detail.",
     },
     {
       icon: ClipboardList,
       title: "Project Planning & Supervision",
-      description: "End-to-end oversight of project timelines, resource allocation, and quality control to ensure flawless execution."
+      description:
+        "End-to-end oversight of project timelines, resource allocation, and quality control to ensure flawless execution.",
     },
     {
       icon: Users,
       title: "Client Advisory & Consultation",
-      description: "Serving as the principal advisor for high-profile clients, translating visions into actionable design strategies."
+      description:
+        "Serving as the principal advisor for high-profile clients, translating visions into actionable design strategies.",
     },
     {
       icon: CheckCircle,
       title: "Interior Design Delivery Standards",
-      description: "Establishing and maintaining rigorous quality benchmarks that distinguish Cassia's work in every delivered space."
-    }
+      description:
+        "Establishing and maintaining rigorous quality benchmarks that distinguish Cassia's work in every delivered space.",
+    },
   ];
 
   useEffect(() => {
@@ -51,7 +56,7 @@ const LeadershipRole = () => {
       },
       {
         threshold: 0.1,
-        rootMargin: '50px',
+        rootMargin: "50px",
       }
     );
 
@@ -75,132 +80,130 @@ const LeadershipRole = () => {
       {/* Sophisticated background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A] to-[#1A1A1A]" />
-        
-        {/* Executive pattern - subtle lines - updated to #f6ee99 */}
+
+        {/* Executive pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full" style={{
-            backgroundImage: `
-              linear-gradient(90deg, rgba(246,238,153,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '40px 100%'
-          }} />
+          <div
+            className="absolute top-0 left-0 w-full h-full"
+            style={{
+              backgroundImage: `
+                linear-gradient(90deg, rgba(238,234,209,0.08) 1px, transparent 1px)
+              `,
+              backgroundSize: "40px 100%",
+            }}
+          />
         </div>
 
-        {/* Gold gradient orbs - executive presence - updated to #f6ee99 */}
-        <div className="absolute top-40 -left-20 w-80 h-80 bg-[#f6ee99]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-40 -right-20 w-80 h-80 bg-[#f6ee99]/10 rounded-full blur-3xl" />
+        {/* Accent gradient orbs */}
+        <div className="absolute top-40 -left-20 w-80 h-80 bg-[#F0E237]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 -right-20 w-80 h-80 bg-[#50C878]/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Section Header - updated to #f6ee99 */}
+        {/* Section Header */}
         <div className="text-center mb-12">
-          <div 
+          <div
             className={`flex justify-center mb-6 transition-all duration-1000 transform ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-px bg-[#f6ee99]/40" />
-              <span className="text-[#f6ee99] text-sm tracking-[0.3em] uppercase">
+              <div className="w-12 h-px bg-[#EEEAD1]/40" />
+              <span className="text-[#EEEAD1] text-sm tracking-[0.3em] uppercase">
                 Executive Leadership
               </span>
-              <div className="w-12 h-px bg-[#f6ee99]/40" />
+              <div className="w-12 h-px bg-[#EEEAD1]/40" />
             </div>
           </div>
 
-          {/* Role Title - Prominently Displayed - updated to #f6ee99 */}
-          <div 
+          <div
             className={`mb-4 transition-all duration-1000 delay-200 transform ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-2">
               Executive Director
             </h2>
             <div className="flex items-center justify-center gap-3">
-              {/* <span className="w-16 h-px bg-[#f6ee99]/40" /> */}
-              <span className="text-[#f6ee99] text-xl md:text-2xl font-light">
+              <span className="text-[#F0E237] text-xl md:text-2xl font-light">
                 Cassia Interiors & Projects
               </span>
-              {/* <span className="w-16 h-px bg-[#f6ee99]/40" /> */}
             </div>
           </div>
 
-          {/* Leadership Quote/Philosophy */}
-          <p 
+          <p
             className={`text-white/50 max-w-2xl mx-auto italic transition-all duration-1000 delay-300 transform ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
-            "Setting the standard for precision finishing and design excellence across every project"
+            "Setting the standard for precision finishing and design excellence
+            across every project"
           </p>
         </div>
 
-        {/* Responsibilities Grid - updated to #f6ee99 */}
+        {/* Responsibilities Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {responsibilities.map((item, index) => {
             const Icon = item.icon;
-            
+
             return (
               <div
                 key={index}
                 className={`group relative transition-all duration-1000 transform ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
                 }`}
                 style={{ transitionDelay: `${400 + index * 100}ms` }}
               >
-                {/* Card Design - Executive Style - updated to #f6ee99 */}
-                <div className="relative bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#f6ee99]/40 transition-all duration-500 h-full overflow-hidden">
-                  
-                  {/* Executive corner accent - updated to #f6ee99 */}
+                <div className="relative bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#EEEAD1]/30 transition-all duration-500 h-full overflow-hidden">
+                  {/* Executive corner accent */}
                   <div className="absolute top-0 right-0 w-12 h-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute top-0 right-0 w-8 h-px bg-gradient-to-l from-[#f6ee99] to-transparent" />
-                    <div className="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-[#f6ee99] to-transparent" />
+                    <div className="absolute top-0 right-0 w-8 h-px bg-gradient-to-l from-[#F0E237] to-transparent" />
+                    <div className="absolute top-0 right-0 w-px h-8 bg-gradient-to-b from-[#50C878] to-transparent" />
                   </div>
 
-                  {/* Icon with executive treatment - updated to #f6ee99 */}
+                  {/* Icon */}
                   <div className="relative mb-5">
-                    <div className="absolute inset-0 bg-[#f6ee99] blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-700" />
-                    <div className="relative w-14 h-14 rounded-lg bg-gradient-to-br from-[#f6ee99]/20 to-transparent flex items-center justify-center border border-[#f6ee99]/30 group-hover:border-[#f6ee99] group-hover:scale-110 transition-all duration-500">
-                      <Icon className="w-6 h-6 text-[#f6ee99] group-hover:text-white transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-[#50C878] blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-700" />
+                    <div className="relative w-14 h-14 rounded-lg bg-gradient-to-br from-[#EEEAD1]/10 to-transparent flex items-center justify-center border border-[#EEEAD1]/20 group-hover:border-[#50C878] group-hover:scale-110 transition-all duration-500">
+                      <Icon className="w-6 h-6 text-[#F0E237] group-hover:text-[#50C878] transition-colors duration-500" />
                     </div>
                   </div>
 
-                  {/* Content - updated to #f6ee99 */}
-                  <h3 className="text-xl font-light text-white mb-3 group-hover:text-[#f6ee99] transition-colors duration-500">
+                  {/* Content */}
+                  <h3 className="text-xl font-light text-white mb-3 group-hover:text-[#EEEAD1] transition-colors duration-500">
                     {item.title}
                   </h3>
-                  
+
                   <p className="text-white/50 text-sm leading-relaxed group-hover:text-white/70 transition-colors duration-500">
                     {item.description}
                   </p>
 
-                  {/* Subtle executive line - updated to #f6ee99 */}
-                  <div className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-[#f6ee99] to-transparent group-hover:w-full transition-all duration-700" />
+                  {/* Bottom accent line */}
+                  <div className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-[#50C878] via-[#F0E237] to-transparent group-hover:w-full transition-all duration-700" />
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Bottom Section - Cassia Brand Statement with Visit Button */}
-        <div 
+        {/* Bottom Section */}
+        <div
           className={`mt-16 text-center transition-all duration-1000 delay-800 transform ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="inline-flex flex-col items-center gap-6 px-8 py-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#f6ee99]/30 transition-all duration-500 group">
+          <div className="inline-flex flex-col items-center gap-6 px-8 py-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#EEEAD1]/30 transition-all duration-500 group">
             <div className="flex items-center gap-3">
-              <Briefcase className="w-5 h-5 text-[#f6ee99]" />
+              <Briefcase className="w-5 h-5 text-[#F0E237]" />
               <span className="text-white/70 text-sm tracking-wide">
-                Leading Cassia Interiors & Projects with precision and purpose since 2015
+                Leading Cassia Interiors & Projects with precision and purpose
+                since 2015
               </span>
             </div>
-            
-            {/* Visit Cassia Button */}
+
             <Link
               to="/"
-              className="relative inline-flex items-center gap-2 px-8 py-3 bg-[#f6ee99] text-[#0A0A0A] font-medium tracking-wide overflow-hidden transition-all duration-300 hover:bg-[#E6DE89] rounded-full group/btn"
+              className="relative inline-flex items-center gap-2 px-8 py-3 bg-[#50C878] text-[#0A0A0A] font-medium tracking-wide overflow-hidden transition-all duration-300 hover:bg-[#3fb86b] rounded-full group/btn"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Visit Cassia
@@ -211,36 +214,38 @@ const LeadershipRole = () => {
           </div>
         </div>
 
-        {/* Decorative executive seal - updated to #f6ee99 */}
-        <div 
-          className={`absolute -bottom-10 -right-10 w-40 h-40 opacity-5 transition-all duration-1500 delay-1000 ${
-            isVisible ? 'opacity-5 scale-100' : 'opacity-0 scale-50'
+        {/* Decorative executive seal */}
+        <div
+          className={`absolute -bottom-10 -right-10 w-40 h-40 transition-all duration-1500 delay-1000 ${
+            isVisible ? "opacity-5 scale-100" : "opacity-0 scale-50"
           }`}
         >
-          <div className="w-full h-full rounded-full border-4 border-[#f6ee99]" />
+          <div className="w-full h-full rounded-full border-4 border-[#EEEAD1]" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-[#f6ee99] text-xs font-bold transform rotate-12">EXECUTIVE</span>
+            <span className="text-[#F0E237] text-xs font-bold transform rotate-12">
+              EXECUTIVE
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Side executive lines - updated to #f6ee99 */}
-      <div 
-        className={`absolute left-0 top-1/2 -translate-y-1/2 w-px h-32 bg-gradient-to-b from-transparent via-[#f6ee99]/40 to-transparent transition-all duration-1500 delay-900 ${
-          isVisible ? 'opacity-100' : 'opacity-0'
-        }`} 
+      {/* Side executive lines */}
+      <div
+        className={`absolute left-0 top-1/2 -translate-y-1/2 w-px h-32 bg-gradient-to-b from-transparent via-[#50C878]/40 to-transparent transition-all duration-1500 delay-900 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
       />
-      <div 
-        className={`absolute right-0 top-1/2 -translate-y-1/2 w-px h-32 bg-gradient-to-b from-transparent via-[#f6ee99]/40 to-transparent transition-all duration-1500 delay-1000 ${
-          isVisible ? 'opacity-100' : 'opacity-0'
-        }`} 
+      <div
+        className={`absolute right-0 top-1/2 -translate-y-1/2 w-px h-32 bg-gradient-to-b from-transparent via-[#F0E237]/40 to-transparent transition-all duration-1500 delay-1000 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
       />
 
-      {/* Bottom gradient line - updated to #f6ee99 */}
-      <div 
-        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#f6ee99]/50 to-transparent transition-opacity duration-1500 delay-1100 ${
-          isVisible ? 'opacity-100' : 'opacity-0'
-        }`} 
+      {/* Bottom gradient line */}
+      <div
+        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#EEEAD1]/40 to-transparent transition-opacity duration-1500 delay-1100 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
       />
     </section>
   );

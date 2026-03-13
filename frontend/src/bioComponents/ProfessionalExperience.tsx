@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react";
-import { 
-  Calendar, 
-  Home, 
-  Building, 
-  Bath, 
+import {
+  Calendar,
+  Home,
+  Building,
+  Bath,
   GitBranch,
-  Award
+  Award,
 } from "lucide-react";
 
 const ProfessionalExperience = () => {
@@ -17,44 +17,48 @@ const ProfessionalExperience = () => {
       icon: Calendar,
       value: "11+ Years",
       label: "Interior Design Practice",
-      description: "Comprehensive experience across residential, commercial, and hospitality sectors",
-      highlight: true
+      description:
+        "Comprehensive experience across residential, commercial, and hospitality sectors",
+      highlight: true,
     },
     {
       icon: Award,
       value: "6+ Years",
       label: "Interior Finishing Specialization",
-      description: "Focused expertise in precision finishing and spatial completion",
-      highlight: true
+      description:
+        "Focused expertise in precision finishing and spatial completion",
+      highlight: true,
     },
     {
       icon: Home,
       value: "50+",
       label: "Residential Interior Projects",
       description: "Luxury homes, apartments, and private residences",
-      highlight: false
+      highlight: false,
     },
     {
       icon: Building,
       value: "25+",
       label: "Commercial Space Remodeling",
-      description: "Office spaces, retail environments, and corporate interiors",
-      highlight: false
+      description:
+        "Office spaces, retail environments, and corporate interiors",
+      highlight: false,
     },
     {
       icon: Bath,
       value: "30+",
       label: "Bathroom & Spatial Upgrade Projects",
-      description: "Complete bathroom renovations and spatial transformations",
-      highlight: false
+      description:
+        "Complete bathroom renovations and spatial transformations",
+      highlight: false,
     },
     {
       icon: GitBranch,
       value: "40+",
       label: "Interior Project Coordination",
       description: "End-to-end project management and team coordination",
-      highlight: false
-    }
+      highlight: false,
+    },
   ];
 
   const milestones = [
@@ -74,7 +78,7 @@ const ProfessionalExperience = () => {
       },
       {
         threshold: 0.1,
-        rootMargin: '50px',
+        rootMargin: "50px",
       }
     );
 
@@ -98,83 +102,77 @@ const ProfessionalExperience = () => {
       {/* Sophisticated background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A] to-[#1A1A1A]" />
-        
-        {/* Timeline pattern background - updated to #f6ee99 */}
+
+        {/* Timeline pattern background */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-[#f6ee99]/30 to-transparent" />
+          <div className="absolute left-1/2 top-0 w-px h-full bg-gradient-to-b from-transparent via-[#EEEAD1]/20 to-transparent" />
         </div>
 
-        {/* Gold gradient orbs - updated to #f6ee99 */}
-        <div className="absolute top-40 -left-20 w-80 h-80 bg-[#f6ee99]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-40 -right-20 w-80 h-80 bg-[#f6ee99]/10 rounded-full blur-3xl" />
+        {/* Accent gradient orbs */}
+        <div className="absolute top-40 -left-20 w-80 h-80 bg-[#F0E237]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 -right-20 w-80 h-80 bg-[#50C878]/10 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Section Header - updated to #f6ee99 */}
+        {/* Section Header */}
         <div className="text-center mb-16">
-          <div 
+          <div
             className={`flex justify-center mb-6 transition-all duration-1000 transform ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-px bg-[#f6ee99]/40" />
-              <span className="text-[#f6ee99] text-sm tracking-[0.3em] uppercase">
+              <div className="w-12 h-px bg-[#EEEAD1]/40" />
+              <span className="text-[#EEEAD1] text-sm tracking-[0.3em] uppercase">
                 Professional Journey
               </span>
-              <div className="w-12 h-px bg-[#f6ee99]/40" />
+              <div className="w-12 h-px bg-[#EEEAD1]/40" />
             </div>
           </div>
 
-          <h2 
+          <h2
             className={`text-4xl md:text-5xl font-light text-white mb-4 transition-all duration-1000 delay-200 transform ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
-            Experience & <span className="text-[#f6ee99]">Milestones</span>
+            Experience & <span className="text-[#F0E237]">Milestones</span>
           </h2>
 
-          <p 
+          <p
             className={`text-white/60 max-w-2xl mx-auto transition-all duration-1000 delay-300 transform ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
             A track record of excellence across diverse project types and scales
           </p>
         </div>
 
-        {/* Stats Grid - First Row (Highlighted Items) - updated to #f6ee99 */}
+        {/* Stats Grid - First Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-8">
           {experienceItems.slice(0, 2).map((item, index) => {
             const Icon = item.icon;
-            
+
             return (
               <div
                 key={index}
                 className={`group relative transition-all duration-1000 transform ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
                 }`}
                 style={{ transitionDelay: `${400 + index * 100}ms` }}
               >
-                {/* Highlighted Card Design - updated to #f6ee99 */}
-                <div className="relative bg-gradient-to-br from-[#f6ee99]/20 to-transparent backdrop-blur-sm rounded-2xl p-8 border border-[#f6ee99]/30 hover:border-[#f6ee99] transition-all duration-500 overflow-hidden">
-                  
-                  {/* Background glow - updated to #f6ee99 */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#f6ee99]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                  
-                  {/* Content */}
+                <div className="relative bg-gradient-to-br from-[#EEEAD1]/10 to-transparent backdrop-blur-sm rounded-2xl p-8 border border-[#EEEAD1]/20 hover:border-[#50C878]/50 transition-all duration-500 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#50C878]/10 via-transparent to-[#F0E237]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
                   <div className="relative flex items-start gap-6">
-                    {/* Icon - updated to #f6ee99 */}
                     <div className="relative">
-                      <div className="absolute inset-0 bg-[#f6ee99] blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-700" />
-                      <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-[#f6ee99] to-[#d4c27c] flex items-center justify-center shadow-2xl">
+                      <div className="absolute inset-0 bg-[#50C878] blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
+                      <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-[#F0E237] to-[#50C878] flex items-center justify-center shadow-2xl">
                         <Icon className="w-10 h-10 text-[#0A0A0A]" />
                       </div>
                     </div>
 
-                    {/* Text */}
                     <div className="flex-1">
-                      <div className="text-4xl md:text-5xl font-light text-[#f6ee99] mb-2 group-hover:scale-105 transition-transform duration-500 origin-left">
+                      <div className="text-4xl md:text-5xl font-light text-[#F0E237] mb-2 group-hover:scale-105 transition-transform duration-500 origin-left">
                         {item.value}
                       </div>
                       <h3 className="text-xl font-medium text-white mb-2">
@@ -186,10 +184,9 @@ const ProfessionalExperience = () => {
                     </div>
                   </div>
 
-                  {/* Decorative corner accents - updated to #f6ee99 */}
                   <div className="absolute top-0 right-0 w-16 h-16">
-                    <div className="absolute top-0 right-0 w-12 h-px bg-gradient-to-l from-[#f6ee99] to-transparent" />
-                    <div className="absolute top-0 right-0 w-px h-12 bg-gradient-to-b from-[#f6ee99] to-transparent" />
+                    <div className="absolute top-0 right-0 w-12 h-px bg-gradient-to-l from-[#F0E237] to-transparent" />
+                    <div className="absolute top-0 right-0 w-px h-12 bg-gradient-to-b from-[#50C878] to-transparent" />
                   </div>
                 </div>
               </div>
@@ -197,31 +194,27 @@ const ProfessionalExperience = () => {
           })}
         </div>
 
-        {/* Stats Grid - Second Row (Regular Items) - updated to #f6ee99 */}
+        {/* Stats Grid - Second Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {experienceItems.slice(2).map((item, index) => {
             const Icon = item.icon;
-            
+
             return (
               <div
                 key={index}
                 className={`group relative transition-all duration-1000 transform ${
-                  isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
                 }`}
                 style={{ transitionDelay: `${600 + index * 100}ms` }}
               >
-                {/* Regular Card Design - updated to #f6ee99 */}
-                <div className="relative bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#f6ee99]/30 transition-all duration-500 h-full overflow-hidden">
-                  
-                  {/* Icon - updated to #f6ee99 */}
+                <div className="relative bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#EEEAD1]/30 transition-all duration-500 h-full overflow-hidden">
                   <div className="relative mb-4">
-                    <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-[#f6ee99]/20 to-transparent flex items-center justify-center border border-[#f6ee99]/30 group-hover:border-[#f6ee99]/60 transition-all duration-500">
-                      <Icon className="w-6 h-6 text-[#f6ee99] group-hover:text-white transition-colors duration-500" />
+                    <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-[#EEEAD1]/10 to-transparent flex items-center justify-center border border-[#EEEAD1]/20 group-hover:border-[#50C878]/60 transition-all duration-500">
+                      <Icon className="w-6 h-6 text-[#F0E237] group-hover:text-[#50C878] transition-colors duration-500" />
                     </div>
                   </div>
 
-                  {/* Content - updated to #f6ee99 */}
-                  <div className="text-3xl font-light text-[#f6ee99] mb-1 group-hover:scale-105 transition-transform duration-500 origin-left">
+                  <div className="text-3xl font-light text-[#F0E237] mb-1 group-hover:scale-105 transition-transform duration-500 origin-left">
                     {item.value}
                   </div>
                   <h3 className="text-base font-medium text-white mb-2">
@@ -231,52 +224,60 @@ const ProfessionalExperience = () => {
                     {item.description}
                   </p>
 
-                  {/* Bottom accent line - updated to #f6ee99 */}
-                  <div className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-[#f6ee99] to-transparent group-hover:w-full transition-all duration-700" />
+                  <div className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-[#50C878] via-[#F0E237] to-transparent group-hover:w-full transition-all duration-700" />
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Timeline Section - updated to #f6ee99 */}
+        {/* Timeline Section */}
         <div className="relative mt-20">
-          {/* Timeline header - updated to #f6ee99 */}
-          <div 
+          <div
             className={`text-center mb-12 transition-all duration-1000 delay-800 transform ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
             <h3 className="text-2xl font-light text-white mb-2">
-              Career <span className="text-[#f6ee99]">Timeline</span>
+              Career <span className="text-[#F0E237]">Timeline</span>
             </h3>
-            <div className="w-20 h-px bg-gradient-to-r from-transparent via-[#f6ee99] to-transparent mx-auto" />
+            <div className="w-20 h-px bg-gradient-to-r from-transparent via-[#EEEAD1] to-transparent mx-auto" />
           </div>
 
-          {/* Timeline items */}
           <div className="relative">
-            {/* Central line - updated to #f6ee99 */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-[#f6ee99]/40 to-transparent" />
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-[#EEEAD1]/30 to-transparent" />
 
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
                 <div
                   key={index}
                   className={`relative transition-all duration-1000 transform ${
-                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+                    isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
                   }`}
                   style={{ transitionDelay: `${1000 + index * 150}ms` }}
                 >
-                  {/* Timeline item - alternating left/right */}
-                  <div className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                    {/* Content side */}
+                  <div
+                    className={`flex items-center ${
+                      index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                    }`}
+                  >
                     <div className="w-1/2 px-8">
-                      <div className={`${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
+                      <div
+                        className={`${
+                          index % 2 === 0 ? "text-right" : "text-left"
+                        }`}
+                      >
                         <div className="inline-block">
-                          <span className="text-2xl font-light text-[#f6ee99]">
+                          <span className="text-2xl font-light text-[#F0E237]">
                             {milestone.year}
                           </span>
-                          <div className={`w-full h-px bg-gradient-to-r ${index % 2 === 0 ? 'from-[#f6ee99] to-transparent' : 'from-transparent to-[#f6ee99]'} mt-1`} />
+                          <div
+                            className={`w-full h-px bg-gradient-to-r ${
+                              index % 2 === 0
+                                ? "from-[#F0E237] to-transparent"
+                                : "from-transparent to-[#50C878]"
+                            } mt-1`}
+                          />
                           <p className="text-white/70 mt-2 text-base">
                             {milestone.event}
                           </p>
@@ -284,13 +285,11 @@ const ProfessionalExperience = () => {
                       </div>
                     </div>
 
-                    {/* Center dot - updated to #f6ee99 */}
                     <div className="relative flex items-center justify-center w-8 h-8">
-                      <div className="absolute w-4 h-4 rounded-full bg-[#f6ee99] animate-pulse" />
-                      <div className="absolute w-8 h-8 rounded-full border border-[#f6ee99]/30" />
+                      <div className="absolute w-4 h-4 rounded-full bg-[#F0E237] animate-pulse" />
+                      <div className="absolute w-8 h-8 rounded-full border border-[#50C878]/40" />
                     </div>
 
-                    {/* Empty side for spacing */}
                     <div className="w-1/2" />
                   </div>
                 </div>
@@ -299,39 +298,45 @@ const ProfessionalExperience = () => {
           </div>
         </div>
 
-        {/* Bottom decorative elements - updated to #f6ee99 */}
-        <div 
+        {/* Bottom decorative elements */}
+        <div
           className={`mt-16 flex justify-center transition-all duration-1000 delay-1400 transform ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
           <div className="flex items-center gap-2">
-            <span className="text-white/30 text-sm tracking-[0.2em]">PRECISION</span>
-            <span className="text-[#f6ee99] text-xl">✦</span>
-            <span className="text-white/30 text-sm tracking-[0.2em]">EXCELLENCE</span>
-            <span className="text-[#f6ee99] text-xl">✦</span>
-            <span className="text-white/30 text-sm tracking-[0.2em]">DELIVERY</span>
+            <span className="text-white/30 text-sm tracking-[0.2em]">
+              PRECISION
+            </span>
+            <span className="text-[#F0E237] text-xl">✦</span>
+            <span className="text-white/30 text-sm tracking-[0.2em]">
+              EXCELLENCE
+            </span>
+            <span className="text-[#50C878] text-xl">✦</span>
+            <span className="text-white/30 text-sm tracking-[0.2em]">
+              DELIVERY
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Side decorative lines - updated to #f6ee99 */}
-      <div 
-        className={`absolute left-0 top-1/2 -translate-y-1/2 w-px h-64 bg-gradient-to-b from-transparent via-[#f6ee99]/30 to-transparent transition-all duration-1500 delay-1200 ${
-          isVisible ? 'opacity-100' : 'opacity-0'
-        }`} 
+      {/* Side decorative lines */}
+      <div
+        className={`absolute left-0 top-1/2 -translate-y-1/2 w-px h-64 bg-gradient-to-b from-transparent via-[#50C878]/30 to-transparent transition-all duration-1500 delay-1200 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
       />
-      <div 
-        className={`absolute right-0 top-1/2 -translate-y-1/2 w-px h-64 bg-gradient-to-b from-transparent via-[#f6ee99]/30 to-transparent transition-all duration-1500 delay-1300 ${
-          isVisible ? 'opacity-100' : 'opacity-0'
-        }`} 
+      <div
+        className={`absolute right-0 top-1/2 -translate-y-1/2 w-px h-64 bg-gradient-to-b from-transparent via-[#F0E237]/30 to-transparent transition-all duration-1500 delay-1300 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
       />
 
-      {/* Bottom gradient line - updated to #f6ee99 */}
-      <div 
-        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#f6ee99]/40 to-transparent transition-opacity duration-1500 delay-1500 ${
-          isVisible ? 'opacity-100' : 'opacity-0'
-        }`} 
+      {/* Bottom gradient line */}
+      <div
+        className={`absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#EEEAD1]/40 to-transparent transition-opacity duration-1500 delay-1500 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
       />
     </section>
   );
