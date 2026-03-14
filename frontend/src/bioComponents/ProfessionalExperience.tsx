@@ -158,7 +158,7 @@ const ProfessionalExperience = () => {
             alt="Cassia Interiors featured project"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent" />
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent" />
           <div className="absolute bottom-0 left-0 p-12">
             <span className="text-[#F0E237] text-sm tracking-[0.3em] uppercase mb-2 block">
               Featured Project
@@ -169,7 +169,7 @@ const ProfessionalExperience = () => {
             <p className="text-white/60 max-w-xl">
               Award-winning interior finishing and spatial design
             </p>
-          </div>
+          </div> */}
         </div>
 
         {/* Stats Grid - First Row */}
@@ -393,7 +393,7 @@ const ProfessionalExperience = () => {
         </div>
 
         {/* Project Gallery Strip - New Style */}
-        <div className="relative mt-20 h-32 overflow-hidden">
+        {/* <div className="relative mt-20 h-32 overflow-hidden">
           <div className="absolute inset-0 flex gap-2 animate-scroll">
             {[1,2,3,7,8,9,10,11,12].map((num) => (
               <div
@@ -412,7 +412,7 @@ const ProfessionalExperience = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Bottom decorative elements */}
         <div

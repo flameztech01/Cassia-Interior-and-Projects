@@ -239,7 +239,7 @@ const LeadershipRole = () => {
         </div>
 
         {/* Signature Project Showcase */}
-        <div
+        {/* <div
           className={`mt-16 grid grid-cols-2 gap-4 transition-all duration-1000 delay-900 transform ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
           }`}
@@ -268,7 +268,7 @@ const LeadershipRole = () => {
               <span className="text-white text-sm">Abuja Corporate Tower</span>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Bottom Section */}
         <div

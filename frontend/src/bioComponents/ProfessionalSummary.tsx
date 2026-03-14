@@ -113,7 +113,7 @@ const ProfessionalSummary = () => {
               }`}
             >
               <img
-                src="/picture1.jpg"
+                src="/picture2.jpg"
                 alt="Comfort Samson - Interior Design Expert"
                 className="w-full h-full object-cover"
               />
@@ -129,7 +129,7 @@ const ProfessionalSummary = () => {
               }`}
             >
               <img
-                src="/picture2.jpg"
+                src="/picture3.jpg"
                 alt="Precision finishing details"
                 className="w-full h-full object-cover"
               />
@@ -181,7 +181,7 @@ const ProfessionalSummary = () => {
               }`}
             >
               <img
-                src="/picture3.jpg"
+                src="/picture4.jpg"
                 alt="Spatial design and architecture"
                 className="w-full h-full object-cover"
               />
@@ -197,7 +197,7 @@ const ProfessionalSummary = () => {
               }`}
             >
               <img
-                src="/picture4.jpg"
+                src="/her2.jpg"
                 alt="Cassia Interiors & Projects - Executive project"
                 className="w-full h-full object-cover"
               />
@@ -265,7 +265,7 @@ const ProfessionalSummary = () => {
               }`}
             >
               <img
-                src="/picture5.jpg"
+                src="/her3.jpg"
                 alt="Industry presentation and knowledge sharing"
                 className="w-full h-full object-cover"
               />

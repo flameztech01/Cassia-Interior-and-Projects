@@ -99,13 +99,12 @@ const BioNavbar = () => {
             
             <div className="relative">
               <span className="text-2xl md:text-3xl font-light tracking-wide text-[#EEEAD1]">
-                Comfort<span className="text-[#F0E237] font-medium">.</span>
+                Comfort{" "}
+                <span className="text-[#EEEAD1]">Samson</span>
+                <span className="text-[#F0E237] font-medium">.</span>
               </span>
               <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-gradient-to-r from-[#50C878] to-transparent group-hover:w-full transition-all duration-500" />
             </div>
-            <span className="absolute -bottom-5 left-0 text-[10px] text-[#EEEAD1]/50 tracking-[0.3em] uppercase hidden md:block">
-              Samson
-            </span>
           </button>
 
           {/* Desktop Navigation */}
