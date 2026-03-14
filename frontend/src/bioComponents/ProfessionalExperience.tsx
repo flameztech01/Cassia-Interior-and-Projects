@@ -147,6 +147,31 @@ const ProfessionalExperience = () => {
           </p>
         </div>
 
+        {/* Hero Image Banner */}
+        <div
+          className={`relative h-[400px] rounded-2xl overflow-hidden mb-16 transition-all duration-1000 delay-400 transform ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
+          }`}
+        >
+          <img
+            src="/picture17.jpg"
+            alt="Cassia Interiors featured project"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent" />
+          <div className="absolute bottom-0 left-0 p-12">
+            <span className="text-[#F0E237] text-sm tracking-[0.3em] uppercase mb-2 block">
+              Featured Project
+            </span>
+            <h3 className="text-4xl font-light text-white mb-2">
+              Luxury Residential <span className="text-[#50C878]">Completion</span>
+            </h3>
+            <p className="text-white/60 max-w-xl">
+              Award-winning interior finishing and spatial design
+            </p>
+          </div>
+        </div>
+
         {/* Stats Grid - First Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-8">
           {experienceItems.slice(0, 2).map((item, index) => {
@@ -158,7 +183,7 @@ const ProfessionalExperience = () => {
                 className={`group relative transition-all duration-1000 transform ${
                   isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
                 }`}
-                style={{ transitionDelay: `${400 + index * 100}ms` }}
+                style={{ transitionDelay: `${500 + index * 100}ms` }}
               >
                 <div className="relative bg-gradient-to-br from-[#EEEAD1]/10 to-transparent backdrop-blur-sm rounded-2xl p-8 border border-[#EEEAD1]/20 hover:border-[#50C878]/50 transition-all duration-500 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-[#50C878]/10 via-transparent to-[#F0E237]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -205,24 +230,26 @@ const ProfessionalExperience = () => {
                 className={`group relative transition-all duration-1000 transform ${
                   isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
                 }`}
-                style={{ transitionDelay: `${600 + index * 100}ms` }}
+                style={{ transitionDelay: `${700 + index * 100}ms` }}
               >
                 <div className="relative bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#EEEAD1]/30 transition-all duration-500 h-full overflow-hidden">
-                  <div className="relative mb-4">
-                    <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-[#EEEAD1]/10 to-transparent flex items-center justify-center border border-[#EEEAD1]/20 group-hover:border-[#50C878]/60 transition-all duration-500">
-                      <Icon className="w-6 h-6 text-[#F0E237] group-hover:text-[#50C878] transition-colors duration-500" />
+                  <div className="relative">
+                    <div className="relative mb-4">
+                      <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-[#EEEAD1]/10 to-transparent flex items-center justify-center border border-[#EEEAD1]/20 group-hover:border-[#50C878]/60 transition-all duration-500">
+                        <Icon className="w-6 h-6 text-[#F0E237] group-hover:text-[#50C878] transition-colors duration-500" />
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="text-3xl font-light text-[#F0E237] mb-1 group-hover:scale-105 transition-transform duration-500 origin-left">
-                    {item.value}
+                    <div className="text-3xl font-light text-[#F0E237] mb-1 group-hover:scale-105 transition-transform duration-500 origin-left">
+                      {item.value}
+                    </div>
+                    <h3 className="text-base font-medium text-white mb-2">
+                      {item.label}
+                    </h3>
+                    <p className="text-white/40 text-xs leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
-                  <h3 className="text-base font-medium text-white mb-2">
-                    {item.label}
-                  </h3>
-                  <p className="text-white/40 text-xs leading-relaxed">
-                    {item.description}
-                  </p>
 
                   <div className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-[#50C878] via-[#F0E237] to-transparent group-hover:w-full transition-all duration-700" />
                 </div>
@@ -231,10 +258,77 @@ const ProfessionalExperience = () => {
           })}
         </div>
 
+        {/* Project Showcase Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+          <div
+            className={`relative h-48 rounded-lg overflow-hidden group transition-all duration-1000 delay-900 transform ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
+            }`}
+          >
+            <img
+              src="/picture18.jpg"
+              alt="Residential project"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute bottom-0 left-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <span className="text-[#F0E237] text-xs tracking-wider">Residential</span>
+            </div>
+          </div>
+          
+          <div
+            className={`relative h-48 rounded-lg overflow-hidden group transition-all duration-1000 delay-1000 transform ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
+            }`}
+          >
+            <img
+              src="/picture19.jpg"
+              alt="Commercial project"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute bottom-0 left-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <span className="text-[#50C878] text-xs tracking-wider">Commercial</span>
+            </div>
+          </div>
+          
+          <div
+            className={`relative h-48 rounded-lg overflow-hidden group transition-all duration-1000 delay-1100 transform ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
+            }`}
+          >
+            <img
+              src="/picture20.jpg"
+              alt="Hospitality project"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute bottom-0 left-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <span className="text-[#F0E237] text-xs tracking-wider">Hospitality</span>
+            </div>
+          </div>
+          
+          <div
+            className={`relative h-48 rounded-lg overflow-hidden group transition-all duration-1000 delay-1200 transform ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
+            }`}
+          >
+            <img
+              src="/picture21.jpg"
+              alt="Corporate project"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute bottom-0 left-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <span className="text-[#50C878] text-xs tracking-wider">Corporate</span>
+            </div>
+          </div>
+        </div>
+
         {/* Timeline Section */}
         <div className="relative mt-20">
           <div
-            className={`text-center mb-12 transition-all duration-1000 delay-800 transform ${
+            className={`text-center mb-12 transition-all duration-1000 delay-1300 transform ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
@@ -254,7 +348,7 @@ const ProfessionalExperience = () => {
                   className={`relative transition-all duration-1000 transform ${
                     isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
                   }`}
-                  style={{ transitionDelay: `${1000 + index * 150}ms` }}
+                  style={{ transitionDelay: `${1400 + index * 150}ms` }}
                 >
                   <div
                     className={`flex items-center ${
@@ -298,9 +392,31 @@ const ProfessionalExperience = () => {
           </div>
         </div>
 
+        {/* Project Gallery Strip - New Style */}
+        <div className="relative mt-20 h-32 overflow-hidden">
+          <div className="absolute inset-0 flex gap-2 animate-scroll">
+            {[1,2,3,7,8,9,10,11,12].map((num) => (
+              <div
+                key={num}
+                className={`flex-none w-48 h-32 rounded-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:z-10 ${
+                  isVisible ? "opacity-100" : "opacity-0"
+                }`}
+                style={{ transitionDelay: `${2000 + num * 50}ms` }}
+              >
+                <img
+                  src={`/picture${num}.jpg`}
+                  alt={`Project ${num}`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent opacity-60" />
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Bottom decorative elements */}
         <div
-          className={`mt-16 flex justify-center transition-all duration-1000 delay-1400 transform ${
+          className={`mt-16 flex justify-center transition-all duration-1000 delay-2000 transform ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
@@ -338,6 +454,20 @@ const ProfessionalExperience = () => {
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       />
+
+      {/* Add this to your global CSS file for the scroll animation */}
+      <style>{`
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+        }
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 };

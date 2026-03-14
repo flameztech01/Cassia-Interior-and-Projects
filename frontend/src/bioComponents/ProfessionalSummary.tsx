@@ -64,7 +64,7 @@ const ProfessionalSummary = () => {
         <div className="absolute bottom-40 -right-20 w-80 h-80 bg-[#50C878]/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Section label */}
         <div
           className={`flex justify-center mb-12 transition-all duration-1000 transform ${
@@ -80,138 +80,219 @@ const ProfessionalSummary = () => {
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="space-y-8 text-center">
-          {/* Opening quote mark */}
-          <div
-            className={`transition-all duration-1000 delay-200 transform ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-            }`}
-          >
-            <span className="text-6xl text-[#F0E237]/30 font-serif">"</span>
+        {/* Main Content - Now with alternating images */}
+        <div className="space-y-16">
+          {/* Opening quote and first paragraph with image */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <div
+                className={`transition-all duration-1000 delay-200 transform ${
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                }`}
+              >
+                <span className="text-6xl text-[#F0E237]/30 font-serif">"</span>
+              </div>
+              <p
+                className={`text-white/80 text-lg md:text-xl leading-relaxed transition-all duration-1000 delay-300 transform ${
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                }`}
+              >
+                With over{" "}
+                <span className="text-[#F0E237] font-medium">
+                  11 years of experience
+                </span>{" "}
+                in the interior design and construction industry, Comfort Samson
+                has established herself as a distinguished authority in finishing
+                and spatial development. Her journey began with a simple
+                observation: that the true essence of a space lies in its details.
+              </p>
+            </div>
+            <div
+              className={`relative h-[300px] lg:h-[400px] rounded-lg overflow-hidden transition-all duration-1000 delay-400 transform ${
+                isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
+              }`}
+            >
+              <img
+                src="/picture1.jpg"
+                alt="Comfort Samson - Interior Design Expert"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent opacity-60" />
+            </div>
           </div>
 
-          {/* Biography Paragraphs */}
-          <div className="space-y-6 text-white/80 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-            <p
-              className={`transition-all duration-1000 delay-300 transform ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          {/* Second paragraph with image on left */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div
+              className={`relative h-[300px] lg:h-[400px] rounded-lg overflow-hidden order-2 lg:order-1 transition-all duration-1000 delay-500 transform ${
+                isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
               }`}
             >
-              With over{" "}
-              <span className="text-[#F0E237] font-medium">
-                11 years of experience
-              </span>{" "}
-              in the interior design and construction industry, Comfort Samson
-              has established herself as a distinguished authority in finishing
-              and spatial development. Her journey began with a simple
-              observation: that the true essence of a space lies in its details.
-            </p>
-
-            <p
-              className={`transition-all duration-1000 delay-400 transform ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-              }`}
-            >
-              Specializing in{" "}
-              <span className="text-[#50C878] font-medium">
-                finishing and spatial development
-              </span>
-              , Comfort brings an unparalleled eye for precision to every
-              project. She understands that finishing is not merely the final
-              layer—it is the signature of quality, the hallmark of
-              craftsmanship that transforms ordinary structures into
-              extraordinary environments. Her expertise spans residential
-              sanctuaries, commercial & corporate spaces, and hospitality
-              destinations.
-            </p>
-
-            <p
-              className={`transition-all duration-1000 delay-500 transform ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-              }`}
-            >
-              Her philosophy is rooted in the belief that spaces should do more
-              than exist—they should function, inspire, and endure. Comfort
-              approaches each project with an{" "}
-              <span className="text-[#F0E237] font-medium">
-                architect&apos;s precision and an artist&apos;s sensibility
-              </span>
-              , ensuring that every line is clean, every surface flawless, and
-              every material choice intentional. She transforms structures into
-              functional spaces that tell stories and evoke emotion.
-            </p>
-
-            <p
-              className={`transition-all duration-1000 delay-600 transform ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-              }`}
-            >
-              As{" "}
-              <span className="text-[#50C878] font-medium">
-                Executive Director of Cassia Interiors & Projects
-              </span>
-              , Comfort leads a team dedicated to excellence in every detail.
-              Under her guidance, the firm has become synonymous with precision
-              finishing, delivering projects that exceed client expectations
-              across residential, commercial, corporate, and hospitality
-              sectors. Her approach prioritizes spatial functionality, user
-              wellbeing, material intelligence, and disciplined execution
-              standards.
-            </p>
-
-            <p
-              className={`transition-all duration-1000 delay-700 transform ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-              }`}
-            >
-              Comfort holds{" "}
-              <span className="text-[#F0E237] font-medium">
-                professional certifications in Interior Design and Project
-                Management
-              </span>
-              , reinforcing her ability to deliver complex projects with a
-              balance of creative vision and operational precision. She holds a
-              Bachelor of Science (B.Sc.) in Biochemistry from Nasarawa State
-              University, Keffi.
-            </p>
-
-            <p
-              className={`transition-all duration-1000 delay-800 transform ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-              }`}
-            >
-              Beyond{" "}
-              <span className="text-[#50C878] font-medium">
-                project delivery
-              </span>
-              , she is deeply invested in advancing finishing awareness within
-              the built environment industry. She actively contributes to
-              professional knowledge sharing, homeowner education, and industry
-              conversations focused on improving finishing standards and spatial
-              performance across modern interiors.
-            </p>
+              <img
+                src="/picture2.jpg"
+                alt="Precision finishing details"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] to-transparent opacity-40" />
+            </div>
+            <div className="order-1 lg:order-2">
+              <p
+                className={`text-white/80 text-lg md:text-xl leading-relaxed transition-all duration-1000 delay-500 transform ${
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                }`}
+              >
+                Specializing in{" "}
+                <span className="text-[#50C878] font-medium">
+                  finishing and spatial development
+                </span>
+                , Comfort brings an unparalleled eye for precision to every
+                project. She understands that finishing is not merely the final
+                layer—it is the signature of quality, the hallmark of
+                craftsmanship that transforms ordinary structures into
+                extraordinary environments. Her expertise spans residential
+                sanctuaries, commercial & corporate spaces, and hospitality
+                destinations.
+              </p>
+            </div>
           </div>
 
-          {/* Closing quote mark */}
-          <div
-            className={`transition-all duration-1000 delay-900 transform ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-            }`}
-          >
-            <span className="text-6xl text-[#F0E237]/30 font-serif">"</span>
+          {/* Third paragraph with image */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <p
+                className={`text-white/80 text-lg md:text-xl leading-relaxed transition-all duration-1000 delay-600 transform ${
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                }`}
+              >
+                Her philosophy is rooted in the belief that spaces should do more
+                than exist—they should function, inspire, and endure. Comfort
+                approaches each project with an{" "}
+                <span className="text-[#F0E237] font-medium">
+                  architect&apos;s precision and an artist&apos;s sensibility
+                </span>
+                , ensuring that every line is clean, every surface flawless, and
+                every material choice intentional. She transforms structures into
+                functional spaces that tell stories and evoke emotion.
+              </p>
+            </div>
+            <div
+              className={`relative h-[300px] lg:h-[400px] rounded-lg overflow-hidden transition-all duration-1000 delay-650 transform ${
+                isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
+              }`}
+            >
+              <img
+                src="/picture3.jpg"
+                alt="Spatial design and architecture"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent opacity-50" />
+            </div>
           </div>
 
-          {/* Signature line */}
-          <div
-            className={`pt-8 flex flex-col items-center transition-all duration-1000 delay-1000 transform ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-            }`}
-          >
-            <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#EEEAD1] to-transparent mb-4" />
-            <p className="text-white/40 text-sm tracking-[0.3em] uppercase">
-              — Precision in Every Detail —
-            </p>
+          {/* Fourth paragraph with image on left */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div
+              className={`relative h-[300px] lg:h-[400px] rounded-lg overflow-hidden order-2 lg:order-1 transition-all duration-1000 delay-700 transform ${
+                isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
+              }`}
+            >
+              <img
+                src="/picture4.jpg"
+                alt="Cassia Interiors & Projects - Executive project"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] to-transparent opacity-40" />
+            </div>
+            <div className="order-1 lg:order-2">
+              <p
+                className={`text-white/80 text-lg md:text-xl leading-relaxed transition-all duration-1000 delay-700 transform ${
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                }`}
+              >
+                As{" "}
+                <span className="text-[#50C878] font-medium">
+                  Executive Director of Cassia Interiors & Projects
+                </span>
+                , Comfort leads a team dedicated to excellence in every detail.
+                Under her guidance, the firm has become synonymous with precision
+                finishing, delivering projects that exceed client expectations
+                across residential, commercial, corporate, and hospitality
+                sectors. Her approach prioritizes spatial functionality, user
+                wellbeing, material intelligence, and disciplined execution
+                standards.
+              </p>
+            </div>
+          </div>
+
+          {/* Fifth and sixth paragraphs side by side with a feature image */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2 space-y-6">
+              <p
+                className={`text-white/80 text-lg md:text-xl leading-relaxed transition-all duration-1000 delay-800 transform ${
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                }`}
+              >
+                Comfort holds{" "}
+                <span className="text-[#F0E237] font-medium">
+                  professional certifications in Interior Design and Project
+                  Management
+                </span>
+                , reinforcing her ability to deliver complex projects with a
+                balance of creative vision and operational precision. She holds a
+                Bachelor of Science (B.Sc.) in Biochemistry from Nasarawa State
+                University, Keffi.
+              </p>
+
+              <p
+                className={`text-white/80 text-lg md:text-xl leading-relaxed transition-all duration-1000 delay-900 transform ${
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                }`}
+              >
+                Beyond{" "}
+                <span className="text-[#50C878] font-medium">
+                  project delivery
+                </span>
+                , she is deeply invested in advancing finishing awareness within
+                the built environment industry. She actively contributes to
+                professional knowledge sharing, homeowner education, and industry
+                conversations focused on improving finishing standards and spatial
+                performance across modern interiors.
+              </p>
+            </div>
+            <div
+              className={`relative h-[400px] rounded-lg overflow-hidden transition-all duration-1000 delay-950 transform ${
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              }`}
+            >
+              <img
+                src="/picture5.jpg"
+                alt="Industry presentation and knowledge sharing"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent opacity-60" />
+            </div>
+          </div>
+
+          {/* Closing quote and signature */}
+          <div className="text-center">
+            <div
+              className={`transition-all duration-1000 delay-1000 transform ${
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              }`}
+            >
+              <span className="text-6xl text-[#F0E237]/30 font-serif">"</span>
+            </div>
+
+            <div
+              className={`pt-8 flex flex-col items-center transition-all duration-1000 delay-1100 transform ${
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              }`}
+            >
+              <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#EEEAD1] to-transparent mb-4" />
+              <p className="text-white/40 text-sm tracking-[0.3em] uppercase">
+                — Precision in Every Detail —
+              </p>
+            </div>
           </div>
         </div>
 

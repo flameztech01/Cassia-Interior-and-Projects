@@ -19,42 +19,49 @@ const CoreExpertise = () => {
       title: "Interior Finishing & Spatial Completion",
       description:
         "Meticulous attention to every detail, ensuring flawless surfaces and perfect edges that define luxury spaces.",
+      image: "/picture6.jpg",
     },
     {
       icon: Building2,
       title: "Residential & Commercial Interior Design",
       description:
         "Creating sophisticated environments for homes, offices, and commercial spaces that balance aesthetics with function.",
+      image: "/picture7.jpg",
     },
     {
       icon: ClipboardCheck,
       title: "Project Management & Coordination",
       description:
         "Seamless orchestration of contractors, timelines, and resources to deliver excellence on schedule.",
+      image: "/picture8.jpg",
     },
     {
       icon: Ruler,
       title: "Material & Finish Specification",
       description:
         "Expert selection of premium materials and finishes that elevate spaces and ensure lasting quality.",
+      image: "/picture9.jpg",
     },
     {
       icon: LayoutGrid,
       title: "Functional Space Planning",
       description:
         "Strategic layout design that optimizes flow, usability, and spatial harmony for everyday living and working.",
+      image: "/picture10.jpg",
     },
     {
       icon: Target,
       title: "Design Execution Strategy",
       description:
         "Comprehensive planning from concept to completion, ensuring design integrity throughout the build process.",
+      image: "/picture11.jpg",
     },
     {
       icon: HeartHandshake,
       title: "Client Experience & Delivery Management",
       description:
         "Dedicated partnership with clients, ensuring vision alignment and exceeding expectations at every milestone.",
+      image: "/picture12.jpg",
     },
   ];
 
@@ -152,6 +159,16 @@ const CoreExpertise = () => {
                 style={{ transitionDelay: `${400 + index * 100}ms` }}
               >
                 <div className="relative bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-[#EEEAD1]/30 transition-all duration-500 h-full overflow-hidden group-hover:shadow-2xl group-hover:shadow-[#50C878]/5">
+                  {/* Background Image on Hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />
+                  </div>
+
                   {/* Hover gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#50C878]/0 via-[#50C878]/0 to-[#F0E237]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
@@ -186,11 +203,45 @@ const CoreExpertise = () => {
           })}
         </div>
 
+        {/* Featured Project Image Row */}
         <div
-          className={`mt-16 flex justify-center transition-all duration-1000 delay-1200 transform ${
+          className={`mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 transition-all duration-1000 delay-1200 transform ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
-        />
+        >
+          <div className="relative h-32 rounded-lg overflow-hidden group">
+            <img
+              src="/picture13.jpg"
+              alt="Featured project 1"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent opacity-60" />
+          </div>
+          <div className="relative h-32 rounded-lg overflow-hidden group">
+            <img
+              src="/picture14.jpg"
+              alt="Featured project 2"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent opacity-60" />
+          </div>
+          <div className="relative h-32 rounded-lg overflow-hidden group">
+            <img
+              src="/picture15.jpg"
+              alt="Featured project 3"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent opacity-60" />
+          </div>
+          <div className="relative h-32 rounded-lg overflow-hidden group">
+            <img
+              src="/picture16.jpg"
+              alt="Featured project 4"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent opacity-60" />
+          </div>
+        </div>
       </div>
 
       {/* Side decorative lines */}

@@ -19,31 +19,42 @@ const LeadershipRole = () => {
       title: "Organizational Leadership",
       description:
         "Steering the strategic direction of Cassia Interiors & Projects, fostering a culture of excellence and innovation across all operations.",
+      image: "/picture1.jpg",
     },
     {
       icon: Target,
       title: "Finishing Strategy & Implementation",
       description:
         "Developing and overseeing precision finishing protocols that define the brand's signature quality and attention to detail.",
+      image: "/picture2.jpg",
     },
     {
       icon: ClipboardList,
       title: "Project Planning & Supervision",
       description:
         "End-to-end oversight of project timelines, resource allocation, and quality control to ensure flawless execution.",
+      image: "/picture3.jpg",
     },
     {
       icon: Users,
       title: "Client Advisory & Consultation",
       description:
         "Serving as the principal advisor for high-profile clients, translating visions into actionable design strategies.",
+      image: "/picture4.jpg",
     },
     {
       icon: CheckCircle,
       title: "Interior Design Delivery Standards",
       description:
         "Establishing and maintaining rigorous quality benchmarks that distinguish Cassia's work in every delivered space.",
+      image: "/picture5.jpg",
     },
+  ];
+
+  const executiveTeam = [
+    { name: "Design Team", role: "Creative Excellence", image: "/picture6.jpg" },
+    { name: "Projects Team", role: "Execution & Delivery", image: "/picture7.jpg" },
+    { name: "Client Relations", role: "Partnership & Care", image: "/picture8.jpg" },
   ];
 
   useEffect(() => {
@@ -141,7 +152,38 @@ const LeadershipRole = () => {
           </p>
         </div>
 
-        {/* Responsibilities Grid */}
+        {/* Executive Portrait Gallery */}
+        <div
+          className={`grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 transition-all duration-1000 delay-400 transform ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
+          }`}
+        >
+          {executiveTeam.map((member, index) => (
+            <div key={index} className="group relative h-80 rounded-2xl overflow-hidden">
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent opacity-80" />
+              
+              {/* Gold corner accent */}
+              <div className="absolute top-4 right-4 w-12 h-12">
+                <div className="absolute top-0 right-0 w-8 h-px bg-[#F0E237]" />
+                <div className="absolute top-0 right-0 w-px h-8 bg-[#50C878]" />
+              </div>
+              
+              <div className="absolute bottom-0 left-0 p-6">
+                <span className="text-[#F0E237] text-xs tracking-[0.2em] uppercase block mb-2">
+                  {member.role}
+                </span>
+                <h4 className="text-2xl font-light text-white">{member.name}</h4>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Responsibilities Grid with Image Integration */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {responsibilities.map((item, index) => {
             const Icon = item.icon;
@@ -152,9 +194,19 @@ const LeadershipRole = () => {
                 className={`group relative transition-all duration-1000 transform ${
                   isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
                 }`}
-                style={{ transitionDelay: `${400 + index * 100}ms` }}
+                style={{ transitionDelay: `${500 + index * 100}ms` }}
               >
                 <div className="relative bg-gradient-to-br from-white/5 to-transparent backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-[#EEEAD1]/30 transition-all duration-500 h-full overflow-hidden">
+                  {/* Background image on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700">
+                    <img
+                      src={item.image}
+                      alt=""
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />
+                  </div>
+
                   {/* Executive corner accent */}
                   <div className="absolute top-0 right-0 w-12 h-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div className="absolute top-0 right-0 w-8 h-px bg-gradient-to-l from-[#F0E237] to-transparent" />
@@ -186,9 +238,41 @@ const LeadershipRole = () => {
           })}
         </div>
 
+        {/* Signature Project Showcase */}
+        <div
+          className={`mt-16 grid grid-cols-2 gap-4 transition-all duration-1000 delay-900 transform ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
+          }`}
+        >
+          <div className="relative h-48 rounded-xl overflow-hidden group">
+            <img
+              src="/picture9.jpg"
+              alt="Signature project 1"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] to-transparent opacity-60" />
+            <div className="absolute bottom-4 left-4">
+              <span className="text-[#F0E237] text-xs tracking-wider block">2024</span>
+              <span className="text-white text-sm">Lagos Executive Residence</span>
+            </div>
+          </div>
+          <div className="relative h-48 rounded-xl overflow-hidden group">
+            <img
+              src="/picture4.jpg"
+              alt="Signature project 2"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-l from-[#0A0A0A] to-transparent opacity-60" />
+            <div className="absolute bottom-4 right-4 text-right">
+              <span className="text-[#50C878] text-xs tracking-wider block">2023</span>
+              <span className="text-white text-sm">Abuja Corporate Tower</span>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom Section */}
         <div
-          className={`mt-16 text-center transition-all duration-1000 delay-800 transform ${
+          className={`mt-16 text-center transition-all duration-1000 delay-1000 transform ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
