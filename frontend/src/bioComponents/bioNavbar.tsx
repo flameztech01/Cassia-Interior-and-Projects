@@ -85,11 +85,18 @@ const BioNavbar = () => {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          {/* Logo/Name */}
+          {/* Logo and Name */}
           <button
             onClick={() => scrollToSection("home")}
-            className="group relative focus:outline-none"
+            className="group relative focus:outline-none flex items-center gap-3"
           >
+            {/* Logo - Square with rounded edges */}
+            <img 
+              src="/icon.png" 
+              alt="Logo" 
+              className="w-8 h-8 md:w-10 md:h-10 rounded-lg object-cover"
+            />
+            
             <div className="relative">
               <span className="text-2xl md:text-3xl font-light tracking-wide text-[#EEEAD1]">
                 Comfort<span className="text-[#F0E237] font-medium">.</span>
