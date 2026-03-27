@@ -139,7 +139,7 @@ const OnboardingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
     }
   };
 
-  const currentQuestion = questions[currentStep];
+
   const progress = ((currentStep + 1) / questions.length) * 100;
 
   if (!isOpen) return null;
