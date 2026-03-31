@@ -29,32 +29,68 @@ const OnboardingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
     additionalInfo: "",
   });
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentSection, setCurrentSection] = useState(0);
 
-  const questions = [
-    { name: "spaceType", label: "What type of space is this?", placeholder: "e.g., living room, bedroom, entire home, office, short-let" },
-    { name: "currentState", label: "What is the current state of the space?", placeholder: "e.g., newly completed, under finishing, already occupied" },
-    { name: "likes", label: "What do you like about space as it is now?", placeholder: "Tell us what you appreciate about the current space..." },
-    { name: "changes", label: "What would you like to change, improve, or fix?", placeholder: "Describe what you'd like to transform..." },
-    { name: "users", label: "Who will be using this space?", placeholder: "e.g., yourself, family members, roommates" },
-    { name: "userCount", label: "How many people will use the space daily?", placeholder: "e.g., 1–2 adults, 3 children" },
-    { name: "duration", label: "How long do you plan to use this space?", placeholder: "e.g., short-term stay, permanent residence" },
-    { name: "usage", label: "How do you mostly use this space?", placeholder: "e.g., relaxing, working, entertaining, spending time with family" },
-    { name: "hosting", label: "How often do you host guests, if at all?", placeholder: "e.g., rarely, weekly, frequently" },
-    { name: "lifestyle", label: "Are there lifestyle habits or routines we should design around?", placeholder: "e.g., children's routines, pets, work-from-home, hobbies, religious practices" },
-    { name: "discomfort", label: "What currently feels uncomfortable, inefficient, or stressful about your space?", placeholder: "Describe any pain points..." },
-    { name: "desiredFeeling", label: "How do you want to feel when you enter this space?", placeholder: "e.g., calm, cozy, relaxed, energized, focused" },
-    { name: "mood", label: "How would you describe the overall mood you want the space to have?", placeholder: "Describe the atmosphere you're aiming for..." },
-    { name: "inspiration", label: "Have you been in a space you loved before? What stood out to you about it?", placeholder: "Share any inspirations..." },
-    { name: "activities", label: "What activities must this space comfortably support on a daily basis?", placeholder: "e.g., working, cooking, relaxing, socializing" },
-    { name: "flowIssues", label: "Are there any movement, layout, or flow issues you want us to solve?", placeholder: "Describe any spatial challenges..." },
-    { name: "comfortVsAppearance", label: "What matters more to you: comfort, appearance, or a balance of both? Please explain.", placeholder: "Share your priorities..." },
-    { name: "colors", label: "Are there any colours you love or strongly dislike?", placeholder: "Tell us about your colour preferences..." },
-    { name: "materials", label: "Are there any materials, finishes, or textures you prefer or want to avoid?", placeholder: "e.g., wood, marble, velvet, metal..." },
-    { name: "budget", label: "Do you have a budget range in mind for this project?", placeholder: "You may share a range or say not yet decided" },
-    { name: "decisionMakers", label: "Who will be involved in making or approving decisions for this project?", placeholder: "e.g., yourself, partner, family members" },
-    { name: "successCriteria", label: "What would make this project feel successful to you at the end?", placeholder: "Describe what success looks like..." },
-    { name: "additionalInfo", label: "Is there anything else you would like us to know before we begin?", placeholder: "Any other details you'd like to share..." },
+  const sections = [
+    {
+      title: "About Your Space",
+      description: "Tell us about the space you want to transform",
+      fields: [
+        { name: "spaceType", label: "What type of space is this?", placeholder: "e.g., living room, bedroom, entire home, office, short-let", type: "text" },
+        { name: "currentState", label: "What is the current state of the space?", placeholder: "e.g., newly completed, under finishing, already occupied", type: "text" },
+        { name: "likes", label: "What do you like about the space as it is now?", placeholder: "Tell us what you appreciate about the current space...", type: "textarea" },
+        { name: "changes", label: "What would you like to change, improve, or fix?", placeholder: "Describe what you'd like to transform...", type: "textarea" },
+      ]
+    },
+    {
+      title: "Who Uses the Space",
+      description: "Help us understand who will be living here",
+      fields: [
+        { name: "users", label: "Who will be using this space?", placeholder: "e.g., yourself, family members, roommates", type: "textarea" },
+        { name: "userCount", label: "How many people will use the space daily?", placeholder: "e.g., 1–2 adults, 3 children", type: "text" },
+        { name: "duration", label: "How long do you plan to use this space?", placeholder: "e.g., short-term stay, permanent residence", type: "text" },
+        { name: "usage", label: "How do you mostly use this space?", placeholder: "e.g., relaxing, working, entertaining, spending time with family", type: "text" },
+        { name: "hosting", label: "How often do you host guests, if at all?", placeholder: "e.g., rarely, weekly, frequently", type: "text" },
+        { name: "lifestyle", label: "Are there lifestyle habits or routines we should design around?", placeholder: "e.g., children's routines, pets, work-from-home, hobbies, religious practices", type: "textarea" },
+      ]
+    },
+    {
+      title: "How You Feel",
+      description: "Share your emotional connection to the space",
+      fields: [
+        { name: "discomfort", label: "What currently feels uncomfortable, inefficient, or stressful about your space?", placeholder: "Describe any pain points...", type: "textarea" },
+        { name: "desiredFeeling", label: "How do you want to feel when you enter this space?", placeholder: "e.g., calm, cozy, relaxed, energized, focused", type: "textarea" },
+        { name: "mood", label: "How would you describe the overall mood you want the space to have?", placeholder: "Describe the atmosphere you're aiming for...", type: "textarea" },
+        { name: "inspiration", label: "Have you been in a space you loved before? What stood out to you about it?", placeholder: "Share any inspirations...", type: "textarea" },
+      ]
+    },
+    {
+      title: "Function & Flow",
+      description: "Let's talk about how the space needs to work",
+      fields: [
+        { name: "activities", label: "What activities must this space comfortably support on a daily basis?", placeholder: "e.g., working, cooking, relaxing, socializing", type: "textarea" },
+        { name: "flowIssues", label: "Are there any movement, layout, or flow issues you want us to solve?", placeholder: "Describe any spatial challenges...", type: "textarea" },
+        { name: "comfortVsAppearance", label: "What matters more to you: comfort, appearance, or a balance of both? Please explain.", placeholder: "Share your priorities...", type: "textarea" },
+      ]
+    },
+    {
+      title: "Style & Materials",
+      description: "Your aesthetic preferences and material choices",
+      fields: [
+        { name: "colors", label: "Are there any colours you love or strongly dislike?", placeholder: "Tell us about your colour preferences...", type: "textarea" },
+        { name: "materials", label: "Are there any materials, finishes, or textures you prefer or want to avoid?", placeholder: "e.g., wood, marble, velvet, metal...", type: "textarea" },
+      ]
+    },
+    {
+      title: "Project Details",
+      description: "Final details to help us plan your project",
+      fields: [
+        { name: "budget", label: "Do you have a budget range in mind for this project?", placeholder: "You may share a range or say not yet decided", type: "text" },
+        { name: "decisionMakers", label: "Who will be involved in making or approving decisions for this project?", placeholder: "e.g., yourself, partner, family members", type: "textarea" },
+        { name: "successCriteria", label: "What would make this project feel successful to you at the end?", placeholder: "Describe what success looks like...", type: "textarea" },
+        { name: "additionalInfo", label: "Is there anything else you would like us to know before we begin?", placeholder: "Any other details you'd like to share...", type: "textarea" },
+      ]
+    }
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -114,7 +150,7 @@ const OnboardingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
             successCriteria: "",
             additionalInfo: "",
           });
-          setCurrentStep(0);
+          setCurrentSection(0);
         }, 2000);
       } else {
         setFormStatus("error");
@@ -127,22 +163,23 @@ const OnboardingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
     }
   };
 
-  const nextStep = () => {
-    if (currentStep < questions.length - 1) {
-      setCurrentStep(currentStep + 1);
+  const nextSection = () => {
+    if (currentSection < sections.length - 1) {
+      setCurrentSection(currentSection + 1);
     }
   };
 
-  const prevStep = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
+  const prevSection = () => {
+    if (currentSection > 0) {
+      setCurrentSection(currentSection - 1);
     }
   };
 
-
-  const progress = ((currentStep + 1) / questions.length) * 100;
+  const progress = ((currentSection + 1) / sections.length) * 100;
 
   if (!isOpen) return null;
+
+  const currentSectionData = sections[currentSection];
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
@@ -159,64 +196,101 @@ const OnboardingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
           <p className="text-white/50 text-sm mb-4">
             I believe a well-finished space should support how you live, move, and feel every day - not just how it looks.
           </p>
+          
+          {/* Section Tabs */}
+          <div className="flex gap-1 mb-4 overflow-x-auto pb-2 scrollbar-hide">
+            {sections.map((section, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentSection(idx)}
+                className={`px-3 py-1.5 rounded-full text-xs whitespace-nowrap transition-all ${
+                  idx === currentSection 
+                    ? "bg-[#E6E08A] text-[#222121] font-medium" 
+                    : idx < currentSection 
+                      ? "bg-[#2F7D76]/30 text-white/70" 
+                      : "bg-white/5 text-white/40"
+                }`}
+              >
+                {idx + 1}. {section.title}
+              </button>
+            ))}
+          </div>
+          
           <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
             <div className="h-full bg-[#E6E08A] transition-all duration-300" style={{ width: `${progress}%` }} />
           </div>
-          <p className="text-white/40 text-xs mt-2">Question {currentStep + 1} of {questions.length}</p>
+          <p className="text-white/40 text-xs mt-2">Section {currentSection + 1} of {sections.length}</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="overflow-y-auto max-h-[calc(90vh-180px)] p-4 sm:p-6">
+        <form onSubmit={handleSubmit} className="overflow-y-auto max-h-[calc(90vh-220px)] p-4 sm:p-6">
           <div className="space-y-6">
-            {questions.map((q, idx) => (
-              <div key={q.name} className={`transition-all duration-300 ${idx === currentStep ? "block" : "hidden"}`}>
-                <label className="block text-white font-medium mb-2">{q.label}</label>
-                {q.name === "spaceType" || q.name === "currentState" || q.name === "userCount" || q.name === "duration" || q.name === "hosting" || q.name === "budget" ? (
-                  <input
-                    type="text"
-                    name={q.name}
-                    value={formData[q.name as keyof typeof formData]}
-                    onChange={handleChange}
-                    placeholder={q.placeholder}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:border-[#E6E08A] focus:outline-none transition-all"
-                    required={idx < 5}
-                  />
-                ) : (
-                  <textarea
-                    name={q.name}
-                    value={formData[q.name as keyof typeof formData]}
-                    onChange={handleChange}
-                    placeholder={q.placeholder}
-                    rows={3}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:border-[#E6E08A] focus:outline-none transition-all resize-none"
-                    required={idx < 5}
-                  />
-                )}
-              </div>
-            ))}
+            <div className="mb-6">
+              <h3 className="text-lg font-medium text-white mb-1">{currentSectionData.title}</h3>
+              <p className="text-white/50 text-sm">{currentSectionData.description}</p>
+            </div>
+            
+            <div className="space-y-4">
+              {currentSectionData.fields.map((field) => (
+                <div key={field.name}>
+                  <label className="block text-white font-medium mb-2 text-sm">{field.label}</label>
+                  {field.type === "text" ? (
+                    <input
+                      type="text"
+                      name={field.name}
+                      value={formData[field.name as keyof typeof formData]}
+                      onChange={handleChange}
+                      placeholder={field.placeholder}
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:border-[#E6E08A] focus:outline-none transition-all"
+                      required={currentSection === 0 && (field.name === "spaceType" || field.name === "currentState")}
+                    />
+                  ) : (
+                    <textarea
+                      name={field.name}
+                      value={formData[field.name as keyof typeof formData]}
+                      onChange={handleChange}
+                      placeholder={field.placeholder}
+                      rows={3}
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder:text-white/30 focus:border-[#E6E08A] focus:outline-none transition-all resize-none"
+                      required={currentSection === 0 && (field.name === "likes" || field.name === "changes")}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
 
-            <div className="flex justify-between gap-4 pt-4">
+            <div className="flex justify-between gap-4 pt-6 border-t border-white/10">
               <button
                 type="button"
-                onClick={prevStep}
-                className={`px-6 py-2 rounded-lg border border-white/20 text-white/70 hover:bg-white/10 transition-all ${currentStep === 0 ? "invisible" : ""}`}
+                onClick={prevSection}
+                className={`px-6 py-2.5 rounded-lg border border-white/20 text-white/70 hover:bg-white/10 transition-all ${
+                  currentSection === 0 ? "invisible" : ""
+                }`}
               >
                 Previous
               </button>
-              {currentStep < questions.length - 1 ? (
+              {currentSection < sections.length - 1 ? (
                 <button
                   type="button"
-                  onClick={nextStep}
-                  className="px-6 py-2 bg-[#E6E08A] text-[#222121] rounded-lg font-medium hover:bg-[#d8cf5e] transition-all flex items-center gap-2"
+                  onClick={nextSection}
+                  className="px-6 py-2.5 bg-[#E6E08A] text-[#222121] rounded-lg font-medium hover:bg-[#d8cf5e] transition-all flex items-center gap-2"
                 >
-                  Next <ChevronRight className="w-4 h-4" />
+                  Next Section <ChevronRight className="w-4 h-4" />
                 </button>
               ) : (
                 <button
                   type="submit"
                   disabled={formStatus !== "idle"}
-                  className="px-6 py-2 bg-[#2F7D76] text-white rounded-lg font-medium hover:bg-[#26635d] transition-all disabled:opacity-50"
+                  className="px-6 py-2.5 bg-[#2F7D76] text-white rounded-lg font-medium hover:bg-[#26635d] transition-all disabled:opacity-50 flex items-center gap-2"
                 >
-                  {formStatus === "sending" ? "Submitting..." : formStatus === "success" ? "Submitted! ✓" : formStatus === "error" ? "Error - Try Again" : "Submit"}
+                  {formStatus === "sending" ? (
+                    "Submitting..."
+                  ) : formStatus === "success" ? (
+                    "Submitted! ✓"
+                  ) : formStatus === "error" ? (
+                    "Error - Try Again"
+                  ) : (
+                    "Submit Questionnaire"
+                  )}
                 </button>
               )}
             </div>
